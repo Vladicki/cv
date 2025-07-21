@@ -4,6 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import { Keycup } from "../components/Models/Keycup";
 import HeroLights from "./HeroLight";
 import { Head } from "../components/Models/Head-cleaner";
+import { Head_final } from "../components/Models/Head-final";
 import { tech } from "../constants";
 import React, { useCallback, useEffect, useRef } from "react";
 //
@@ -52,7 +53,7 @@ const HeroExperience = ({ setTechDescription }) => {
             < OrbitControls
                 enablePan={false}
                 // enableZoom={!isTablet}
-                enableZoom={false}
+                enableZoom={true}
                 enableRotate={true}
                 //camera render distance
                 maxDistance={20}
@@ -69,8 +70,9 @@ const HeroExperience = ({ setTechDescription }) => {
                 position={[0, -0.7, 0]}
             >
                 {/* <Monke /> */}
-                <Head
-                    position={[0, .15, 1]} />
+                {/* <Head_final position={[3, .15, 1]} scale={1.2} /> */}
+
+                <Head position={[0, .15, 1]} />
 
 
                 {/* RENDERING SVG IMAGES */}
