@@ -68,6 +68,7 @@ export function Head(props) {
         return () => clearTimeout(timeoutId);
     }, []); // Empty dependency array means this effect runs once on mount
 
+
     // --- Head Tracking Logic with Dead Zone and Reduced Sensitivity ---
     useFrame(() => {
         if (headRef.current) {
