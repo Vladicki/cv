@@ -44,21 +44,13 @@ const HeroExperience = ({ setTechDescription }) => {
     return (
         // <Canvas camera={{ position: [0, 0, 11], fov: 45 }}>
         <Canvas camera={{ position: isTablet ? [0, 0, 12] : [0, 0, 11], fov: 45 }}>
-
-
-
-            {/* <color attach='background' args={['#731848']} /> */}
-            {/* <color attach='background' args={['#0F0F0F']} /> */}
-
             < OrbitControls
                 enablePan={false}
-                // enableZoom={!isTablet}
-                enableZoom={true}
+                enableZoom={false}
                 enableRotate={true}
                 //camera render distance
                 maxDistance={20}
                 minDistance={5}
-
 
                 //Limit camera angle view
                 minPolarAngle={Math.PI / 5}
@@ -69,7 +61,6 @@ const HeroExperience = ({ setTechDescription }) => {
                 scale={isTablet ? 0.85 : isMobile ? 0.7 : 1}
                 position={[0, -0.7, 0]}
             >
-                {/* <Monke /> */}
                 {/* <Head_final position={[3, .15, 1]} scale={1.2} /> */}
 
                 <Head position={[0, .15, 1]} />
