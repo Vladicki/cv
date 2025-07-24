@@ -6,66 +6,151 @@ Command: npx gltfjsx@6.5.3 head-cleaner.glb
 import React, { useState, useEffect, useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { Decal, useTexture } from '@react-three/drei';
-import { useFrame, useThree } from '@react-three/fiber';
-import * as THREE from 'three'; // Import Three.js for Vector2, Vector3, Quaternion, Euler, MathUtils
+import { useFrame } from '@react-three/fiber'; // No need for useThree as camera isn't directly used for tracking logic
+import * as THREE from 'three'; // Import Three.js for Vector2, Euler, MathUtils
+import gsap from 'gsap'; // For smooth interpolation
 
 export function Head(props) {
     const { nodes, materials } = useGLTF('/models/head-cleaner.glb');
     const decalTexture = useTexture('/models/eyes_closed.png');
 
-    // State to track if the mouse button is currently held down on the mesh
+    // State for pointer interaction and blinking (unchanged)
     const [isHolding, setIsHolding] = useState(false);
-    // State to track if the decal is currently in a blinking phase
     const [isBlinking, setIsBlinking] = useState(false);
 
-    // --- Opacity Values ---
-    const openEyes = 0;
-    const closedEyes = 1;
+    // Opacity values (unchanged)
+    const defaultVisibleOpacity = 0;
+    const heldTransparentOpacity = 1;
+    const blinkInvisibleOpacity = 1;
 
-    // Ref to store the timeout ID for blinking
-    const blinkTimeoutRef = useRef(null);
-    // Ref for the head group/mesh itself to apply rotation
-    const headRef = useRef();
+    // Refs for 3D objects and animation control
+    const headRef = useRef(); // Reference to the main head group
+    const blinkTimeoutRef = useRef(null); // Timeout ID for blinking
 
-    // Store mouse position (normalized device coordinates: -1 to 1)
-    const mouse = useRef(new THREE.Vector2());
+    // Refs for head rotation
+    const mouse = useRef(new THREE.Vector2()); // Stores normalized mouse coordinates
+    const targetRotationRef = useRef({ x: 0, y: 0 }); // Stores the desired mouse-driven rotation offsets
+    const currentRotationRef = useRef({ x: 0, y: 0 }); // Stores the interpolated current rotation offsets
+    const initialHeadEulerRef = useRef(new THREE.Euler()); // Stores the head's initial (neutral) Euler angles
 
+    // --- Mouse Movement Handler ---
+    // This effect sets up the global mousemove listener once on component mount.
+    useEffect(() => {
+        const handleMouseMove = (event) => {
+            // Calculate normalized device coordinates (-1 to +1 for x and y)
+            // relative to the entire window for consistent tracking.
+            mouse.current.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
+            // Define rotation limits for X (up/down) and Y (left/right) based on preference.
+            // These values are based on the Avatar example for a natural head movement range.
+            const maxLookUp = Math.PI / 9; // ~20 degrees up
+            const maxLookDown = Math.PI / 4; // ~45 degrees down
+            const maxLookSideways = Math.PI / 6; // ~30 degrees left/right
 
+            let rotationX;
+            // Apply different sensitivity for looking up vs. looking down
+            if (mouse.current.y < 0) { // Mouse in upper half (looking up)
+                rotationX = -mouse.current.y * maxLookUp;
+            } else { // Mouse in lower half (looking down)
+                rotationX = -mouse.current.y * maxLookDown;
+            }
 
+            const rotationY = mouse.current.x * maxLookSideways;
 
+            // Update the target rotation offsets
+            targetRotationRef.current.x = rotationX;
+            targetRotationRef.current.y = rotationY;
+        };
 
-    // --- Blinking Effect (unchanged from previous working version) ---
+        window.addEventListener('mousemove', handleMouseMove);
+
+        // Cleanup listener on component unmount
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, []); // Empty dependency array means this runs once on mount
+
+    // --- Capture Initial Head Rotation on Mount ---
+    // This effect ensures we capture the head's default orientation
+    // after the model is loaded and the ref is available.
+    useEffect(() => {
+        // We use a small timeout to ensure headRef.current has been assigned
+        // after the <group> element is rendered.
+        const timeoutId = setTimeout(() => {
+            if (headRef.current) {
+                // Set the initial Euler angles from the head's current quaternion.
+                // 'YXZ' order is common for human-like head rotations (Yaw, Pitch, Roll).
+                initialHeadEulerRef.current.setFromQuaternion(headRef.current.quaternion, 'YXZ');
+                // Initialize current rotation offsets to zero, so head starts at initial pose.
+                currentRotationRef.current.x = 0;
+                currentRotationRef.current.y = 0;
+            }
+        }, 50); // Small delay, adjust if needed
+
+        return () => clearTimeout(timeoutId);
+    }, []); // Empty dependency array: runs once after initial render
+
+    // --- Head Tracking Logic (runs on every frame) ---
+    useFrame(() => {
+        if (headRef.current) {
+            // Smoothly interpolate the current rotation offsets towards the target offsets.
+            // This creates a delayed, natural-looking tracking motion.
+            currentRotationRef.current.x = gsap.utils.interpolate(
+                currentRotationRef.current.x,
+                targetRotationRef.current.x,
+                0.2 // Interpolation factor: larger value means faster tracking
+            );
+            currentRotationRef.current.y = gsap.utils.interpolate(
+                currentRotationRef.current.y,
+                targetRotationRef.current.y,
+                0.2 // Interpolation factor
+            );
+
+            // Apply the interpolated rotation offsets to the head's initial orientation.
+            // This makes the head rotate relative to its default forward pose.
+            // We use `initialHeadEulerRef.current.x` for the base pitch and `initialHeadEulerRef.current.y` for base yaw.
+            headRef.current.rotation.x = initialHeadEulerRef.current.x + currentRotationRef.current.x;
+            headRef.current.rotation.y = initialHeadEulerRef.current.y + currentRotationRef.current.y;
+            // Keep the Z-axis (roll) fixed at its initial value, unless you want to add roll.
+            headRef.current.rotation.z = initialHeadEulerRef.current.z;
+        }
+    });
+
+    // --- Blinking Effect (unchanged - separate logic) ---
     useEffect(() => {
         const scheduleBlink = () => {
-            const randomDelay = Math.random() * (10000 - 7000) + 7000; // 7 to 10 seconds
+            const randomDelay = Math.random() * (10000 - 7000) + 7000; // 7 to 10 seconds interval
 
             blinkTimeoutRef.current = setTimeout(() => {
-                setIsBlinking(true);
+                setIsBlinking(true); // Start blink
                 setTimeout(() => {
-                    setIsBlinking(false);
-                    scheduleBlink();
-                }, 500); // 0.5 seconds blink duration
+                    setIsBlinking(false); // End blink
+                    scheduleBlink(); // Schedule next blink
+                }, 500); // Blink duration: 0.5 seconds
             }, randomDelay);
         };
 
-        scheduleBlink();
+        scheduleBlink(); // Initiate the first blink cycle
 
+        // Cleanup the timeout when component unmounts
         return () => {
             if (blinkTimeoutRef.current) {
                 clearTimeout(blinkTimeoutRef.current);
             }
         };
-    }, []);
+    }, []); // Empty dependency array: runs once on mount
 
-    // --- Opacity Calculation (unchanged from previous working version) ---
+    // --- Decal Opacity Calculation (unchanged) ---
+    // Determines the decal's opacity based on current states
     const currentDecalOpacity = isBlinking
-        ? closedEyes
+        ? blinkInvisibleOpacity
         : isHolding
-            ? closedEyes
-            : openEyes;
+            ? heldTransparentOpacity
+            : defaultVisibleOpacity;
 
-    // --- Pointer Handlers (unchanged from previous working version) ---
+    // --- Pointer Handlers (unchanged) ---
+    // Functions to update holding state on pointer events
     const handlePointerDown = () => {
         setIsHolding(true);
     };
@@ -82,11 +167,11 @@ export function Head(props) {
                 onPointerDown={handlePointerDown}
                 onPointerUp={handlePointerUp}
             >
+                {/* Decal for eyes (closed state) */}
                 <Decal
                     transparent
                     depthTest={true}
                     depthWrite={true}
-                    // debug // Uncomment for debugging decal position/size
                     position={[-0.01, 0.36, 1]}
                     rotation={[Math.PI, Math.PI, Math.PI]}
                     scale={[1.2, 0.32, 1]}
@@ -107,4 +192,5 @@ export function Head(props) {
     );
 }
 
+// Preload the GLTF model for faster loading times
 useGLTF.preload('/models/head-cleaner.glb');
