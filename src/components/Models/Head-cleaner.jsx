@@ -19,9 +19,8 @@ export function Head(props) {
     const [isBlinking, setIsBlinking] = useState(false);
 
     // --- Opacity Values ---
-    const defaultVisibleOpacity = 0;
-    const heldTransparentOpacity = 1;
-    const blinkInvisibleOpacity = 1;
+    const openEyes = 0;
+    const closedEyes = 1;
 
     // Ref to store the timeout ID for blinking
     const blinkTimeoutRef = useRef(null);
@@ -31,101 +30,10 @@ export function Head(props) {
     // Store mouse position (normalized device coordinates: -1 to 1)
     const mouse = useRef(new THREE.Vector2());
 
-    // Store the initial quaternion of the head group to return to for the dead zone
-    const initialHeadQuaternion = useRef(new THREE.Quaternion());
-
-    // Get Three.js state (camera, gl renderer, etc.)
-    const { camera } = useThree();
-
-    // --- Mouse Movement Handler ---
-    // This effect runs once to set up the global mousemove listener
-    useEffect(() => {
-        const handleMouseMove = (event) => {
-            // Calculate normalized device coordinates (-1 to +1 for x and y)
-            mouse.current.x = (event.clientX / window.innerWidth) * 2 - 1;
-            mouse.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-        };
-    }, []);
-
-    // --- Store Initial Head Rotation on Mount ---
-    useEffect(() => {
-        // We need a slight delay to ensure headRef.current is available
-        // as the ref might not be assigned immediately on first render.
-        // A useLayoutEffect or simple check in useFrame for first run is also common.
-        // For simplicity here, a small timeout is used.
-        const timeoutId = setTimeout(() => {
-            if (headRef.current) {
-                initialHeadQuaternion.current.copy(headRef.current.quaternion);
-            }
-        }, 50); // Small delay to ensure ref is initialized
-
-        return () => clearTimeout(timeoutId);
-    }, []); // Empty dependency array means this effect runs once on mount
 
 
-    // --- Head Tracking Logic with Dead Zone and Reduced Sensitivity ---
-    useFrame(() => {
-        if (headRef.current) {
-            // Dead zone thresholds (e.g., 12.5% from center means middle 25% of screen)
-            const deadZoneX = 0.20; // Mouse X between -0.125 and +0.125
-            const deadZoneY = 0.30; // Mouse Y between -0.125 and +0.125
 
-            let targetQuaternionForSlerp;
 
-            // Check if mouse is within the dead zone
-            if (Math.abs(mouse.current.x) < deadZoneX && Math.abs(mouse.current.y) < deadZoneY) {
-                // If inside dead zone, target the initial (forward) rotation
-                targetQuaternionForSlerp = initialHeadQuaternion.current;
-            } else {
-                // Otherwise (mouse outside dead zone), calculate rotation towards mouse
-
-                // Get the head's current world position
-                const headWorldPosition = new THREE.Vector3();
-                headRef.current.getWorldPosition(headWorldPosition);
-
-                // Use Raycaster to project mouse position to a point in 3D space
-                const raycaster = new THREE.Raycaster();
-                raycaster.setFromCamera(mouse.current, camera);
-
-                // Define a virtual plane at the head's Z-depth for the ray to intersect
-                const plane = new THREE.Plane();
-                plane.setFromNormalAndCoplanarPoint(
-                    new THREE.Vector3(0, 0, 1).transformDirection(camera.matrixWorld), // Plane normal facing camera
-                    headWorldPosition // Plane passes through the head's world position
-                );
-
-                const targetPoint = new THREE.Vector3();
-                raycaster.ray.intersectPlane(plane, targetPoint); // Get the intersection point
-
-                // Create a temporary object to calculate the desired 'lookAt' quaternion
-                const tempObject = new THREE.Object3D();
-                tempObject.position.copy(headWorldPosition);
-                tempObject.lookAt(targetPoint);
-
-                // Convert to Euler angles to apply rotation limits. 'YXZ' order is common for head rotations.
-                const euler = new THREE.Euler().setFromQuaternion(tempObject.quaternion, 'YXZ');
-
-                // --- Reduced Rotation Limits for "further back" appearance ---
-                const maxRotationX = Math.PI / 12; // e.g., Max 15 degrees up/down
-                const maxRotationY = Math.PI / 10; // e.g., Max 18 degrees left/right
-
-                euler.x = THREE.MathUtils.clamp(euler.x, -maxRotationX, maxRotationX);
-                euler.y = THREE.MathUtils.clamp(euler.y, -maxRotationY, maxRotationY);
-
-                // Convert the clamped Euler angles back to a Quaternion
-                targetQuaternionForSlerp = new THREE.Quaternion().setFromEuler(euler);
-            }
-
-            // Smoothly interpolate the head's current rotation towards the calculated target
-            headRef.current.quaternion.slerp(targetQuaternionForSlerp, 0.05); // Adjust 0.05 for tracking speed
-        }
-    });
 
     // --- Blinking Effect (unchanged from previous working version) ---
     useEffect(() => {
@@ -152,10 +60,10 @@ export function Head(props) {
 
     // --- Opacity Calculation (unchanged from previous working version) ---
     const currentDecalOpacity = isBlinking
-        ? blinkInvisibleOpacity
+        ? closedEyes
         : isHolding
-            ? heldTransparentOpacity
-            : defaultVisibleOpacity;
+            ? closedEyes
+            : openEyes;
 
     // --- Pointer Handlers (unchanged from previous working version) ---
     const handlePointerDown = () => {
