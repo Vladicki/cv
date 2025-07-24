@@ -44,7 +44,7 @@ export function Head(props) {
 
             // Define rotation limits for X (up/down) and Y (left/right) based on preference.
             // These values are based on the Avatar example for a natural head movement range.
-            const maxLookUp = Math.PI / 9; // ~20 degrees up
+            const maxLookUp = Math.PI / 20; // ~20 degrees up
             const maxLookDown = Math.PI / 4; // ~45 degrees down
             const maxLookSideways = Math.PI / 6; // ~30 degrees left/right
 
