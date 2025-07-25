@@ -29,7 +29,7 @@ const ShowcaseSection = () => {
                             <div className="image-wrapper bg-[#ffe7eb]">
                                 <img src="/showcase/jobscrapper.png" alt="scrapper" />
                             </div>
-                            <h2>Personal Job Scrapper tool</h2>
+                            <h2>Created personal smart lock with face recognition</h2>
                         </div>
                     </div>
                 </div>
