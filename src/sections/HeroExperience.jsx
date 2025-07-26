@@ -39,8 +39,6 @@ const HeroExperience = ({ setTechDescription }) => {
         }
     }, [techRefs, tech]); // Dependency array: run when techRefs or tech changes (usually once on mount)
 
-
-
     return (
         // <Canvas camera={{ position: [0, 0, 11], fov: 45 }}>
         <Canvas camera={{ position: isTablet ? [0, 0, 12] : [0, 0, 11], fov: 45 }}>
@@ -65,18 +63,6 @@ const HeroExperience = ({ setTechDescription }) => {
 
                 <Head position={[0, .15, 1]} />
 
-
-                {/* RENDERING SVG IMAGES */}
-                {/* <SVGMesh */}
-                {/*     path="/logos/linux.svg" */}
-                {/*     color="#00ff00" */}
-                {/*     scale={0.02} */}
-                {/*     rotation={[2, 0, 0]} */}
-                {/*     position={[2, 0, 0]} */}
-                {/* /> */}
-
-
-                {/* fronAt left top */}
                 {tech.map((techItem) => (
                     <Keycup
                         key={techItem.text}
@@ -91,7 +77,6 @@ const HeroExperience = ({ setTechDescription }) => {
                         text={techItem.text}
                     />
                 ))}
-
 
                 <HeroLights />
             </group>
