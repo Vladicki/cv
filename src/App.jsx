@@ -4,6 +4,7 @@ import ShowcaseSection from './sections/ShowcaseSection.jsx'
 
 const App = () => {
 
+
     return (
         <>
             <NavBar />
