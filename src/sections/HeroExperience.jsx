@@ -17,7 +17,6 @@ const HeroExperience = ({ setTechDescription }) => {
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const techRefs = useRef({});
 
-
     const getRef = useCallback((techId) => {
         if (!techRefs.current[techId]) {
             techRefs.current[techId] = React.createRef(); // Use createRef for individual refs
