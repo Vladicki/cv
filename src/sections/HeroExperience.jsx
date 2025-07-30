@@ -63,6 +63,7 @@ const HeroExperience = ({ setTechDescription }) => {
                 <Head position={[0, .15, 1]} />
 
                 {tech.map((techItem) => (
+
                     <Keycup
                         key={techItem.text}
                         ref={getRef(techItem.text)} // getRef now returns wrapperObject.ref
