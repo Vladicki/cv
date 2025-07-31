@@ -23,7 +23,6 @@ const HeroLights = () => {
             <directionalLight intensity={5} position={[-0.5, 4.5, 5]} />
             <ambientLight intensity={2} />
 
-
         </>
     )
 }
