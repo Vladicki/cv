@@ -1,8 +1,29 @@
+import { useGSAP } from "@gsap/react"
 import { navLinks } from "../constants"
-
-
+import gsap from 'gsap'
 
 const NavBar = () => {
+
+
+    // useGSAP(() => {
+    //     // gsap.fromTo('.hero-text h1',
+    //     gsap.fromTo('.navbar',
+    //         {
+    //             y: 0,
+    //             opacity: 0,
+    //         },
+    //         {
+    //             opacity: 1,
+    //             y: 25,
+    //             duration: 1,
+    //             ease: 'power1.inOut'
+    //
+    //         },
+    //     )
+    //
+    // }, [])
+
+
     return (
         <header className="navbar">
             <div className="inner">

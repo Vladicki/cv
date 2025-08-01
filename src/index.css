@@ -102,17 +102,6 @@ section {
             @apply absolute pt-0 px-2 md:px-5 py-[30px] h-[48px] md:h-[78px] md:translate-y-1 translate-y-0 overflow-hidden;
         }
     }
-
-    .hero-tech-desc {
-
-        @apply flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10 pointer-events-none;
-    }
-
-
-    .hero-badge {
-        @apply bg-black-200 py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
-    }
-
     .hero-3d-layout {
         @apply xl:w-[100%] w-full h-full min-h-[50vh] absolute xl:-top-20 right-0;
         /* top-24  */
@@ -157,17 +146,6 @@ section {
             }
         }
 
-        .contact-btn {
-            @apply flex;
-
-            .inner {
-                @apply px-5 py-2 rounded-lg bg-white text-black group-hover:bg-black-50 transition-colors duration-300;
-
-                span {
-                    @apply group-hover:text-white transition-colors duration-300;
-                }
-            }
-        }
     }
 
     .app-showcase {
