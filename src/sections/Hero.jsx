@@ -32,10 +32,10 @@ const Hero = () => {
                 {/* <img src="/images/bg.png" alt="background" /> */}
             </div>
             <div className="hero-layout">
-                {/* LEFT HERO CONTENT */}
-                <header className="flex flex-col justify-center md:w-full w-screen xl:mt-20 mt-32 md:px-20 px-5" >
+                {/* This header now handles the responsive layout for its children */}
+                <header className="flex flex-col md:flex-row md:justify-between md:items-start md:w-full w-screen xl:mt-20 mt-32 md:px-20 px-5 gap-y-7 md:gap-x-20">
 
-                    {/* xl:mt-20 mt-32 */}
+                    {/* This container holds all the left-side text content */}
                     <div className="flex flex-col gap-7">
                         <div className="hero-text">
                             <h1>Vladislav Iurev</h1>
@@ -57,17 +57,20 @@ const Hero = () => {
                                     </span>
                                 </span>
                             </h1>
-                            <p className=" text-white-50 md:text-xl relative z-10 pointer-events-none ">Dublin | Looking for a appartunity</p>
-                            <Button
-                                className="md:w-80 md:h-16 w-60 h-12"
-                                id="button"
-                                text="explore"
-                            />
                         </div>
-                        <div className="text-3xl text-white ">
-                            {techDescription}
-                        </div>
+                        <p className=" text-white-50 md:text-xl relative z-10 pointer-events-none ">Dublin | Looking for a appartunity</p>
+                        <Button
+                            className="md:w-80 md:h-16 w-60 h-12"
+                            id="button"
+                            text="explore"
+                        />
                     </div>
+
+                    {/* The techDescription is now a sibling and is aligned to the right on desktop */}
+                    <div className="text-5xl text-white text-right z-10 mr-36">
+                        {techDescription}
+                    </div>
+
                 </header >
                 {/* RIGHT HERO CONTENT */}
                 <figure>
