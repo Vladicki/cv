@@ -33,7 +33,7 @@ const Hero = () => {
             </div>
             <div className="hero-layout">
                 {/* This header now handles the responsive layout for its children */}
-                <header className="flex flex-col md:flex-row md:justify-between md:items-start md:w-full w-screen xl:mt-20 mt-32 md:px-20 px-5 gap-y-7 md:gap-x-20">
+                <header className="flex flex-col xl:flex-row md:justify-between md:items-start md:w-full w-screen xl:mt-20 mt-32 md:px-20 px-5 gap-y-7 md:gap-x-20">
 
                     {/* This container holds all the left-side text content */}
                     <div className="flex flex-col gap-7">
@@ -67,8 +67,10 @@ const Hero = () => {
                     </div>
 
                     {/* The techDescription is now a sibling and is aligned to the right on desktop */}
-                    <div className="text-5xl text-white text-right z-10 mr-36">
-                        {techDescription}
+                    <div className="text-box">
+                        <div className="text-5xl text-white font-bold text-center">
+                            {techDescription}
+                        </div>
                     </div>
 
                 </header >

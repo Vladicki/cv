@@ -89,6 +89,9 @@ section {
         @apply relative z-10 xl:mt-20 mt-32 md:h-dvh h-[80vh] flex xl:items-center items-start justify-center bg-conic-30;
     }
 
+    .text-box {
+    @apply border-8 border-white z-10 h-50 w-1/3 bg-black  flex items-center justify-center mb-4;
+    }
 
 
     .hero-text {
