@@ -82,6 +82,13 @@ export const tech = [
   },
 ];
 
+export const quote = [
+  { text: "If only there were an employee" },
+  { text: "God, the WORk, sounds good" },
+  { text: "If only they knew how good my promts are" },
+  { text: "Should've said i use Arch" },
+  { text: "Why spinning donuts, can secure a job position" },
+];
 export const navLinks = [
   {
     name: "Work",
