@@ -91,6 +91,12 @@ section {
 
     .text-box {
     @apply border-8 border-white z-10 h-50 w-1/3 bg-black  flex items-center justify-center mb-4;
+        background-color: rgba(0, 0, 0, 0.5);
+        font-family:Pixel Operator;
+    }
+    @font-face{
+        font-family:"Pixel Operator";
+        src: url(../public/PixelOperator-Bold.ttf);
     }
 
 

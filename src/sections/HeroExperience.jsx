@@ -41,7 +41,6 @@ const HeroExperience = ({ setTechDescription }) => {
     return (
         // <Canvas camera={{ position: [0, 0, 11], fov: 45 }}>
         <Canvas gl={{ alpha: true }} camera={{ position: isTablet ? [0, 0, 12] : [0, 0, 11], fov: 45 }}>
-
             {/* <AsciiRenderer */}
             {/*     bgColor="transparent" // Set background to transparent */}
             {/*     fgColor="white"      // Foreground (character) color */}
@@ -68,7 +67,9 @@ const HeroExperience = ({ setTechDescription }) => {
             >
                 {/* <Head_final position={[3, .15, 1]} scale={1.2} /> */}
 
-                <Head scale={1.2} position={[0, .15, 1]} />
+                <Head scale={1.2} position={[0, .15, 1]}
+                    setTechDescription={setTechDescription} //here to pull a random quote from the quote.text
+                />
 
                 {tech.map((techItem) => (
 

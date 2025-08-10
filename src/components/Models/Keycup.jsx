@@ -64,7 +64,10 @@ export const Keycup = React.forwardRef(function Keycup(props, ref) {
                     // onClick={() => click(!clicked) && console.log(ref.current)}
                     onClick={() => console.log()}
                     onPointerOver={() => { hover(true), setTechDescription(techDesc) }}
-                    onPointerOut={() => { hover(false), setTechDescription(" ") }}
+                    onPointerOut={() => {
+                        // hover(false),
+                        // setTechDescription(" ") 
+                    }}
                 >
                     <Decal
                         //fixed bleed through

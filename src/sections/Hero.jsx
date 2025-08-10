@@ -83,9 +83,9 @@ const Hero = () => {
                     </div>
 
                     <div className="text-box">
-                        <div className="text-4xl text-white font-bold text-center">
+                        <div className="text-5xl text-white font-bold text-center">
                             {/* The opacity-0 class has been removed from this parent p tag */}
-                            <p ref={textRef}>
+                            <p ref={textRef} >
                                 {techDescription.split('').map((char, index) => (
                                     <span key={index} className="char">
                                         {char}
