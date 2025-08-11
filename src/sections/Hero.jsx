@@ -26,6 +26,8 @@ const Hero = () => {
 
     const [techDescription, setTechDescription] = useState("");
     const textRef = useRef(null);
+    // NEW: Create a ref to manage the timeout for the pointer-out event
+    const pointerOutTimeoutRef = useRef(null);
 
     // Typewriter animation logic
     useEffect(() => {
@@ -82,23 +84,29 @@ const Hero = () => {
                         />
                     </div>
 
-                    <div className="text-box">
-                        <div className="text-5xl text-white font-bold text-center">
-                            {/* The opacity-0 class has been removed from this parent p tag */}
-                            <p ref={textRef} >
-                                {techDescription.split('').map((char, index) => (
-                                    <span key={index} className="char">
-                                        {char}
-                                    </span>
-                                ))}
-                            </p>
+                    {/* NEW: Conditionally render the text-box only when techDescription is not empty */}
+                    {techDescription && (
+                        <div className="text-box">
+                            <div className="text-5xl text-white font-bold text-center">
+                                <p ref={textRef} >
+                                    {techDescription.split('').map((char, index) => (
+                                        <span key={index} className="char">
+                                            {char}
+                                        </span>
+                                    ))}
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </header>
 
                 <figure>
                     <div className="hero-3d-layout">
-                        <HeroExperience setTechDescription={setTechDescription} />
+                        {/* NEW: Pass the pointerOutTimeoutRef to the HeroExperience component */}
+                        <HeroExperience
+                            setTechDescription={setTechDescription}
+                            pointerOutTimeoutRef={pointerOutTimeoutRef}
+                        />
                     </div>
                 </figure>
             </div>

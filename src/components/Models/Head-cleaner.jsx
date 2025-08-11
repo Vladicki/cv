@@ -18,9 +18,16 @@ const quotes = [
     "Should've said i use Arch",
     "Why spinning donuts, can secure a job position",
     "Wish i were a LLM",
+    "Why there is talking head in the first place",
+    "Is it Undertail reference?",
+    "Where his tors?",
+    "Can a robot write a symphony",
+    "*Outch*",
+    "*Please, stop clicking me*",
+    "*Blinks*"
 ];
 
-export function Head({ setTechDescription, ...props }) {
+export function Head({ setTechDescription, pointerOutTimeoutRef, ...props }) {
     const { nodes, materials } = useGLTF('/models/head-cleaner.glb');
     const decalTexture = useTexture('/models/eyes_closed.png');
 
@@ -36,6 +43,7 @@ export function Head({ setTechDescription, ...props }) {
     // Refs for 3D objects and animation control
     const headRef = useRef();
     const blinkTimeoutRef = useRef(null);
+    // const pointerOutTimeoutRef = useRef(null); // Ref to store the timeout ID for pointer out
 
     // Refs for head rotation
     const mouse = useRef(new THREE.Vector2());
@@ -128,6 +136,15 @@ export function Head({ setTechDescription, ...props }) {
         };
     }, []);
 
+    // --- Cleanup the pointer-out timeout on unmount ---
+    useEffect(() => {
+        return () => {
+            if (pointerOutTimeoutRef.current) {
+                clearTimeout(pointerOutTimeoutRef.current);
+            }
+        };
+    }, []);
+
     // --- Decal Opacity Calculation (unchanged) ---
     const currentDecalOpacity = isBlinking
         ? blinkInvisibleOpacity
@@ -138,6 +155,8 @@ export function Head({ setTechDescription, ...props }) {
     // --- Pointer Handlers (unchanged) ---
     const handlePointerDown = () => {
         setIsHolding(true);
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        setTechDescription(quotes[randomIndex]);
     };
 
     const handlePointerUp = () => {
@@ -146,14 +165,21 @@ export function Head({ setTechDescription, ...props }) {
 
     // --- NEW Pointer Handlers for Hover Effects ---
     const handlePointerOver = () => {
+        // Clear the previous timeout if it exists
+        if (pointerOutTimeoutRef.current) {
+            clearTimeout(pointerOutTimeoutRef.current);
+            pointerOutTimeoutRef.current = null;
+        }
         // Select a random quote
         const randomIndex = Math.floor(Math.random() * quotes.length);
         setTechDescription(quotes[randomIndex]);
     };
 
     const handlePointerOut = () => {
-        // Clear the techDescription when the cursor leaves
-        // setTechDescription("");
+        // Schedule the text to be cleared after 2 seconds
+        pointerOutTimeoutRef.current = setTimeout(() => {
+            setTechDescription("");
+        }, 2000); // 2000 milliseconds = 2 seconds
     };
 
     return (
@@ -163,8 +189,8 @@ export function Head({ setTechDescription, ...props }) {
                 material={materials.chat}
                 onPointerDown={handlePointerDown}
                 onPointerUp={handlePointerUp}
-                onPointerOver={handlePointerOver} // NEW: Add hover event
-                onPointerOut={handlePointerOut}   // NEW: Add hover out event
+                onPointerOver={handlePointerOver}
+                onPointerOut={handlePointerOut}
             >
                 <Decal
                     transparent

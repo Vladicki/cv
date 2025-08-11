@@ -12,7 +12,7 @@ import React, { useCallback, useEffect, useRef } from "react";
 // import SVGMesh from '../components/SVGMesh'
 // import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader'
 // import { useLoader } from '@react-three/fiber'
-const HeroExperience = ({ setTechDescription }) => {
+const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
     const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const techRefs = useRef({});
@@ -69,6 +69,7 @@ const HeroExperience = ({ setTechDescription }) => {
 
                 <Head scale={1.2} position={[0, .15, 1]}
                     setTechDescription={setTechDescription} //here to pull a random quote from the quote.text
+                    pointerOutTimeoutRef={pointerOutTimeoutRef}
                 />
 
                 {tech.map((techItem) => (
@@ -84,6 +85,7 @@ const HeroExperience = ({ setTechDescription }) => {
                         setTechDescription={setTechDescription}
                         techDesc={techItem.description}
                         text={techItem.text}
+                        pointerOutTimeoutRef={pointerOutTimeoutRef}
                     />
                 ))}
 
