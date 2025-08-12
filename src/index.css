@@ -55,7 +55,7 @@ section {
     }
 
     .mt-responsive {
-        @apply xl:mt-20 md:mt-0 mt-40;
+        @apply xl:mt-10 md:mt-0 mt-20;
     }
 
     /* General Grids */
@@ -90,7 +90,7 @@ section {
     }
 
     .text-box {
-    @apply border-8 border-white z-10 h-50 md:w-1/3 w-full bg-black  flex items-center justify-center mb-4;
+    @apply border-8 border-white z-10 h-50 w-1/2 md:w-1/3 bg-black flex items-center justify-center mb-4;
         background-color: rgba(0, 0, 0, 0.5);
         font-family:Pixel Operator;
     }
@@ -112,7 +112,7 @@ section {
         }
     }
     .hero-3d-layout {
-        @apply xl:w-[100%] w-full h-full min-h-[50vh] absolute xl:-top-20 right-0;
+        @apply xl:w-[100%] w-full h-full min-h-[30vh] absolute xl:-top-20 right-0;
         /* top-24  */
     }
 

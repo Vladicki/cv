@@ -14,6 +14,7 @@ import React, { useCallback, useEffect, useRef } from "react";
 // import { useLoader } from '@react-three/fiber'
 const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
     const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
+    const isMidScreen = useMediaQuery({ query: '(max-width: 1500px)' });
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     const techRefs = useRef({});
 
@@ -40,7 +41,7 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
 
     return (
         // <Canvas camera={{ position: [0, 0, 11], fov: 45 }}>
-        <Canvas gl={{ alpha: true }} camera={{ position: isTablet ? [0, 0, 12] : [0, 0, 11], fov: 45 }}>
+        <Canvas gl={{ alpha: true }} camera={{ position: isMidScreen ? [0, 0, 13] : isTablet ? [0, 0, 15] : isMobile ? [0, 0, 29] : [0, 0, 11], fov: 45 }}>
             {/* <AsciiRenderer */}
             {/*     bgColor="transparent" // Set background to transparent */}
             {/*     fgColor="white"      // Foreground (character) color */}

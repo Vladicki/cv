@@ -53,7 +53,7 @@ const Hero = () => {
                 {/* <img src="/images/bg.png" alt="background" /> */}
             </div>
             <div className="hero-layout">
-                <header className="flex flex-col xl:flex-row md:justify-between md:items-start md:w-full w-screen xl:mt-20 mt-32 md:px-20 px-5 gap-y-7 md:gap-x-20">
+                <header className="flex flex-col xl:flex-row md:justify-between md:items-start md:w-full w-screen xl:mt-20 mt-2 md:px-20 px-5 gap-y-7 md:gap-x-20">
                     <div className="flex flex-col gap-7">
                         <div className="hero-text">
                             <h1>Vladislav Iurev</h1>
@@ -87,7 +87,7 @@ const Hero = () => {
                     {/* NEW: Conditionally render the text-box only when techDescription is not empty */}
                     {techDescription && (
                         <div className="text-box">
-                            <div className="text-5xl text-white font-bold text-center">
+                            <div className="xl:text-5xl text-4xl text-white font-bold text-center ">
                                 <p ref={textRef} >
                                     {techDescription.split('').map((char, index) => (
                                         <span key={index} className="char">
