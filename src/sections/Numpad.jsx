@@ -2,6 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useMediaQuery } from "react-responsive";
 import { Keycup } from "../components/Models/Keycup"; // Assuming Keycup path
+import { KeyboardBase } from "../components/Models/KeyboardBase.jsx"; // Assuming Keycup path
 import { tech } from "../constants"; // Assuming tech constants path
 import React, { useRef, useEffect, useCallback } from "react"; // Added useCallback
 import * as THREE from 'three'; // Import THREE for any direct object manipulation if needed
@@ -14,7 +15,7 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
 
     // Ref to hold individual Keycup instances for potential future manipulation
     const keycupRefs = useRef({});
-
+    const enableAnimations = true;
     // Callback ref to assign refs in the map loop for each Keycup
     const getRef = useCallback((techId) => (element) => {
         keycupRefs.current[techId] = element;
@@ -38,13 +39,18 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
 
             {/* Lighting setup (same as HeroExperience) */}
             <ambientLight intensity={1} />
-            <directionalLight intensity={5} position={[-0.5, 4.5, 5]} />
+            <directionalLight intensity={2.5} position={[-1, 2, -2]} />
 
             {/* Group for scaling and overall positioning of the elements */}
             <group
                 scale={isTablet ? 0.85 : isMobile ? 0.7 : 1}
                 position={[0, 0, 1.6]} // Keep this position offset consistent with HeroExperience if elements are relative
             >
+
+                < KeyboardBase
+                    position={[0, 0.5, 0]}
+                    scale={0.4}
+                />
 
                 {/* Render all Keycups */}
                 {tech.map((techItem) => (
@@ -62,6 +68,7 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
                         techDesc={techItem.description}
                         text={techItem.text}
                         pointerOutTimeoutRef={pointerOutTimeoutRef}
+                        enableAnimations={enableAnimations}
                     />
                 ))}
             </group>

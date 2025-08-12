@@ -5,10 +5,11 @@ import { tech } from "../constants"
 import HeroExperience from "./HeroExperience"
 import { useGSAP } from "@gsap/react"
 import gsap from 'gsap'
+import PixelBox from "../components/PixelBox"
 
 // NEW: Hero now accepts props for state and refs
 const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => {
-    // The textRef is still local to this component as it's not shared
+    // ThetextRef is still local to this component as it's not shared
     const textRef = useRef(null);
 
     useGSAP(() => {
@@ -27,24 +28,6 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
             },
         )
     })
-
-    // Typewriter animation logic
-    useEffect(() => {
-        if (techDescription) {
-            gsap.killTweensOf(".char");
-
-            // Animate each character's opacity from 0 to 1 with a stagger
-            gsap.fromTo(".char",
-                { opacity: 0 },
-                {
-                    opacity: 1,
-                    stagger: 0.05, // Adjust this value to control the typing speed
-                    ease: "none",
-                    duration: 0.01 // Very short duration for instant reveal
-                }
-            );
-        }
-    }, [techDescription]);
 
     return (
         <section id="hero" className="relative overflow-hidden">
@@ -84,18 +67,10 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
                     </div>
 
                     {techDescription && (
-                        <div className="text-box">
-                            <div className="xl:text-5xl text-4xl text-white font-bold text-center ">
-                                <p ref={textRef} >
-                                    {techDescription.split('').map((char, index) => (
-                                        <span key={index} className="char">
-                                            {char}
-                                        </span>
-                                    ))}
-                                </p>
-                            </div>
-                        </div>
+                        <PixelBox
+                            techDescription={techDescription} />
                     )}
+
                 </header>
 
                 <figure>

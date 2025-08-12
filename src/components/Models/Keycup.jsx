@@ -23,10 +23,10 @@ export const Keycup = React.forwardRef(function Keycup({
     ...props
 }, ref) {
     const color = props.color || '#ffffff'
-    const { imgURL, setTechDescription, text, ...restProps } = props;
+    const { imgURL, setTechDescription, text, enableAnimations, ...restProps } = props;
     const techDesc = props.techDesc || " "
     const [decalTexture] = useTexture([props.imgURL])
-    const { nodes, materials, animations } = useGLTF('models/keycup.glb')
+    const { nodes, animations } = useGLTF('models/keycup.glb')
 
     // Get actions from useAnimations hook
     const groupRef = useRef();
