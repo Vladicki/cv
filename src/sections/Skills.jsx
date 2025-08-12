@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Numpad from "./Numpad";
 import PixelBox from "../components/PixelBox";
+import TitleHeader from "../components/TitleHeader"; // Make sure TitleHeader is imported
 
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -29,21 +30,30 @@ const Skills = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) =
     }, []);
 
     return (
-        <section id="Skills" ref={skillsRef} className="flex-center section-padding min-h-screen mt-0 relative">
-            <div className="w-full md:px-10 px-5 relative z-10">
-                <p>Skill Pad</p>
+        <section
+            id="Skills"
+            ref={skillsRef}
+            // CRITICAL: Add 'relative' here to make it the positioning context
+            // Change 'flex-center' to 'flex flex-col justify-start items-start' to stack children from the top
+            className="section-padding min-h-screen relative flex flex-col justify-start items-start"
+        >
+            {/* This div contains TitleHeader and PixelBox.
+                It needs to have a higher z-index to appear on top of the 3D canvas. */}
+            <div className="w-full md:px-10 px-5 relative z-20"> {/* Increased z-index to 20 */}
+                <TitleHeader
+                    title="Skills"
+                    sub="Hint: press a key"
+                />
                 {techDescription && (
                     <PixelBox
                         techDescription={techDescription} />
                 )}
-
             </div>
-            {/* Wrap HeroExperience in a container with a height class.
-              You've already defined the perfect CSS class for this: .skills-3d
-            */}
+
+            {/* This div now fully spans the section due to 'inset-0' in .skills-3d CSS
+                and will be behind the text content due to z-index. */}
             <div className="skills-3d">
                 <Numpad
-
                     setTechDescription={setTechDescription}
                     pointerOutTimeoutRef={pointerOutTimeoutRef}
                 />

@@ -11,13 +11,15 @@ export function KeyboardBase(props) {
     return (
         <group {...props} dispose={null}>
             <mesh geometry={nodes.aMain.geometry}
-                material={nodes.aMain.material}
+                // material={nodes.aMain.material}
                 scale={[4, 0.2, 7.8]}
                 rotation={[0, Math.PI / 2, 0]}
                 position={[-1.25, -2, -2.5]}
 
 
-            />
+            >
+                <meshStandardMaterial color="black" roughness={0.5} metalness={0.4} />
+            </mesh>
         </group>
     )
 }
