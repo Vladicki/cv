@@ -3,6 +3,7 @@ import HeroExperience from "./HeroExperience";
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Numpad from "./Numpad";
 
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -27,16 +28,19 @@ const Skills = ({ setTechDescription, pointerOutTimeoutRef }) => {
     }, []);
 
     return (
-        <section id="Skills" ref={skillsRef} className="flex-center section-padding">
-            <div className="w-full h-full md:px-10 px-5">
+        <section id="Skills" ref={skillsRef} className="flex-center section-padding min-h-screen relative">
+            <div className="w-full md:px-10 px-5 relative z-10">
                 <p>Skill Pad</p>
             </div>
-            {/* Reuse the 3D scene from HeroExperience */}
-            <HeroExperience
-                setTechDescription={setTechDescription}
-                pointerOutTimeoutRef={pointerOutTimeoutRef}
-                sceneState={sceneState}
-            />
+            {/* Wrap HeroExperience in a container with a height class.
+              You've already defined the perfect CSS class for this: .skills-3d
+            */}
+            <div className="skills-3d">
+                <Numpad
+                    setTechDescription={setTechDescription}
+                    pointerOutTimeoutRef={pointerOutTimeoutRef}
+                />
+            </div>
         </section>
     );
 };

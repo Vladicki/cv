@@ -1,5 +1,5 @@
 
-const HeroLights = () => {
+const Lights = () => {
 
     // Basic LIGHT params
     // position = { []}
@@ -28,4 +28,4 @@ const HeroLights = () => {
 }
 
 
-export default HeroLights
+export default Lights

@@ -99,7 +99,7 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
                 </header>
 
                 <figure>
-                    <div className="hero-3d-layout">
+                    <div className="skills-3d">
                         {/* HeroExperience now receives props and sceneState="hero" */}
                         <HeroExperience
                             setTechDescription={setTechDescription}
