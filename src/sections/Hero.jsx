@@ -1,4 +1,4 @@
-// import { useState } from "react"
+// This component now receives props from a parent component (e.g., App.js)
 import { useState, useRef, useEffect } from "react"
 import Button from "../components/button"
 import { tech } from "../constants"
@@ -6,7 +6,11 @@ import HeroExperience from "./HeroExperience"
 import { useGSAP } from "@gsap/react"
 import gsap from 'gsap'
 
-const Hero = () => {
+// NEW: Hero now accepts props for state and refs
+const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => {
+    // The textRef is still local to this component as it's not shared
+    const textRef = useRef(null);
+
     useGSAP(() => {
         // Existing animation for h1 elements
         gsap.fromTo('.hero-text h1',
@@ -23,11 +27,6 @@ const Hero = () => {
             },
         )
     })
-
-    const [techDescription, setTechDescription] = useState("");
-    const textRef = useRef(null);
-    // NEW: Create a ref to manage the timeout for the pointer-out event
-    const pointerOutTimeoutRef = useRef(null);
 
     // Typewriter animation logic
     useEffect(() => {
@@ -84,7 +83,6 @@ const Hero = () => {
                         />
                     </div>
 
-                    {/* NEW: Conditionally render the text-box only when techDescription is not empty */}
                     {techDescription && (
                         <div className="text-box">
                             <div className="xl:text-5xl text-4xl text-white font-bold text-center ">
@@ -102,10 +100,11 @@ const Hero = () => {
 
                 <figure>
                     <div className="hero-3d-layout">
-                        {/* NEW: Pass the pointerOutTimeoutRef to the HeroExperience component */}
+                        {/* HeroExperience now receives props and sceneState="hero" */}
                         <HeroExperience
                             setTechDescription={setTechDescription}
                             pointerOutTimeoutRef={pointerOutTimeoutRef}
+                            sceneState="hero"
                         />
                     </div>
                 </figure>
