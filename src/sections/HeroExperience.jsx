@@ -73,6 +73,10 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef, sceneState }
                         techDesc={techItem.description}
                         text={techItem.text}
                         pointerOutTimeoutRef={pointerOutTimeoutRef}
+                        floatSpeed={1.75}
+                        floatRotationIntensity={4}
+                        floatFloatIntensity={3}
+
                     />
                 ))}
             </group>

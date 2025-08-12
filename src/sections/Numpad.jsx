@@ -43,7 +43,7 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
             {/* Group for scaling and overall positioning of the elements */}
             <group
                 scale={isTablet ? 0.85 : isMobile ? 0.7 : 1}
-                position={[0, -0.7, 0]} // Keep this position offset consistent with HeroExperience if elements are relative
+                position={[0, 0, 1.6]} // Keep this position offset consistent with HeroExperience if elements are relative
             >
 
                 {/* Render all Keycups */}
@@ -55,9 +55,9 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
                         color={techItem.color}
                         // CRITICAL CHANGE: Use techItem.padPosition for initial position
                         position={techItem.padPosition}
-                        scale={0.2}
+                        scale={0.4}
                         // HeroRotation is kept but won't be animated from here
-                        rotation={techItem.heroRotation}
+                        rotation={[0, 0, 0]}
                         setTechDescription={setTechDescription}
                         techDesc={techItem.description}
                         text={techItem.text}

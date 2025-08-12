@@ -14,8 +14,14 @@ import React, { forwardRef, useMemo, useState, useEffect, useRef } from 'react'
 import { useCursor, useGLTF, useAnimations } from '@react-three/drei'
 import { Decal, Float, OrbitControls, Preload, useTexture } from '@react-three/drei'
 
-// NEW: Accept pointerOutTimeoutRef from props
-export const Keycup = React.forwardRef(function Keycup({ pointerOutTimeoutRef, ...props }, ref) {
+// NEW: Accept float parameters as props with default values
+export const Keycup = React.forwardRef(function Keycup({
+    pointerOutTimeoutRef,
+    floatSpeed = 0,         // Default value
+    floatRotationIntensity = 0, // Default value
+    floatFloatIntensity = 0,    // Default value
+    ...props
+}, ref) {
     const color = props.color || '#ffffff'
     const { imgURL, setTechDescription, text, ...restProps } = props;
     const techDesc = props.techDesc || " "
@@ -45,7 +51,7 @@ export const Keycup = React.forwardRef(function Keycup({ pointerOutTimeoutRef, .
         }
     }, [actions]);
 
-    // NEW: Cleanup the timeout on unmount
+    // Cleanup the timeout on unmount
     useEffect(() => {
         return () => {
             if (pointerOutTimeoutRef.current) {
@@ -55,7 +61,7 @@ export const Keycup = React.forwardRef(function Keycup({ pointerOutTimeoutRef, .
     }, [pointerOutTimeoutRef]);
 
 
-    // NEW: Define new pointer handlers
+    // Define new pointer handlers
     const handlePointerOver = () => {
         // Clear the previous timeout if it exists
         if (pointerOutTimeoutRef.current) {
@@ -76,13 +82,17 @@ export const Keycup = React.forwardRef(function Keycup({ pointerOutTimeoutRef, .
 
     return (
         <group {...props} dispose={null}>
-            <Float speed={1.75} rotationIntensity={4} floatIntensity={3}>
+            {/* NEW: Pass the float parameters as props */}
+            <Float
+                speed={floatSpeed}
+                rotationIntensity={floatRotationIntensity}
+                floatIntensity={floatFloatIntensity}
+            >
                 <mesh geometry={nodes.Cube001.geometry}
                     ref={ref}
                     material={lambertMaterial}
                     scale={clicked ? [1.5, 0.73, 1.5] : [1.233, 0.73, 1.233]}
                     onClick={() => console.log()}
-                    // NEW: Use the new pointer handlers
                     onPointerOver={handlePointerOver}
                     onPointerOut={handlePointerOut}
                 >
