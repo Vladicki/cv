@@ -205,45 +205,40 @@ export const experiences = [
     name: "ThreeJS Web CV",
     stack: [
       { tech: "React", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
-      { tech: "NodeJS", tailwindColor: "#f19733" }, // Or specific named colors
       { tech: "ThreeJS", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
       { tech: "Tailwind", tailwindColor: "#089d37", textColor: "#0F0F0F" },
+      { tech: "Git", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
     ],
-    review:
-      "I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
+    desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
   {
     name: "Python-Go",
-    stack: ["Python", "Git", "GitHub"],
-    review:
-      "Built a full Game of Go from scratch using Python and Qt6. Designed scalable, modular OOP architecture with clean, maintainable code. Developed an interactive board, complete scoring logic, and responsive UI. Applied advanced Python patterns, implemented thorough unit testing, and collaborated via Git for version control.",
+    stack: [
+      { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
+      { tech: "Git", tailwindColor: "#089d37", textColor: "#0F0F0F" },
+      { tech: "GitHub", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
+    ],
+    desc: "Led the end-to-end development of a fully interactive Go game using Python and Qt6. Designed scalable OOP architecture, implemented responsive UI, and integrated robust scoring logic. Collaborated via Git for version control.",
   },
   {
     name: "Guy Hawkins",
     stack: ["@guyhawkins"],
-    review:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian''re seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    imgPath: "/images/client2.png",
+    desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
   {
     name: "Marvin McKinney",
     stack: ["@marvinmckinney"],
-    review:
-      "Adrian was a pleasure to work with. He turned our outdated website into a fresh, intuitive platform that’s both modern and easy to navigate. Fantastic work overall.",
-    imgPath: "/images/client5.png",
+    desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
   {
     name: "Floyd Miles",
     stack: ["@floydmiles"],
-    review:
-      "Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional!",
-    imgPath: "/images/client4.png",
+    desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
   {
     name: "Albert Flores",
     stack: ["@albertflores"],
-    review:
-      "Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend and backend dev are top-notch.",
-    imgPath: "/images/client6.png",
+    desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
 ];

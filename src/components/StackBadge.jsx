@@ -16,7 +16,9 @@ const StackBadge = ({ stackItem }) => {
             // className for styling common to all badges
             // The mr-4 last:mr-0 will be handled by the parent's map loop,
             // as it depends on the index in the loop.
-            className={`${bgColorClass} ${textColorClass} py-1 px-3 rounded-full w-fit text-sm md:text-base text-nowrap border border-white-100`}
+            className={`${bgColorClass} ${textColorClass} py-1 px-3 rounded-full w-fit text-sm md:text-base text-nowrap 
+`}
+        // border border-white-100
         >
             {stackItem.tech}
         </span>
