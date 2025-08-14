@@ -21,7 +21,7 @@ const Cards = () => {
                                         <span
                                             key={stackIndex}
                                             // Apply the margin classes here, as they depend on map index
-                                            className="mr-4 last:mr-0"
+                                            className="mx-2 my-1 last:mr-0"
                                         >
                                             {/* NEW: Render the StackBadge component */}
                                             <StackBadge stackItem={stackItem} />
