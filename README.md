@@ -1,6 +1,5 @@
 # Personal CV 
-
-## React + Vite
+### React + Vite
 
 A high-end personal CV website built with React, Vite, Three.js, and GSAP, designed with modular architecture and award-level animations.
 
