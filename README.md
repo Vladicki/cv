@@ -1,7 +1,8 @@
 # Personal CV 
 ### React + Vite + Threejs + Gsap
 
-A high-end personal CV website built with React, Vite, Three.js, and GSAP, designed with modular architecture and award-level animations.
+### A high-end personal CV website, designed with modular architecture and awwward-level animations.
+
 <img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/d338c866-250a-43e1-8d32-42ec2713e454" />
 
 ## Project Overview
