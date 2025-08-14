@@ -203,23 +203,26 @@ export const navLinks = [
 export const experiences = [
   {
     name: "ThreeJS Web CV",
-    stack: ["React ", "NodeJS"],
+    stack: [
+      { tech: "React", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "NodeJS", tailwindColor: "#f19733" }, // Or specific named colors
+      { tech: "ThreeJS", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
+      { tech: "Tailwind", tailwindColor: "#089d37", textColor: "#0F0F0F" },
+    ],
     review:
       "I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
-    imgPath: "/images/client1.png",
   },
   {
-    name: "Wade Warren",
-    stack: ["@wadewarren"],
+    name: "Python-Go",
+    stack: ["Python", "Git", "GitHub"],
     review:
-      "Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.",
-    imgPath: "/images/client3.png",
+      "Built a full Game of Go from scratch using Python and Qt6. Designed scalable, modular OOP architecture with clean, maintainable code. Developed an interactive board, complete scoring logic, and responsive UI. Applied advanced Python patterns, implemented thorough unit testing, and collaborated via Git for version control.",
   },
   {
     name: "Guy Hawkins",
     stack: ["@guyhawkins"],
     review:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
+      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian''re seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
     imgPath: "/images/client2.png",
   },
   {
