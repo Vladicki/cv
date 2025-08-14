@@ -1,12 +1,51 @@
-# React + Vite
+# Personal CV 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## React + Vite
 
-Currently, two official plugins are available:
+A high-end personal CV website built with React, Vite, Three.js, and GSAP, designed with modular architecture and award-level animations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##Project Overview
 
-## Expanding the ESLint configuration
+I designed and implemented every aspect of the site:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Modular, scalable frontend architecture for maintainability and performance
+
+- Interactive 3D scene created with React Three Fiber and Three.js
+
+- GLTF model loading and advanced lighting setup for a polished visual presentation
+
+- Scroll-driven animations powered by GSAP and ScrollTrigger
+
+- Responsive, mobile-friendly design
+
+### Collaboration & Development
+
+This project was version-controlled with Git and hosted on GitHub, demonstrating best practices in commit management, branching, and deployment workflows.
+
+### Skills & Technologies Highlighted
+This project demonstrates:
+
+- Advanced React development with hooks like useState, useRef, and forwardRef for complex state and 3D object manipulation
+
+- Expertise in React Three Fiber and Three.js for interactive 3D graphics
+
+- Professional-grade animation design with GSAP and ScrollTrigger
+
+- Tailwind CSS for responsive and dynamic styling
+
+- Debugging and performance optimization of animation timing, build processes, and CSS compilation
+
+- Clear, maintainable, and reusable code patterns
+  
+## Installation & Usage
+### Prerequisites
+ - Node.js 18+
+ - npm or yarn
+
+### Setup
+```bash
+git clone git@github.com:Vladicki/personal-cv-website.git
+cd personal-cv-website
+npm install
+npm run dev
+```
