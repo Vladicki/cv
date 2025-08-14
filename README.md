@@ -1,9 +1,10 @@
 # Personal CV 
-### React + Vite
+### React + Vite + Threejs + Gsap
 
 A high-end personal CV website built with React, Vite, Three.js, and GSAP, designed with modular architecture and award-level animations.
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/d338c866-250a-43e1-8d32-42ec2713e454" />
 
-##Project Overview
+## Project Overview
 
 I designed and implemented every aspect of the site:
 
@@ -22,7 +23,6 @@ I designed and implemented every aspect of the site:
 This project was version-controlled with Git and hosted on GitHub, demonstrating best practices in commit management, branching, and deployment workflows.
 
 ### Skills & Technologies Highlighted
-This project demonstrates:
 
 - Advanced React development with hooks like useState, useRef, and forwardRef for complex state and 3D object manipulation
 
@@ -43,8 +43,8 @@ This project demonstrates:
 
 ### Setup
 ```bash
-git clone git@github.com:Vladicki/personal-cv-website.git
-cd personal-cv-website
+git clone git@github.com:Vladicki/cv.git
+cd cv
 npm install
 npm run dev
 ```
