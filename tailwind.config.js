@@ -43,6 +43,7 @@ export default {
     "bg-[#2e6ce6]", // tech-kubernetes-blue, tech-go-blue
     "bg-[#089d37]", // tech-neovim-green, tech-threejs-green
     "bg-[#f19733]", // tech-java-orange, tech-node-orange (and from your experiences.stack)
+    "bg-[#f19733]", // tech-java-orange, tech-node-orange (and from your experiences.stack)
     "bg-[#000000]", // If you have a direct black hex not covered by black-200
   ],
 };
