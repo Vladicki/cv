@@ -43,13 +43,13 @@ export const Keycup = React.forwardRef(function Keycup({
     )
 
     // Optional: Log available animations to find their names
-    // useEffect(() => {
-    //     console.log({ text })
-    //     console.log(`Keycup (Ref:`, ref.current);
-    //     if (actions) {
-    //         console.log("Available animations for Keycup:", Object.keys(actions));
-    //     }
-    // }, [actions]);
+    useEffect(() => {
+        console.log({ text })
+        console.log(`Keycup (Ref:`, ref.current);
+        if (actions) {
+            console.log("Available animations for Keycup:", Object.keys(actions));
+        }
+    }, [actions]);
 
     // Cleanup the timeout on unmount
     useEffect(() => {
