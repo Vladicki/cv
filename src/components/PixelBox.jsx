@@ -1,6 +1,5 @@
-// PixelBox.jsx
 import React, { useRef, useEffect } from "react";
-import { useGSAP } from "@gsap/react";
+import { useGSAP } from "@gsap/react"; // Assuming useGSAP is available, though useEffect is sufficient here
 import gsap from 'gsap';
 
 const PixelBox = ({ techDescription }) => {
@@ -9,15 +8,17 @@ const PixelBox = ({ techDescription }) => {
     // Typewriter animation logic specific to this PixelBox instance
     useEffect(() => {
         if (techDescription) {
+            const chars = textRef.current ? textRef.current.querySelectorAll(".char") : [];
+
             // Kill any previous animations on these characters to prevent conflicts
-            gsap.killTweensOf(".char", textRef.current); // Target only chars within this specific PixelBox
+            gsap.killTweensOf(chars); // Target only chars within this specific PixelBox
 
             // Immediately set all characters within THIS PixelBox to be invisible
             // This is crucial to prevent the "flicker"
-            gsap.set(textRef.current.querySelectorAll(".char"), { opacity: 0 });
+            gsap.set(chars, { opacity: 0 });
 
             // Animate each character's opacity from 0 to 1 with a stagger
-            gsap.to(textRef.current.querySelectorAll(".char"),
+            gsap.to(chars,
                 {
                     opacity: 1,
                     stagger: 0.05, // Adjust this value to control the typing speed

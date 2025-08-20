@@ -44,7 +44,7 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
             <directionalLight intensity={2.5} position={[-1, 2, -2]} />
 
             <group
-                scale={isTablet ? 0.85 : isMobile ? 0.7 : 1}
+                scale={isTablet ? 0.85 : isMidScreen ? 0.8 : isMobile ? 0.7 : 1}
                 position={[0, 0, 1.6]}
             >
                 <KeyboardBase
