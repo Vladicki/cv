@@ -7,6 +7,10 @@ import { tech } from "../constants";
 import React, { useRef, useEffect, useCallback } from "react";
 import * as THREE from 'three';
 
+// Define your desired steady camera settings
+const NUMPAD_CAMERA_POSITION = [-2.5346015575649266, 6.648421865875828, -5.161978471006527];
+const NUMPAD_CAMERA_ROTATION_EULER = [-2.2309913381757256, -0.29248767950299326, -2.7860116377670656];
+
 const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
     const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
     const isMidScreen = useMediaQuery({ query: '(max-width: 1500px)' });
@@ -17,31 +21,23 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
         keycupRefs.current[techId] = element;
     }, []);
 
-    // Ref to hold the OrbitControls instance
-    const controlsRef = useRef();
-
-    // Function to log camera position and rotation
-    const logCameraState = () => {
-        if (controlsRef.current) {
-            const camera = controlsRef.current.object;
-            console.log("Camera Position:", camera.position);
-            console.log("Camera Rotation (Euler):", camera.rotation);
-            console.log("Camera Target:", controlsRef.current.target);
-        }
-    };
-
     return (
-        <Canvas gl={{ alpha: true }} camera={{ position: isMidScreen ? [0, 0, 13] : isTablet ? [0, 0, 15] : isMobile ? [0, 0, 29] : [0, 0, 11], fov: 45 }}>
+        <Canvas
+            gl={{ alpha: true }}
+            // Apply the fixed camera position and rotation directly
+            camera={{
+                position: NUMPAD_CAMERA_POSITION,
+                rotation: new THREE.Euler(...NUMPAD_CAMERA_ROTATION_EULER), // Use THREE.Euler for rotation
+                fov: 45,
+            }}
+        >
             <OrbitControls
-                ref={controlsRef} // Attach ref to OrbitControls
-                enablePan={true} // Temporarily enable pan for easier positioning
-                enableZoom={true} // Temporarily enable zoom
-                enableRotate={true} // Keep rotate enabled
-                maxDistance={20}
-                minDistance={5}
-                minPolarAngle={Math.PI / 5}
-                maxPolarAngle={Math.PI / 2}
-                onChange={logCameraState} // Log camera state on change
+                enablePan={false}     // Disable panning
+                enableZoom={false}    // Disable zooming
+                enableRotate={false}  // Disable rotating, as camera position is fixed
+            // maxDistance, minDistance, minPolarAngle, maxPolarAngle will still apply
+            // if you re-enable controls, but are redundant for a fixed camera.
+            // You can remove them if you want a truly static camera with no controls.
             />
 
             <ambientLight intensity={1} />
