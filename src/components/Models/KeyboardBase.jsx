@@ -8,14 +8,25 @@ import { Edges, useGLTF } from '@react-three/drei'
 
 export function KeyboardBase({ baseColor = "#444444", ...props }) { // Added baseColor prop with default
     const { nodes } = useGLTF('/models/keyboard.glb')
+    const transparentMaterial = useMemo(
+        () =>
+            new THREE.MeshBasicMaterial({
+                transparent: true,
+                opacity: 0,     // fully invisible
+                depthWrite: false, // don't mess with z-buffer
+            }),
+        []
+    )
     return (
         <group {...props} dispose={null}>
             <mesh geometry={nodes.aMain.geometry}
                 scale={[4, 0.2, 7.8]}
                 rotation={[0, Math.PI / 2, 0]}
                 position={[-1.25, -2, -2.5]}
+                transparent={true}
+                opacity={0}
             >
-                <meshStandardMaterial color={baseColor} roughness={0.2} metalness={0.8} /> {/* Using baseColor here */}
+                {/* <meshStandardMaterial color={baseColor} roughness={0.2} metalness={0.8} /> {/* Using baseColor here */} */}
                 <Edges
                     linewidth={4}
                     scale={1}
