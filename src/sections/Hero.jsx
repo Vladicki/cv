@@ -79,7 +79,6 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
                         <HeroExperience
                             setTechDescription={setTechDescription}
                             pointerOutTimeoutRef={pointerOutTimeoutRef}
-                            sceneState="hero"
                         />
                     </div>
                 </figure>

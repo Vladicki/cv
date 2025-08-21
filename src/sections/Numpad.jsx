@@ -68,6 +68,7 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
                         floatSpeed={0} // Ensure no floating animation in Numpad
                         floatRotationIntensity={0}
                         floatFloatIntensity={0}
+                        sceneType="numpad"
                     />
                 ))}
             </group>

@@ -8,7 +8,7 @@ import React, { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
 
-const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef, sceneState }) => {
+const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
     const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
     const isMidScreen = useMediaQuery({ query: '(max-width: 1500px)' });
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -17,18 +17,6 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef, sceneState }
     const headRef = useRef();
     const mainTimeline = useRef(null);
 
-
-    useEffect(() => {
-        if (mainTimeline.current) {
-            if (sceneState === 'skills') {
-                if (headRef.current) headRef.current.visible = true;
-                mainTimeline.current.play();
-            } else {
-                if (headRef.current) headRef.current.visible = true;
-                mainTimeline.current.reverse();
-            }
-        }
-    }, [sceneState]);
 
     const getRef = (name) => (element) => {
         keycupRefs.current[name] = element;
@@ -76,6 +64,7 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef, sceneState }
                         floatSpeed={1.75}
                         floatRotationIntensity={4}
                         floatFloatIntensity={3}
+                        sceneType="hero"
 
                     />
                 ))}
