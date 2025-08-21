@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.5.3 keyboard-base-xl.glb
 */
 
 import React from 'react'
-import { useGLTF } from '@react-three/drei'
+import { Edges, useGLTF } from '@react-three/drei'
 
 export function KeyboardBase({ baseColor = "#444444", ...props }) { // Added baseColor prop with default
     const { nodes } = useGLTF('/models/keyboard.glb')
@@ -16,6 +16,12 @@ export function KeyboardBase({ baseColor = "#444444", ...props }) { // Added bas
                 position={[-1.25, -2, -2.5]}
             >
                 <meshStandardMaterial color={baseColor} roughness={0.2} metalness={0.8} /> {/* Using baseColor here */}
+                <Edges
+                    linewidth={4}
+                    scale={1}
+                    threshold={15} // Display edges only when the angle between two faces exceeds this value (default=15 degrees)
+                    color="white"
+                />
             </mesh>
         </group>
     )
