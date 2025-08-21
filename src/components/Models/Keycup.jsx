@@ -5,7 +5,7 @@ Command: npx gltfjsx@6.5.3 keycup.glb
 
 import * as THREE from 'three'
 import React, { forwardRef, useMemo, useState, useEffect, useRef } from 'react'
-import { useCursor, useGLTF } from '@react-three/drei'
+import { Edges, useCursor, useGLTF } from '@react-three/drei'
 import { Decal, Float, useTexture } from '@react-three/drei'
 import gsap from 'gsap';
 
@@ -245,6 +245,13 @@ export const Keycup = React.forwardRef(function Keycup({
                         map={decalTexture}
                         flatShading
                     />
+                    <Edges
+                        linewidth={4}
+                        scale={1}
+                        threshold={16} // Display edges only when the angle between two faces exceeds this value (default=15 degrees)
+                        color="black"
+                    />
+
                 </mesh>
             </Float>
         </group>
