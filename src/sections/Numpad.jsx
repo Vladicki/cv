@@ -50,6 +50,8 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
                 <KeyboardBase
                     position={[0, 0.5, 0]}
                     scale={0.4}
+                    baseColor={"#888888"} // NEW: Pass the baseColor prop here
+
                 />
 
                 {tech.map((techItem) => (
