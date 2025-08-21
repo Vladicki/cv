@@ -242,3 +242,60 @@ export const experiences = [
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
 ];
+
+export const expCards = [
+  {
+    review:
+      "By leveraging microservices and automation, Vladick showcased strong problem-solving skills and adaptability in backend development.",
+    imgPath: "/logos/python.svg",
+    logoPath: "/logos/python.svg",
+    title: "Backend Developer – Microservices",
+    date: "2021 – 2022",
+    responsibilities: [
+      "Created scalable microservices in Python for Discord and Telegram bots, improving automation and communication workflows.",
+      "Implemented API integrations and asynchronous task execution to optimize performance.",
+      "Applied OOP design and modular principles to ensure extensibility for future features.",
+    ],
+  },
+  {
+    review:
+      "Vladick built solid fundamentals in Computer Science and quickly applied them in practical projects, showcasing both theory and application.",
+    imgPath: "/logos/graduation-cap.svg",
+    logoPath: "/logos/graduation-cap.svg",
+    title: "BSc Computer Science Student – Griffith College",
+    date: "2022 – Present",
+    responsibilities: [
+      "Learned core Java programming, mastering data structures, algorithms, and OOP principles.",
+      "Developed fundamental projects demonstrating problem-solving and clean code practices.",
+      "Gained exposure to databases, SQL queries, and full-stack development basics.",
+    ],
+  },
+  {
+    review:
+      "With strong problem-solving ability, Vladislav took ownership of DevOps and Cybersecurity foundations, enhancing both infrastructure and security practices.",
+    imgPath: "/logos/linux.svg",
+    logoPath: "/logos/linux.svg",
+    title: "DevOps & Cybersecurity Enthusiast",
+    date: "2024 – 2025",
+    responsibilities: [
+      "Administered Linux-based systems (Arch + Hyprland), optimizing performance and security.",
+      "Implemented GPU switching (AMD iGPU + NVIDIA dGPU) to improve power efficiency and workflows.",
+      "Initiated DevOps practices, learning containerization, process monitoring, and automation.",
+      "Explored cybersecurity fundamentals, including networking, encryption, and system hardening.",
+    ],
+  },
+  {
+    review:
+      "Vladick demonstrated exceptional creativity and technical mastery, delivering a cutting-edge interactive CV that rivaled award-winning portfolios. His ability to combine 3D graphics with performant web architecture was outstanding.",
+    imgPath: "/logos/react.svg",
+    logoPath: "/logos/react.svg",
+    title: "Freelance Frontend / Creative Developer",
+    date: "2024 – 2025",
+    responsibilities: [
+      "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP with advanced animations and modular architecture.",
+      "Designed responsive UI with Tailwind CSS, ensuring cross-device optimization and seamless user experiences.",
+      "Integrated 3D models, lighting, and motion design that achieved an Awwwards-level portfolio standard.",
+      "Managed version control with Git/GitHub, enforcing best practices in commits and branching strategies.",
+    ],
+  },
+];

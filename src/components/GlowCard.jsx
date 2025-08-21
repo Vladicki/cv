@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { experiences } from "../constants";
 
 const GlowCard = ({ card, index, children }) => {
     // refs for all the cards
