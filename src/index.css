@@ -117,7 +117,7 @@ section {
     }
 
     .skills-3d {
-        @apply xl:w-[100%] w-full h-full min-h-[30vh] absolute xl:-top-20 right-0;
+        @apply xl:w-[100%] w-full h-full min-h-[30vh] absolute xl:-top-20 justify-center;
 
     }
   .hero-badge {
