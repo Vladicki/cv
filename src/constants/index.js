@@ -183,12 +183,12 @@ export const tech = [
 
 export const navLinks = [
   {
-    name: "Work",
-    link: "#work",
-  },
-  {
     name: "Experience",
     link: "#Experience",
+  },
+  {
+    name: "Work",
+    link: "#work",
   },
   {
     name: "Skills",
@@ -202,7 +202,7 @@ export const navLinks = [
 
 export const experiences = [
   {
-    name: "ThreeJS Web CV",
+    title: "ThreeJS Web CV",
     stack: [
       { tech: "React", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
       { tech: "ThreeJS", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
@@ -212,7 +212,7 @@ export const experiences = [
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
   {
-    name: "Python-Go",
+    title: "Python-Go",
     stack: [
       { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
       { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
@@ -222,22 +222,22 @@ export const experiences = [
     desc: "Led the end-to-end development of a fully interactive Go game using Python and Qt6. Designed scalable OOP architecture, implemented responsive UI, and integrated robust scoring logic. Collaborated via Git for version control.",
   },
   {
-    name: "Guy Hawkins",
+    title: "Guy Hawkins",
     stack: ["@guyhawkins"],
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
   {
-    name: "Marvin McKinney",
+    title: "Marvin McKinney",
     stack: ["@marvinmckinney"],
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
   {
-    name: "Floyd Miles",
+    title: "Floyd Miles",
     stack: ["@floydmiles"],
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
   {
-    name: "Albert Flores",
+    title: "Albert Flores",
     stack: ["@albertflores"],
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
@@ -245,21 +245,7 @@ export const experiences = [
 
 export const expCards = [
   {
-    review:
-      "By leveraging microservices and automation, Vladick showcased strong problem-solving skills and adaptability in backend development.",
-    imgPath: "/logos/python.svg",
-    logoPath: "/logos/python.svg",
-    title: "Backend Developer – Microservices",
-    date: "2021 – 2022",
-    responsibilities: [
-      "Created scalable microservices in Python for Discord and Telegram bots, improving automation and communication workflows.",
-      "Implemented API integrations and asynchronous task execution to optimize performance.",
-      "Applied OOP design and modular principles to ensure extensibility for future features.",
-    ],
-  },
-  {
-    review:
-      "Vladick built solid fundamentals in Computer Science and quickly applied them in practical projects, showcasing both theory and application.",
+    desc: "Vladick built solid fundamentals in Computer Science and quickly applied them in practical projects, showcasing both theory and application.",
     imgPath: "/logos/graduation-cap.svg",
     logoPath: "/logos/graduation-cap.svg",
     title: "BSc Computer Science Student – Griffith College",
@@ -271,8 +257,7 @@ export const expCards = [
     ],
   },
   {
-    review:
-      "With strong problem-solving ability, Vladislav took ownership of DevOps and Cybersecurity foundations, enhancing both infrastructure and security practices.",
+    desc: "With strong problem-solving ability, Vladislav took ownership of DevOps and Cybersecurity foundations, enhancing both infrastructure and security practices.",
     imgPath: "/logos/linux.svg",
     logoPath: "/logos/linux.svg",
     title: "DevOps & Cybersecurity Enthusiast",
@@ -285,8 +270,7 @@ export const expCards = [
     ],
   },
   {
-    review:
-      "Vladick demonstrated exceptional creativity and technical mastery, delivering a cutting-edge interactive CV that rivaled award-winning portfolios. His ability to combine 3D graphics with performant web architecture was outstanding.",
+    desc: "Vladick demonstrated exceptional creativity and technical mastery, delivering a cutting-edge interactive CV that rivaled award-winning portfolios. His ability to combine 3D graphics with performant web architecture was outstanding.",
     imgPath: "/logos/react.svg",
     logoPath: "/logos/react.svg",
     title: "Freelance Frontend / Creative Developer",

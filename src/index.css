@@ -262,7 +262,7 @@ section {
     }
 
     .timeline {
-        @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 bg-black;
+        @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 bg-black-10;
     }
 
     .timeline-logo {
