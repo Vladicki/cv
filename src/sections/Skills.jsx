@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Numpad from "./Numpad";
 import PixelBox from "../components/PixelBox";
 import TitleHeader from "../components/TitleHeader"; // Make sure TitleHeader is imported
+import { useResponsiveFlags } from "../constants/mediaQuery";
 
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -13,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Skills = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => {
     const skillsRef = useRef(null);
     const [sceneState, setSceneState] = useState('hero');
+    const { isTablet, isMidScreen, isMobile } = useResponsiveFlags();
 
     useGSAP(() => {
         ScrollTrigger.create({
@@ -44,11 +46,11 @@ const Skills = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) =
                     title="Skills"
                     sub="Hint: press a key"
                 />
-                {techDescription && (
-                    <PixelBox
-                        techDescription={techDescription} />
-                )}
             </div>
+            {techDescription && (
+                <PixelBox
+                    techDescription={techDescription} />
+            )}
 
             {/* This div now fully spans the section due to 'inset-0' in .skills-3d CSS
                 and will be behind the text content due to z-index. */}

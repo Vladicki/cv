@@ -42,6 +42,7 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
 
             <ambientLight intensity={1} />
             <directionalLight intensity={3.1} position={[-1, 2, -2]} />
+            <pointLight position={[5, 5, 5]} />
 
             <group
                 scale={isTablet ? 0.85 : isMidScreen ? 0.8 : isMobile ? 0.7 : 1}
@@ -61,7 +62,7 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
                         imgURL={techItem.imgPathPNG}
                         color={techItem.color}
                         position={techItem.padPosition}
-                        scale={0.4}
+                        scale={0.41}
                         rotation={[0, 0, 0]}
                         setTechDescription={setTechDescription}
                         techDesc={techItem.description}

@@ -7,11 +7,14 @@ import { tech } from "../constants";
 import React, { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
+import { useResponsiveFlags } from "../constants/mediaQuery";
+
 
 const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
-    const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
-    const isMidScreen = useMediaQuery({ query: '(max-width: 1500px)' });
-    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+    // const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
+    // const isMidScreen = useMediaQuery({ query: '(max-width: 1500px)' });
+    // const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+    const { isTablet, isMidScreen, isMobile } = useResponsiveFlags();
 
     const keycupRefs = useRef({});
     const headRef = useRef();
@@ -23,7 +26,10 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
     };
 
     return (
-        <Canvas gl={{ alpha: true }} camera={{ position: isMidScreen ? [0, 0, 13] : isTablet ? [0, 0, 15] : isMobile ? [0, 0, 29] : [0, 0, 11], fov: 45 }}>
+        <Canvas gl={{ alpha: true }} camera={{
+            position: isMidScreen ? [0, 0, 13] : isTablet ? [0, 0, 15] : isMobile ? [0, 0, 20] : [0, 0, 11],
+            fov: isMidScreen ? 50 : isTablet ? 55 : isMobile ? 60 : 45
+        }}>
             <OrbitControls
                 enablePan={false}
                 enableZoom={false}
