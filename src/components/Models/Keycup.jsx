@@ -30,6 +30,11 @@ export const Keycup = React.forwardRef(function Keycup({
     const groupAnimRef = useRef();
     // meshRef will be used for the hero scale animation (animating the individual mesh's scale).
     const meshRef = useRef();
+    // initialYRef will store the keycup's starting Y position to return to after animation.
+    const initialYRef = useRef(0);
+    // hoverOutAnimationTimeoutRef to manage the delay for the hover out animation
+    const hoverOutAnimationTimeoutRef = useRef(null);
+
 
     // useImperativeHandle makes the 'ref' prop passed from the parent point to this groupAnimRef.
     // This allows parents to access the group (e.g., for positioning).
@@ -43,9 +48,16 @@ export const Keycup = React.forwardRef(function Keycup({
         [color]
     );
 
-    // Set initial scale for the mesh for the 'hero' type when the component mounts.
-    // This ensures GSAP has a consistent starting point.
+    // Define the depth the key will press down by.
+    const pressDepth = -0.157;
+
+    // Set initial scale for the mesh for the 'hero' type and capture initial Y for all types when the component mounts.
     useEffect(() => {
+        if (groupAnimRef.current) {
+            // Capture the initial Y position only once on mount.
+            // This is crucial because hover/click animations will change it.
+            initialYRef.current = groupAnimRef.current.position.y;
+        }
         if (meshRef.current && sceneType === 'hero') {
             meshRef.current.scale.set(1.233, 0.73, 1.233);
         }
@@ -58,12 +70,18 @@ export const Keycup = React.forwardRef(function Keycup({
                 clearTimeout(pointerOutTimeoutRef.current);
                 pointerOutTimeoutRef.current = null;
             }
+            // Clear the hover out animation timeout on unmount
+            if (hoverOutAnimationTimeoutRef.current) {
+                clearTimeout(hoverOutAnimationTimeoutRef.current);
+                hoverOutAnimationTimeoutRef.current = null;
+            }
         };
     }, [pointerOutTimeoutRef]);
 
     /**
      * Handles the pointer entering a Keycup.
      * Displays the technical description and sets cursor state.
+     * For 'numpad' scene, it simulates a key press down.
      * @param {THREE.Event} event - The pointer event object from R3F.
      */
     const handlePointerOver = (event) => {
@@ -71,20 +89,37 @@ export const Keycup = React.forwardRef(function Keycup({
 
         // Ensure this interaction is for the directly hovered object.
         if (event.intersections && event.intersections.length > 0 && event.intersections[0].object === event.object) {
-            // Clear any pending timeout that would hide the tech description, as we're still hovering.
+            // Clear any pending timeout that would hide the tech description
             if (pointerOutTimeoutRef.current) {
                 clearTimeout(pointerOutTimeoutRef.current);
                 pointerOutTimeoutRef.current = null;
             }
+            // Clear the hover out animation timeout if the pointer re-enters
+            if (hoverOutAnimationTimeoutRef.current) {
+                clearTimeout(hoverOutAnimationTimeoutRef.current);
+                hoverOutAnimationTimeoutRef.current = null;
+            }
 
             hover(true); // Update hover state for cursor feedback.
             setTechDescription(techDesc); // Display the description for the current tech item.
+
+            // NEW: Hover effect for numpad - key goes down
+            if (sceneType === 'numpad' && groupAnimRef.current) {
+                // Kill any ongoing tweens on this object to prevent conflicts with other animations
+                (window.gsap || gsap).killTweensOf(groupAnimRef.current.position);
+                (window.gsap || gsap).to(groupAnimRef.current.position, {
+                    y: initialYRef.current + pressDepth, // Move down by pressDepth
+                    duration: 0.05, // Quick descent
+                    ease: "power1.out" // Smooth easing for the press down motion
+                });
+            }
         }
     };
 
     /**
      * Handles the pointer leaving a Keycup.
      * Schedules the technical description to be cleared after a delay.
+     * For 'numpad' scene, it makes the key jump back up after a short delay.
      * @param {THREE.Event} event - The pointer event object from R3F.
      */
     const handlePointerOut = (event) => {
@@ -95,6 +130,20 @@ export const Keycup = React.forwardRef(function Keycup({
         pointerOutTimeoutRef.current = setTimeout(() => {
             setTechDescription(""); // Clear the description after the timeout.
         }, 2000); // 2-second delay.
+
+        // NEW: Schedule hover out animation with a delay for numpad - key jumps back up
+        if (sceneType === 'numpad' && groupAnimRef.current) {
+            // Kill any ongoing tweens on this object before scheduling new animation
+            (window.gsap || gsap).killTweensOf(groupAnimRef.current.position);
+
+            hoverOutAnimationTimeoutRef.current = setTimeout(() => {
+                (window.gsap || gsap).to(groupAnimRef.current.position, {
+                    y: initialYRef.current, // Jump back up to the stored initial Y position
+                    duration: 0.165, // Quick return duration
+                    ease: "power2.out" // Smooth easing for the return motion
+                });
+            }, 50); // 0.1 second delay before the animation starts
+        }
     };
 
     /**
@@ -130,20 +179,27 @@ export const Keycup = React.forwardRef(function Keycup({
         } else if (sceneType === 'numpad') {
             // Simulate a 'press' animation by moving the entire group down and then back up using GSAP.
             if (groupAnimRef.current) {
-                const initialY = groupAnimRef.current.position.y;
-                const pressDepth = -0.15; // Define how deep the key presses. Adjust this value as needed.
+                // Clear any pending hover out animation before starting click animation.
+                if (hoverOutAnimationTimeoutRef.current) {
+                    clearTimeout(hoverOutAnimationTimeoutRef.current);
+                    hoverOutAnimationTimeoutRef.current = null;
+                }
+                // Kill any ongoing tweens on this object before starting click animation to prevent conflicts.
+                (window.gsap || gsap).killTweensOf(groupAnimRef.current.position);
+
+                const initialY = initialYRef.current; // Use the stored initial Y position.
 
                 // Create a GSAP timeline to sequence the 'press down' and 'return up' animations.
                 // Use 'window.gsap' or 'gsap' directly if it's globally available.
                 (window.gsap || gsap).timeline()
                     .to(groupAnimRef.current.position, {
-                        y: initialY + pressDepth, // Move down
-                        duration: 0.12, // Quick press down duration.
+                        y: initialY + pressDepth, // Move down by pressDepth
+                        duration: 0.1, // Quick press down duration.
                         ease: "power1.out" // Easing for the press down.
                     })
                     .to(groupAnimRef.current.position, {
                         y: initialY, // Return to original Y position
-                        duration: 0.2, // Slower return up duration.
+                        duration: 0.15, // Slower return up duration.
                         ease: "elastic.out(1, 0.5)" // Elastic ease for a subtle bounce effect, making it feel more realistic.
                     });
                 console.log('Keycup pressed (Numpad, GSAP animation played):', text);
