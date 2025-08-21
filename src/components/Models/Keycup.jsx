@@ -186,25 +186,40 @@ export const Keycup = React.forwardRef(function Keycup({
                 }
                 // Kill any ongoing tweens on this object before starting click animation to prevent conflicts.
                 (window.gsap || gsap).killTweensOf(groupAnimRef.current.position);
+                (window.gsap || gsap).killTweensOf(groupAnimRef.current.rotation); // Also kill rotation tweens
 
-                const initialY = initialYRef.current; // Use the stored initial Y position.
+                const initialY = initialYRef.current;
+                // Capture the current rotation components (THREE.Euler object)
+                const { y: currentRotationY, z: currentRotationZ } = groupAnimRef.current.rotation; // Get current Y and Z rotations
 
-                // Create a GSAP timeline to sequence the 'press down' and 'return up' animations.
-                // Use 'window.gsap' or 'gsap' directly if it's globally available.
+                const elevateAmount = 1;
+                const rotateAngle = Math.PI / 2; // 90 degrees in radians
+
+                // Create a GSAP timeline for the combined elevate, rotate, and drop animation.
                 (window.gsap || gsap).timeline()
+                    // Phase 1: Elevate and Rotate on Y and Z-axes
                     .to(groupAnimRef.current.position, {
-                        y: initialY + pressDepth, // Move down by pressDepth
-                        duration: 0.1, // Quick press down duration.
-                        ease: "power1.out" // Easing for the press down.
-                    })
+                        y: initialY + elevateAmount, // Elevate upwards
+                        duration: 0.2, // Quick elevation
+                        ease: "power2.out"
+                    }, 0) // Start this tween at the same time (0 seconds into the timeline)
+                    .to(groupAnimRef.current.rotation, {
+                        // Rotate around Y-axis by 90 degrees
+                        y: currentRotationY + rotateAngle,
+                        duration: 0.2, // Rotate over the same duration as elevation
+                        ease: "power2.out"
+                    }, 0) // Start this tween at the same time as elevation
+
+                    // Phase 2: Drop back down (rotation remains)
                     .to(groupAnimRef.current.position, {
-                        y: initialY, // Return to original Y position
-                        duration: 0.15, // Slower return up duration.
-                        ease: "elastic.out(1, 0.5)" // Elastic ease for a subtle bounce effect, making it feel more realistic.
-                    });
-                console.log('Keycup pressed (Numpad, GSAP animation played):', text);
+                        y: initialY, // Drop back to original Y position
+                        duration: 0.3, // Slower drop down
+                        ease: "power2.out" // or "bounce.out" for a springy effect
+                    }, ">0.1"); // Start this tween 0.1 seconds after the previous tweens complete
+                // The .to for rotation has been removed, so both Y and Z rotations will now persist.
+                console.log('Keycup elevated, rotated (Y & Z-axis, persistent), and returned (position) (Numpad, GSAP animation played):', text);
             } else {
-                console.warn("groupAnimRef.current is not available for Numpad press animation.");
+                console.warn("groupAnimRef.current is not available for Numpad click animation.");
             }
         }
         // --- End Conditional Logic ---
@@ -249,7 +264,7 @@ export const Keycup = React.forwardRef(function Keycup({
                         linewidth={4}
                         scale={1}
                         threshold={16} // Display edges only when the angle between two faces exceeds this value (default=15 degrees)
-                        color="black"
+                        color="#0f0f0f"
                     />
 
                 </mesh>

@@ -30,7 +30,9 @@ export function KeyboardBase({ baseColor = "#444444", ...props }) {
             // The transparent and opacity props are now handled directly by the material
             >
                 {/* Apply the newly created transparent material */}
-                <primitive object={transparentMaterial} attach="material" />
+                {/* <primitive object={transparentMaterial} attach="material" /> */}
+                <meshStandardMaterial color={baseColor} roughness={0.2} metalness={0.8} /> {/* Using baseColor here */}
+
                 <Edges
                     linewidth={4}
                     scale={1}

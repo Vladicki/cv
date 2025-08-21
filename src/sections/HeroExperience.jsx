@@ -36,7 +36,7 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
 
             {/* Replaced HeroLights with a standard lighting setup */}
             {/* <ambientLight intensity={0.2} color="#1a1a40" /> */}
-            <directionalLight intensity={5} position={[-0.5, 4.5, 5]} />
+            <directionalLight intensity={4.5} position={[-0.5, 4.5, 5]} />
             <ambientLight intensity={2} />
 
             <group

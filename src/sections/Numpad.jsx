@@ -41,7 +41,7 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
             />
 
             <ambientLight intensity={1} />
-            <directionalLight intensity={2.5} position={[-1, 2, -2]} />
+            <directionalLight intensity={3.1} position={[-1, 2, -2]} />
 
             <group
                 scale={isTablet ? 0.85 : isMidScreen ? 0.8 : isMobile ? 0.7 : 1}
@@ -50,7 +50,7 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
                 <KeyboardBase
                     position={[0, 0.5, 0]}
                     scale={0.4}
-                    baseColor={"#888888"} // NEW: Pass the baseColor prop here
+                    baseColor={"#0f0f0f"} // NEW: Pass the baseColor prop here
 
                 />
 
