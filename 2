@@ -10,7 +10,7 @@ const ContactExperience = () => {
 
         >
             {/* Lights for the scene */}
-            <ambientLight intensity={0.1} />
+            <ambientLight intensity={-1.5} />
             <directionalLight position={[-1, 5, 5]} intensity={1} />
             <pointLight position={[-4, 2, -2]} intensity={0.7} /> {/* Added another point light */}
 
@@ -19,22 +19,23 @@ const ContactExperience = () => {
                 renderIndex={1} // Helps ensure AsciiRenderer is rendered on top if multiple effects
                 characters={' .:-+*=%@#'} // Characters to use for the ASCII rendering
                 fgColor='white' // Foreground color of the ASCII characters
-                bgColor='bl' // Background color behind the ASCII characters
-
                 resolution={0.2} // Lower resolution = larger "pixels" (more chunky ASCII)
-                invert={false} // Inverts the character set brightness (like the example)
+                invert={true} // Inverts the character set brightness (like the example)
             // Adjust gamma and color to match your desired aesthetic
             // enableZoom={false} // AsciiRenderer will handle camera, but OrbitControls also has zoom.
-            />
-            {/* The Monke 3D Model */}
-            <Monke scale={2.2} />
+            >
+                {/* The Monke 3D Model */}
+                <Monke />
 
-            {/* OrbitControls for interactivity and auto-rotation */}
-            <OrbitControls
-                enableZoom={false}
-                autoRotate
-                autoRotateSpeed={5}
-            />
+                {/* OrbitControls for interactivity and auto-rotation */}
+                <OrbitControls
+                    enableZoom={false}
+                    autoRotate
+                    autoRotateSpeed={5}
+                    maxPolarAngle={Math.PI / 2} // Restrict vertical rotation downwards
+                    minPolarAngle={Math.PI / 3} // Restrict vertical rotation upwards
+                />
+            </AsciiRenderer>
         </Canvas>
     );
 };

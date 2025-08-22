@@ -21,7 +21,7 @@ const quotes = [
     "Why there is talking head in the first place",
     "Is it Undertail reference?",
     "Where his tors?",
-    "Can a robot write a symphony",
+    "Can a robot write a symphony?",
     "*Outch*",
     "*Please, stop clicking me*",
     "*Blinks*"
