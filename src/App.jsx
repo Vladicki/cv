@@ -6,6 +6,7 @@ import Skills from './sections/Skills.jsx'
 import React, { useState, useRef } from 'react';
 import { Footer } from './components/Footer.jsx'
 import Experience from './sections/Experience.jsx'
+import Contact from './sections/Contact.jsx'
 const App = () => {
 
     const [techDescription, setTechDescription] = useState("");
@@ -26,7 +27,8 @@ const App = () => {
                 setTechDescription={setTechDescription}
                 pointerOutTimeoutRef={pointerOutTimeoutRef}
             />
-            < Footer />
+            <Contact />
+            {/* < Footer /> */}
         </>
     )
 }
