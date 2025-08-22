@@ -1,9 +1,35 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 import { Canvas } from '@react-three/fiber';
 import { AsciiRenderer, OrbitControls } from '@react-three/drei';
-import { Monke } from '../components/Models/Monke'; // Ensure this path is correct
+import { Monke } from '../components/Models/Monke';
+import { Plane } from '../components/Models/Paper_plane.jsx'; // Assuming you have PaperPlane.jsx
+import { Knot } from '../components/Models/Knot';         // Assuming you have Knot.jsx
+import { Donut } from '../components/Models/Donut';         // Assuming you have Donut.jsx
+import * as THREE from 'three'; // Import THREE for any material adjustments
+
+// Define a list of your models
+const models = [
+  { component: Monke, scale: 2.2, rotation:[0, 0, 0]},
+  { component: Plane, scale: 10.4, rotation:[Math.PI*0.9, 0, 0]}, // Adjust scale as needed for PaperPlane
+  { component: Knot, scale: 1, rotation:[0, 0, 0]},  // Adjust scale as needed for Knot
+  { component: Donut, scale: 3, rotation:[Math.PI/1.8, 0, 0]},     // Adjust scale as needed for Donut
+];
 
 const ContactExperience = () => {
+    // State to keep track of the current model being displayed
+    const [currentModelIndex, setCurrentModelIndex] = useState(0);
+
+    // Callback to cycle to the next model on click
+    const handleClick = useCallback(() => {
+        setCurrentModelIndex(prevIndex => (prevIndex + 1) % models.length);
+        useState
+    }, []);
+
+    
+    // Get the current model's component and scale
+    const CurrentModelComponent = models[currentModelIndex].component;
+    const currentModelScale = models[currentModelIndex].scale;
+    const currentModelRotation = models[currentModelIndex].rotation;
     return (
         <Canvas camera={{ position: [0, 0, 5], fov: 75 }} style={{ width: '100%', height: '100%' }}
         // gl={{ antialias: false, alpha: false }}
@@ -11,7 +37,7 @@ const ContactExperience = () => {
         >
             {/* Lights for the scene */}
             <ambientLight intensity={0.1} />
-            <directionalLight position={[-1, 5, 5]} intensity={1} />
+            <directionalLight position={[5, 5, 5]} intensity={2} />
             <pointLight position={[-4, 2, -2]} intensity={0.7} /> {/* Added another point light */}
 
 
@@ -27,7 +53,11 @@ const ContactExperience = () => {
             // enableZoom={false} // AsciiRenderer will handle camera, but OrbitControls also has zoom.
             />
             {/* The Monke 3D Model */}
-            <Monke scale={2.2} />
+                    {/* Dynamically render the current 3D Model with its specific scale */}
+                    <CurrentModelComponent scale={currentModelScale} 
+                                    onClick={handleClick}
+                        rotation={currentModelRotation}
+                />
 
             {/* OrbitControls for interactivity and auto-rotation */}
             <OrbitControls
