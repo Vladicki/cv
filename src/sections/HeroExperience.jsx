@@ -2,7 +2,7 @@ import { OrbitControls } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import { useMediaQuery } from "react-responsive";
 import { Keycup } from "../components/Models/Keycup";
-import { Head } from "../components/Models/Head-cleaner";
+import { Head } from "../components/Models/Head";
 import { tech } from "../constants";
 import React, { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";

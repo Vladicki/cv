@@ -28,7 +28,7 @@ const quotes = [
 ];
 
 export function Head({ setTechDescription, pointerOutTimeoutRef, ...props }) {
-    const { nodes, materials } = useGLTF('/models/head-cleaner.glb');
+    const { nodes, materials } = useGLTF('/models/head.glb');
     const decalTexture = useTexture('/models/eyes_closed.png');
 
     // State for pointer interaction and blinking (unchanged)
@@ -216,4 +216,4 @@ export function Head({ setTechDescription, pointerOutTimeoutRef, ...props }) {
     );
 }
 
-useGLTF.preload('/models/head-cleaner.glb');
+useGLTF.preload('/models/head.glb');
