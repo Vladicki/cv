@@ -44,7 +44,7 @@ const Skills = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) =
             <div className="w-full md:px-10 px-5 relative z-20"> {/* Increased z-index to 20 */}
                 <TitleHeader
                     title="Skills"
-                    sub="Hint: press a key"
+                    sub="Hint: press the keys 💻"
                 />
             </div>
             {techDescription && (

@@ -45,6 +45,9 @@ const Contact = () => {
                     title="Get in Touch – Let’s Connect"
                     sub="💬 Have questions or ideas? Let’s talk! 🚀"
                 />
+            <div className="hint-badge">
+                <p>Hint: Press the Monke 🐒</p>
+            </div>
                 <div className="grid-12-cols mt-16">
                     <div className="xl:col-span-5">
                         <div className="flex-center card-border rounded-xl p-10">
@@ -107,6 +110,8 @@ const Contact = () => {
                         </div>
                     </div>
                     <div className="xl:col-span-7 min-h-96">
+
+
                         <div className="bg-[#0f0f0f] w-full h-full hover:cursor-grab rounded-3xl overflow-hidden">
                             <ContactExperience />
                         </div>
