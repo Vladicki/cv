@@ -180,6 +180,21 @@ export const tech = [
     description: "Java, why uni dont teach Python?",
   },
 ];
+export const quotes = [
+  "If only there were an employee",
+  "God, the WORK, sounds good",
+  "If only they knew how good my promts are",
+  "Should've said i use Arch",
+  "Why spinning donuts, can secure a job position",
+  "Wish i were a LLM",
+  "Why there is talking head in the first place",
+  "Is it Undertail reference?",
+  "Where his tors?",
+  "Can a robot write a symphony?",
+  "*Outch*",
+  "*Please, stop clicking me*",
+  "*Blinks*",
+];
 
 export const navLinks = [
   {

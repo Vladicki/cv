@@ -9,23 +9,7 @@ import { Decal, useTexture } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import gsap from 'gsap';
-
-// A simple array of quotes for the techDescription
-const quotes = [
-    "If only there were an employee",
-    "God, the WORK, sounds good",
-    "If only they knew how good my promts are",
-    "Should've said i use Arch",
-    "Why spinning donuts, can secure a job position",
-    "Wish i were a LLM",
-    "Why there is talking head in the first place",
-    "Is it Undertail reference?",
-    "Where his tors?",
-    "Can a robot write a symphony?",
-    "*Outch*",
-    "*Please, stop clicking me*",
-    "*Blinks*"
-];
+import { quotes  } from "../../constants"
 
 export function Head({ setTechDescription, pointerOutTimeoutRef, ...props }) {
     const { nodes, materials } = useGLTF('/models/head.glb');
