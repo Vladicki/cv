@@ -28,7 +28,7 @@ const App = () => {
                 pointerOutTimeoutRef={pointerOutTimeoutRef}
             />
             <Contact />
-            {/* < Footer /> */}
+            <Footer />
         </>
     )
 }

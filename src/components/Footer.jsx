@@ -1,12 +1,26 @@
-/**
- * A reusable CTA button component.
- * When clicked, it scrolls smoothly to the section with ID "counter",
- * with a small offset from the top for better visual placement.
- */
+import { socialImgs } from "../constants";
 
 export const Footer = () => {
-    return (
-        <p>TEXT</p>
-    );
-}
+  return (
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="flex flex-col justify-center">
+          <p>Terms & Conditions</p>
+        </div>
+        <div className="socials">
+          {socialImgs.map((socialImg, index) => (
+            <div key={index} className="icon">
+              <img src={socialImg.imgPath} alt="social icon" />
+            </div>
+          ))}
+        </div>
+        <div className="flex flex-col justify-center">
+          <p className="text-center md:text-end">
+            © {new Date().getFullYear()} Vladislav Iurev. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
 

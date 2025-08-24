@@ -200,6 +200,21 @@ export const navLinks = [
   },
 ];
 
+export const socialImgs = [
+  {
+    name: "insta",
+    imgPath: "/socials/insta.png",
+  },
+  {
+    name: "gh",
+    imgPath: "/socials/github.png",
+  },
+  {
+    name: "linkedin",
+    imgPath: "/socials/linkedin.png",
+  },
+];
+
 export const experiences = [
   {
     title: "ThreeJS Web CV",
