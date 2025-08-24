@@ -219,14 +219,17 @@ export const socialImgs = [
   {
     name: "insta",
     imgPath: "/socials/insta.png",
+    link: "https://www.instagram.com/im_ur_vladick/",
   },
   {
     name: "gh",
     imgPath: "/socials/github.png",
+    link: "https://github.com/Vladicki",
   },
   {
     name: "linkedin",
     imgPath: "/socials/linkedin.png",
+    link: "https://www.linkedin.com/in/vladislav-iurev-314415253/",
   },
 ];
 

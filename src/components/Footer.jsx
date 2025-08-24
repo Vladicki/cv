@@ -10,7 +10,7 @@ export const Footer = () => {
         <div className="socials">
           {socialImgs.map((socialImg, index) => (
             <div key={index} className="icon">
-              <img src={socialImg.imgPath} alt="social icon" />
+              <a href={socialImg.link}><img src={socialImg.imgPath} alt="social icon" /></a>
             </div>
           ))}
         </div>
