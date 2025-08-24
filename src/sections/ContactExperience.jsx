@@ -12,7 +12,7 @@ const models = [
   { component: Monke, scale: 2.2, rotation:[0, 0, 0]},
   { component: Plane, scale: 10.4, rotation:[Math.PI*0.9, 0, 0]}, // Adjust scale as needed for PaperPlane
   { component: Knot, scale: 1, rotation:[0, 0, 0]},  // Adjust scale as needed for Knot
-  { component: Donut, scale: 3, rotation:[Math.PI/1.8, 0, 0]},     // Adjust scale as needed for Donut
+  { component: Donut, scale: 2.5, rotation:[Math.PI/1.8, 0, 0]},     // Adjust scale as needed for Donut
 ];
 
 const ContactExperience = () => {
