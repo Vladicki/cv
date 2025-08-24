@@ -320,6 +320,36 @@ section {
         }
     }
 
+@layer components {
+    /* ... (Your existing component classes like .flex-center, .section-padding, etc.) ... */
+
+    .loading-overlay {
+        @apply fixed top-0 left-0 w-screen h-screen bg-black-10 flex flex-col justify-center items-center z-[9999] text-white font-sans;
+        /* GSAP will control the opacity for the fade-out animation */
+    }
+
+    .loading-percentage {
+        @apply text-2xl md:text-2xl lg:text-4xl font-bold mb-4; /* Responsive font size, margin-bottom for spacing */
+    }
+
+    .loading-bar-container {
+        @apply w-[90vw] h-[4px] bg-[#333] rounded mt-2; /* 90% viewport width, 4px height, background, rounded corners, top margin */
+    }
+
+    .loading-bar-fill {
+        @apply h-full bg-white-50 rounded; /* Fill height, specific color, rounded corners */
+        transition: width 0.1s linear; /* Custom transition for the progress animation */
+    }
+
+    .loading-message {
+        @apply text-base md:text-xl mt-2 text-white-50; /* Responsive font size, top margin, specific text color */
+    }
+
+    .loading-message strong {
+        @apply font-bold; /* Ensures the strong tag within the message is bold */
+    }
+}
+
     .footer {
         @apply my-10 md:mt-20 mt-10 text-white-50 px-5 md:px-20 xl:px-20 flex items-center justify-center;
 

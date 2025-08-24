@@ -33,7 +33,7 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
             <OrbitControls
                 enablePan={false}
                 enableZoom={false}
-                enableRotate={true}
+                enableRotate={false}
                 maxDistance={20}
                 minDistance={5}
                 minPolarAngle={Math.PI / 5}
