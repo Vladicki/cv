@@ -46,37 +46,8 @@ section {
         @apply px-5 md:px-10;
     }
 
-    .padding-x-lg {
-        @apply px-5 md:px-20;
-    }
-
     .section-padding {
         @apply px-5 md:px-10 md:mt-40 mt-20;
-    }
-
-    .mt-responsive {
-        @apply xl:mt-10 md:mt-0 mt-20;
-    }
-
-    /* General Grids */
-    .grid-base {
-        @apply grid grid-cols-1;
-    }
-
-    .grid-2-cols {
-        @apply grid grid-cols-1 md:grid-cols-2 gap-6;
-    }
-
-    .grid-3-cols {
-        @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6;
-    }
-
-    .grid-3-cols-md-tight {
-        @apply grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-0;
-    }
-
-    .grid-4-cols {
-        @apply grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-7;
     }
 
     .grid-12-cols {
@@ -181,54 +152,6 @@ section {
 
     }
 
-    .app-showcase {
-        @apply w-full px-5 md:px-20 py-10 md:py-20 flex items-center justify-center;
-
-        .showcaselayout {
-            @apply flex xl:flex-row flex-col gap-10 justify-between;
-        }
-
-        .first-project-wrapper {
-            @apply h-full flex flex-col justify-between xl:w-[60%];
-
-            .image-wrapper {
-                @apply xl:h-[70vh] md:h-[50vh] h-96 relative;
-
-                img {
-                    @apply w-full h-full object-cover rounded-xl absolute inset-0;
-                }
-            }
-
-            .text-content {
-                @apply space-y-5 mt-5;
-
-                .badges {
-                    @apply flex gap-2 mb-4;
-                }
-
-                h2 {
-                    @apply text-2xl md:text-3xl lg:text-4xl font-bold;
-                }
-            }
-        }
-
-        .project-list-wrapper {
-            @apply flex md:flex-row flex-col xl:flex-col gap-10 xl:w-[40%];
-
-            .image-wrapper {
-                @apply xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0;
-            }
-
-            img {
-                @apply w-full h-full object-contain rounded-xl;
-            }
-
-            h2 {
-                @apply text-lg md:text-xl lg:text-2xl font-semibold mt-5;
-            }
-        }
-    }
-
     .cta-wrapper {
         @apply relative z-20 cursor-pointer;
     }
@@ -257,10 +180,6 @@ section {
         @apply border border-black-50 bg-black-100;
     }
 
-    .marquee-item {
-        @apply md:w-40 w-32;
-    }
-
     .timeline-wrapper {
         @apply absolute top-0 xl:left-[35.5vw] md:left-10 left-5 h-full flex justify-center;
     }
@@ -275,30 +194,6 @@ section {
 
     .exp-card-wrapper {
         @apply flex flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-between;
-    }
-
-    .gradient-edge {
-        @apply w-36 h-full absolute bottom-0 z-20;
-    }
-
-    .tech-card-animated-bg {
-        @apply absolute left-0 bottom-[-100%] w-full h-full bg-[#2D3240] group-hover:bottom-0 transition-all duration-700;
-    }
-
-    .tech-card-content {
-        @apply flex flex-col md:justify-center items-center xl:gap-5 xl:h-[50vh] overflow-hidden relative z-10 group-hover:cursor-grab;
-
-        & p {
-            @apply text-lg 2xl:text-2xl pb-5 xl:pb-0 font-semibold text-white-50 text-center;
-        }
-    }
-
-    .tech-grid {
-        @apply grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 xl:gap-16 md:gap-10 gap-5 mt-16;
-    }
-
-    .tech-icon-wrapper {
-        @apply flex justify-center items-center w-52 h-60 relative;
     }
 
     form {
@@ -432,52 +327,6 @@ section {
             #52aeff 37.51%,
             #fd5c79 62.83%,
             #6d45ce 92.91%);
-}
-
-.gradient-edge:nth-of-type(1) {
-    left: 0;
-    background: rgb(0, 0, 0);
-    background: linear-gradient(90deg,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(255, 255, 255, 0) 100%);
-}
-
-.gradient-edge:nth-of-type(2) {
-    right: 0;
-    background: linear-gradient(-90deg,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(255, 255, 255, 0) 100%);
-}
-
-/* marquee */
-.marquee {
-    width: 100dvw;
-    overflow: hidden;
-    position: relative;
-}
-
-.marquee-box {
-    display: flex;
-    align-items: center;
-    width: 200%;
-    height: 100%;
-    position: absolute;
-    overflow: hidden;
-    animation: marquee 60s linear infinite;
-}
-
-.marquee-item {
-    float: left;
-}
-
-@keyframes marquee {
-    0% {
-        left: 0;
-    }
-
-    100% {
-        left: -100%;
-    }
 }
 
 /* marquee end */
