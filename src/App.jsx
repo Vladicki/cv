@@ -27,13 +27,15 @@ const App = () => {
     // This effect runs once on component mount to start loading your 3D models and textures.
     useEffect(() => {
         // Preload GLTF models
-        useGLTF.preload('/models/monke.glb');
         useGLTF.preload('/models/keycup.glb');
+        useGLTF.preload('/models/head.glb');
         useGLTF.preload('/models/keyboardBase.glb');
-        useGLTF.preload('/models/paper-plane.glb');
+        useGLTF.preload('/models/paper_plane.glb');
         useGLTF.preload('/models/knot.glb');
+        useGLTF.preload('/models/monke.glb');
         useGLTF.preload('/models/donut.glb');
         
+        useTexture.preload('/models/eyes_closed.png'); 
         // Add any other static textures you might be loading directly with useTexture
         // Example: useTexture.preload('/images/my-background-texture.png'); 
 
