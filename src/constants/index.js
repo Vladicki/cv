@@ -306,7 +306,7 @@ export const expCards = [
     desc: "Vladick demonstrated exceptional creativity and technical mastery, delivering a cutting-edge interactive CV that rivaled award-winning portfolios. His ability to combine 3D graphics with performant web architecture was outstanding.",
     imgPath: "/logos/react.svg",
     logoPath: "/logos/react.svg",
-    title: "Freelance Frontend / Creative Developer",
+    title: "Freelance Full Stack / Creative Developer",
     date: "2024 – 2025",
     responsibilities: [
       "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP with advanced animations and modular architecture.",
