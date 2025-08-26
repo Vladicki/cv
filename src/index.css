@@ -87,10 +87,28 @@ section {
         /* top-24  */
     }
 
-    .skills-3d {
-        @apply xl:w-[100%] w-full h-full min-h-[30vh] absolute xl:-top-20 justify-center;
+/* Default styles for desktop and larger screens */
+.skills-3d {
+    @apply xl:w-[100%] w-full h-[120vh] absolute xl:-top-20 justify-center;
+}
 
+/* Styles for tablets (e.g., up to 1024px) */
+@media (max-width: 1024px) {
+    .skills-3d {
+        /* You can adjust the height and top value here */
+        height: 110vh; /* Make it a little shorter */
+        top: -10; /* Adjust the top position to compensate */
     }
+}
+
+/* Styles for mobile phones (e.g., up to 768px) */
+@media (max-width: 768px) {
+    .skills-3d {
+        /* Make it even smaller for mobile */
+        height: 80vh;
+        top: 0; /* Or a small positive value to give some space at the top */
+    }
+}
   .hero-badge {
     @apply bg-black-200 py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
   }
