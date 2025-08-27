@@ -3,7 +3,7 @@
 
 ### A high-end personal CV website, designed with modular architecture and awwward-level animations.
 
-<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/d338c866-250a-43e1-8d32-42ec2713e454" />
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/810e7365-8fca-4c1d-a237-8acb766e6142" />
 
 ## Project Overview
 
