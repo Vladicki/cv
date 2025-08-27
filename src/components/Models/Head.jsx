@@ -9,7 +9,7 @@ import { Decal, useTexture } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import gsap from 'gsap';
-import { quotes  } from "../../constants"
+import { quotes } from "../../constants"
 
 export function Head({ setTechDescription, pointerOutTimeoutRef, ...props }) {
     const { nodes, materials } = useGLTF('/models/head.glb');
@@ -163,7 +163,7 @@ export function Head({ setTechDescription, pointerOutTimeoutRef, ...props }) {
         // Schedule the text to be cleared after 2 seconds
         pointerOutTimeoutRef.current = setTimeout(() => {
             setTechDescription("");
-        }, 2000); // 2000 milliseconds = 2 seconds
+        }, 3000); // 2000 milliseconds = 2 seconds
     };
 
     return (
