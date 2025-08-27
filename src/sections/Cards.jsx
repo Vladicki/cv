@@ -11,6 +11,9 @@ const Cards = () => {
                     title="My Experience"
                     sub="⭐️ Previous projects"
                 />
+                <div className="hint-badge">
+                    <p>Hint: Cards are links 🔗</p>
+                </div>
 
                 <div className="lg:columns-3 md:columns-2 columns-1 mt-16">
                     {experiences.map((experience, index) => (
