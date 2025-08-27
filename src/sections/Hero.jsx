@@ -1,6 +1,6 @@
 // This component now receives props from a parent component (e.g., App.js)
 import { useState, useRef, useEffect } from "react"
-import Button from "../components/button"
+import Button from "../components/Button"
 import { tech } from "../constants"
 import HeroExperience from "./HeroExperience"
 import { useGSAP } from "@gsap/react"
@@ -41,7 +41,7 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
                             <h1>Vladislav Iurev</h1>
                             <h1>Software Developer</h1>
                             <h1>
-                                Profficient with
+                                Proficient with
                                 <span className="slide">
                                     <span className="wrapper">
                                         {tech.map((tech) => (
@@ -61,8 +61,9 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
                         <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">Dublin | Looking for a appartunity</p>
                         <Button
                             className="md:w-80 md:h-16 w-60 h-12"
-                            id="button"
-                            text="explore"
+                            text="Explore"
+                            id="Experience"
+                            fadeIn={true}
                         />
                     </div>
 

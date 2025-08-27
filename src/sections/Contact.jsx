@@ -45,9 +45,9 @@ const Contact = () => {
                     title="Get in Touch – Let’s Connect"
                     sub="💬 Have questions or ideas? Let’s talk! 🚀"
                 />
-            <div className="hint-badge">
-                <p>Hint: Press the Monke 🐒</p>
-            </div>
+                <div className="hint-badge">
+                    <p>Hint: Press the Monke 🐒</p>
+                </div>
                 <div className="grid-12-cols mt-16">
                     <div className="xl:col-span-5">
                         <div className="flex-center card-border rounded-xl p-10">
@@ -97,13 +97,9 @@ const Contact = () => {
 
                                 <button type="submit">
                                     <div className="cta-button group">
-                                        <div className="bg-circle" />
                                         <p className="text">
                                             {loading ? "Sending..." : "Send Message"}
                                         </p>
-                                        <div className="arrow-wrapper">
-                                            <img src="/images/arrow-down.svg" alt="arrow" />
-                                        </div>
                                     </div>
                                 </button>
                             </form>

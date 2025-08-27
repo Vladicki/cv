@@ -19,7 +19,7 @@ export const Keycup = React.forwardRef(function Keycup({
     ...props
 }, ref) {
     const color = props.color || '#ffffff'
-    const { imgURL, setTechDescription, text, techDesc, ...restProps } = props;
+    const { imgURL, setTechDescription, text, techDesc, } = props;
 
     const [decalTexture] = useTexture([imgURL]);
     // Removed 'animations' from destructuring useGLTF as we're now using GSAP for these specific animations.

@@ -213,6 +213,10 @@ export const navLinks = [
     name: "GitHub",
     link: "https://github.com/Vladicki",
   },
+  {
+    name: "CV",
+    link: "https://github.com/Vladicki",
+  },
 ];
 
 export const socialImgs = [

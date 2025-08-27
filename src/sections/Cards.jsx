@@ -8,7 +8,7 @@ const Cards = () => {
         <section id="Experience" className="flex-center section-padding">
             <div className="w-full h-full md:px-10 px-5">
                 <TitleHeader
-                    title="Previus Experience"
+                    title="My Experience"
                     sub="⭐️ Previous projects"
                 />
 

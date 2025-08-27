@@ -49,7 +49,7 @@ canvas {
     }
 
     .section-padding {
-        @apply px-5 md:px-10 xl:mt-40 md:mt-40 sm:mt-20 mt-10;
+        @apply pt-10 md:px-10 xl:mt-40 md:mt-40 sm:mt-20 mt-10;
     }
 
     .grid-12-cols {
@@ -160,7 +160,7 @@ canvas {
         }
 
             .contact-btn {
-      @apply flex;
+            @apply flex;
 
       .inner {
         @apply px-5 py-2 rounded-lg bg-white text-black group-hover:bg-black-50 transition-colors duration-300;
@@ -178,14 +178,14 @@ canvas {
     }
 
     .cta-button {
-        @apply px-4 py-4 rounded-lg bg-black-200 flex justify-center items-center relative cursor-pointer overflow-hidden;
+        @apply px-4 py-4 rounded-lg bg-white text-black flex justify-center items-center relative cursor-pointer overflow-hidden hover:bg-black-50 group-hover:bg-black-50 transition-colors duration-300;
 
-        .bg-circle {
-            @apply absolute -right-10 origin-center top-1/2 -translate-y-1/2 w-[120%] h-[120%] group-hover:size-10 group-hover:right-10 rounded-full bg-white-50 transition-all duration-500;
-        }
+        /* @apply px-5 py-2 rounded-lg bg-white text-black group-hover:bg-black-50 transition-colors duration-300; */
+
 
         .text {
-            @apply uppercase md:text-lg text-black transition-all duration-500 group-hover:text-white-50 group-hover:-translate-x-5 xl:translate-x-0 -translate-x-5;
+            /* @apply uppercase md:text-lg text-black transition-all duration-500 group-hover:text-white-50 group-hover:-translate-x-5 xl:translate-x-0 -translate-x-5; */
+            @apply group-hover:text-white font-medium uppercase md:text-lg transition-colors duration-300;
         }
 
         .arrow-wrapper {
@@ -341,7 +341,7 @@ canvas {
 /* Hero Text slider ends */
 
 .gradient-line {
-    width: 2px;
+    width: 3.5px;
     background: linear-gradient(0deg,
             rgba(69, 222, 196, 0) 0%,
             #62e0ff 25%,
