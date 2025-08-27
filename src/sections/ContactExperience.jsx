@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, { useState, useCallback } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { AsciiRenderer, OrbitControls } from '@react-three/drei';
 import { Monke } from '../components/Models/Monke';
@@ -9,10 +9,10 @@ import * as THREE from 'three'; // Import THREE for any material adjustments
 
 // Define a list of your models
 const models = [
-  { component: Monke, scale: 2.2, rotation:[0, 0, 0]},
-  { component: Plane, scale: 10.4, rotation:[Math.PI*0.9, 0, 0]}, // Adjust scale as needed for PaperPlane
-  { component: Knot, scale: 1, rotation:[0, 0, 0]},  // Adjust scale as needed for Knot
-  { component: Donut, scale: 2.5, rotation:[Math.PI/1.8, 0, 0]},     // Adjust scale as needed for Donut
+    { component: Monke, scale: 2.2, rotation: [0, 0, 0] },
+    { component: Plane, scale: 10.4, rotation: [Math.PI * 0.9, 0, 0] }, // Adjust scale as needed for PaperPlane
+    { component: Knot, scale: 1, rotation: [0, 0, 0] },  // Adjust scale as needed for Knot
+    { component: Donut, scale: 2.5, rotation: [Math.PI / 1.8, 0, 0] },     // Adjust scale as needed for Donut
 ];
 
 const ContactExperience = () => {
@@ -25,7 +25,7 @@ const ContactExperience = () => {
         useState
     }, []);
 
-    
+
     // Get the current model's component and scale
     const CurrentModelComponent = models[currentModelIndex].component;
     const currentModelScale = models[currentModelIndex].scale;
@@ -37,7 +37,7 @@ const ContactExperience = () => {
         >
             {/* Lights for the scene */}
             <ambientLight intensity={0.1} />
-            <directionalLight position={[5, 5, 5]} intensity={2} />
+            <directionalLight position={[5, 5, 5]} intensity={2.3} />
             <pointLight position={[-4, 2, -2]} intensity={0.7} /> {/* Added another point light */}
 
 
@@ -53,11 +53,11 @@ const ContactExperience = () => {
             // enableZoom={false} // AsciiRenderer will handle camera, but OrbitControls also has zoom.
             />
             {/* The Monke 3D Model */}
-                    {/* Dynamically render the current 3D Model with its specific scale */}
-                    <CurrentModelComponent scale={currentModelScale} 
-                                    onClick={handleClick}
-                        rotation={currentModelRotation}
-                />
+            {/* Dynamically render the current 3D Model with its specific scale */}
+            <CurrentModelComponent scale={currentModelScale}
+                onClick={handleClick}
+                rotation={currentModelRotation}
+            />
 
             {/* OrbitControls for interactivity and auto-rotation */}
             <OrbitControls

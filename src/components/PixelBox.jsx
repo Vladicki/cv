@@ -31,7 +31,7 @@ const PixelBox = ({ techDescription }) => {
 
     return (
         <div className="text-box">
-            <div className="xl:text-5xl text-4xl text-white font-bold text-center ">
+            <div className="xl:text-5xl text-3xl md:text-4xl text-white font-bold text-center ">
                 {/* ref is now correctly assigned here */}
                 <p ref={textRef} >
                     {/* Ensure techDescription is a string before splitting */}

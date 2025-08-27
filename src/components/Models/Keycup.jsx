@@ -129,7 +129,7 @@ export const Keycup = React.forwardRef(function Keycup({
         // Schedule the description to be cleared after a delay.
         pointerOutTimeoutRef.current = setTimeout(() => {
             setTechDescription(""); // Clear the description after the timeout.
-        }, 2000); // 2-second delay.
+        }, 3300); // 2-second delay.
 
         // NEW: Schedule hover out animation with a delay for numpad - key jumps back up
         if (sceneType === 'numpad' && groupAnimRef.current) {

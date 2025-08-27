@@ -30,15 +30,6 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
             position: isMidScreen ? [0, 0, 13] : isTablet ? [0, 0, 15] : isMobile ? [0, 0, 20] : [0, 0, 11],
             fov: isMidScreen ? 50 : isTablet ? 55 : isMobile ? 60 : 45
         }}>
-            <OrbitControls
-                enablePan={false}
-                enableZoom={false}
-                enableRotate={false}
-                maxDistance={20}
-                minDistance={5}
-                minPolarAngle={Math.PI / 5}
-                maxPolarAngle={Math.PI / 2}
-            />
 
             {/* Replaced HeroLights with a standard lighting setup */}
             {/* <ambientLight intensity={0.2} color="#1a1a40" /> */}

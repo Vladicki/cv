@@ -111,11 +111,6 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
                 fov: isTablet ? 60 : 45,
             }}
         >
-            <OrbitControls
-                enablePan={false}
-                enableZoom={false}
-                enableRotate={false}
-            />
 
             <ambientLight intensity={1} />
             <directionalLight intensity={3.1} position={[-1, 2, -2]} />
@@ -125,7 +120,7 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
             <group
                 ref={numpadGroupRef} // Assign the ref here
                 scale={isTablet ? 0.85 : isMidScreen ? 0.8 : isMobile ? 0.7 : 1}
-                position={[0, 0, 1.6]}
+                position={[0.6, 0, 1.4]}
             >
                 <KeyboardBase
                     position={[0, 0.5, 0]}
