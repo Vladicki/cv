@@ -235,6 +235,11 @@ export const socialImgs = [
     imgPath: "/socials/linkedin.png",
     link: "https://www.linkedin.com/in/vladislav-iurev-314415253/",
   },
+  {
+    name: "CV",
+    imgPath: "/socials/cv.png",
+    link: "https://www.linkedin.com/in/vladislav-iurev-314415253/",
+  },
 ];
 
 export const experiences = [
@@ -247,6 +252,7 @@ export const experiences = [
       { tech: "Git", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
     ],
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
+    link: "https://github.com/Vladicki/cv",
   },
   {
     title: "Go game writen on Python ",
@@ -260,14 +266,14 @@ export const experiences = [
     link: "https://github.com/Vladicki/Go_game_Python",
   },
   {
-    title: "Smart DoorLock with Facial Recognition",
+    title: "Access Control with Facial Recognition",
     stack: [
       { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
-      { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
+      { tech: "Raspberry Pi", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
       { tech: "Git", tailwindColor: "#089d37", textColor: "#0F0F0F" },
-      { tech: "GitHub", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "AI", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
     ],
-    desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
+    desc: "A Raspberry Pi 4–based real-time facial recognition access system using an infrared camera and custom-trained ML model. It controls hardware via GPIO (servo motor, LEDs) to grant access, showcasing skills in Python, computer vision, IoT, and embedded systems with modular, maintainable architecture.",
     link: "https://github.com/lamsq/gp",
   },
   {
