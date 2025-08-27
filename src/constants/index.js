@@ -248,8 +248,8 @@ export const experiences = [
     stack: [
       { tech: "React", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
       { tech: "ThreeJS", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
-      { tech: "Tailwind", tailwindColor: "#089d37", textColor: "#0F0F0F" },
-      { tech: "Git", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "Tailwind", tailwindColor: "#F0F0F0", textColor: "#0F0F0F" }, // Or map to an existing tech color
+      { tech: "Git", tailwindColor: "#035E7B" }, // Use the named color
     ],
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
     link: "https://github.com/Vladicki/cv",
@@ -257,10 +257,9 @@ export const experiences = [
   {
     title: "Go game writen on Python ",
     stack: [
-      { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "Python", tailwindColor: "#f8c325", textColor: "#0F0F0F" }, // Use the named color
       { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
-      { tech: "Git", tailwindColor: "#089d37", textColor: "#0F0F0F" },
-      { tech: "GitHub", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "GitHub", tailwindColor: "#800020" }, // Use the named color
     ],
     desc: "Led the end-to-end development of a fully interactive Go game using Python and Qt6. Designed scalable OOP architecture, implemented responsive UI, and integrated robust scoring logic. Collaborated via Git for version control.",
     link: "https://github.com/Vladicki/Go_game_Python",
@@ -268,24 +267,25 @@ export const experiences = [
   {
     title: "Access Control with Facial Recognition",
     stack: [
-      { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "Python", tailwindColor: "#e3b52d", textColor: "#0F0F0F" }, // Use the named color
       { tech: "Raspberry Pi", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
-      { tech: "Git", tailwindColor: "#089d37", textColor: "#0F0F0F" },
-      { tech: "AI", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "Git", tailwindColor: "#035E7B" },
+      { tech: "AI", tailwindColor: "#800020" }, // Use the named color
     ],
     desc: "A Raspberry Pi 4–based real-time facial recognition access system using an infrared camera and custom-trained ML model. It controls hardware via GPIO (servo motor, LEDs) to grant access, showcasing skills in Python, computer vision, IoT, and embedded systems with modular, maintainable architecture.",
     link: "https://github.com/lamsq/gp",
   },
   {
-    title: "Marvin McKinney",
+    title: "CV Builder",
     stack: [
-      { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
-      { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
-      { tech: "Git", tailwindColor: "#089d37", textColor: "#0F0F0F" },
-      { tech: "GitHub", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "React+Vite", tailwindColor: "#721f9c" }, // Use the named color
+      { tech: "MongoDB", tailwindColor: "#023530" }, // Or map to an existing tech color
+      { tech: "Tailwind", tailwindColor: "#F0F0F0", textColor: "#0F0F0F" }, // Or map to an existing tech color
+      { tech: "Node", tailwindColor: "#089d37", textColor: "#0F0F0F" },
+      { tech: "GitHub", tailwindColor: "#800020" }, // Use the named color
     ],
 
-    desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
+    desc: "A full-stack web app for creating and managing CVs, built with React, Node.js, Express.js, and MongoDB. It features a responsive frontend, RESTful API, and secure backend hosted on Heroku. Showcases skills in full-stack development, database design, scalable backend architecture, and modern UI/UX.",
   },
   {
     title: "Floyd Miles",

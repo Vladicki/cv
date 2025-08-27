@@ -31,10 +31,14 @@ export default {
     "text-white-50", // Your fallback text color (assuming white-50 is defined in theme.extend.colors)
 
     // Safelist all unique hex codes that appear in your `tech` and `experiences` data
+    "bg-[#035E7B]",
+    "bg-[#800020]",
+    "bg-[#f34421]",
+    "bg-[#721f9c]",
     "bg-[#00d5f6]", // tech-react-blue
     "bg-[#009cf7]", // tech-docker-blue
     "bg-[#F0F0F0]", // tech-tailwind, tech-css-gray
-    "bg-[#f8c325]", // tech-python-yellow
+    "bg-[#e3b52d]", // tech-python-yellow
     "bg-[#f73c1c]", // tech-html-red, tech-git-red
     "bg-[#f18615]", // tech-js-orange
     "bg-[#373737]", // tech-github-dark

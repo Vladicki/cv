@@ -35,8 +35,6 @@ const GlowCard = ({ card, index, children }) => {
             onMouseMove={handleMouseMove} // Attach mouse move to the <a> tag
             // Apply all the styling classes to the <a> tag
             className="card card-border timeline-card rounded-xl p-10 mb-5 break-inside-avoid-column block relative"
-        // `block` is important for <a> to behave like a div for layout/sizing
-        // `relative` is important for the glow to be positioned correctly within it
         >
             <div className="glow"></div> {/* Glow effect */}
 
