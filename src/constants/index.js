@@ -249,7 +249,7 @@ export const experiences = [
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
   {
-    title: "Python-Go",
+    title: "Go game writen on Python ",
     stack: [
       { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
       { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
@@ -257,25 +257,48 @@ export const experiences = [
       { tech: "GitHub", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
     ],
     desc: "Led the end-to-end development of a fully interactive Go game using Python and Qt6. Designed scalable OOP architecture, implemented responsive UI, and integrated robust scoring logic. Collaborated via Git for version control.",
+    link: "https://github.com/Vladicki/Go_game_Python",
   },
   {
-    title: "Guy Hawkins",
-    stack: ["@guyhawkins"],
+    title: "Smart DoorLock with Facial Recognition",
+    stack: [
+      { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
+      { tech: "Git", tailwindColor: "#089d37", textColor: "#0F0F0F" },
+      { tech: "GitHub", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
+    ],
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
+    link: "https://github.com/lamsq/gp",
   },
   {
     title: "Marvin McKinney",
-    stack: ["@marvinmckinney"],
+    stack: [
+      { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
+      { tech: "Git", tailwindColor: "#089d37", textColor: "#0F0F0F" },
+      { tech: "GitHub", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
+    ],
+
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
   {
     title: "Floyd Miles",
-    stack: ["@floydmiles"],
+    stack: [
+      { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
+      { tech: "Git", tailwindColor: "#089d37", textColor: "#0F0F0F" },
+      { tech: "GitHub", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
+    ],
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
   {
     title: "Albert Flores",
-    stack: ["@albertflores"],
+    stack: [
+      { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
+      { tech: "Git", tailwindColor: "#089d37", textColor: "#0F0F0F" },
+      { tech: "GitHub", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
+    ],
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
 ];
@@ -300,7 +323,7 @@ export const expCards = [
     title: "DevOps & Cybersecurity Enthusiast",
     date: "2024 – 2025",
     responsibilities: [
-      "Administered Linux-based systems (Arch + Hyprland), optimizing performance and security.",
+      "Administered Linux-based systems Arch, optimizing performance and security.",
       "Implemented GPU switching (AMD iGPU + NVIDIA dGPU) to improve power efficiency and workflows.",
       "Initiated DevOps practices, learning containerization, process monitoring, and automation.",
       "Explored cybersecurity fundamentals, including networking, encryption, and system hardening.",
@@ -313,10 +336,10 @@ export const expCards = [
     title: "Freelance Full Stack / Creative Developer",
     date: "2024 – 2025",
     responsibilities: [
-      "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP with advanced animations and modular architecture.",
       "Designed responsive UI with Tailwind CSS, ensuring cross-device optimization and seamless user experiences.",
       "Integrated 3D models, lighting, and motion design that achieved an Awwwards-level portfolio standard.",
       "Managed version control with Git/GitHub, enforcing best practices in commits and branching strategies.",
+      "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP with advanced animations and modular architecture.",
     ],
   },
 ];

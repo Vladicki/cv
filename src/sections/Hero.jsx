@@ -38,7 +38,7 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
                 <header className="flex flex-col xl:flex-row md:justify-between md:items-start md:w-full w-screen xl:mt-20 mt-2 md:px-20 px-5 gap-y-7 md:gap-x-20">
                     <div className="flex flex-col gap-7">
                         <div className="hero-text">
-                            <h1>Vladislav Iurev</h1>
+                            <h1>Iurev Vladislav </h1>
                             <h1>Software Developer</h1>
                             <h1>
                                 Proficient with
