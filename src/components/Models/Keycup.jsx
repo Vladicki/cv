@@ -172,7 +172,7 @@ export const Keycup = React.forwardRef(function Keycup({
                     duration: 0.3, // Smooth animation duration.
                     ease: "power2.out" // Easing function for a natural feel.
                 });
-                console.log('Keycup scaled (Hero, GSAP scale):', text);
+                // console.log('Keycup scaled (Hero, GSAP scale):', text);
             } else {
                 console.warn("meshRef.current is not available for Hero scale animation.");
             }
@@ -216,8 +216,6 @@ export const Keycup = React.forwardRef(function Keycup({
                         duration: 0.3, // Slower drop down
                         ease: "power2.out" // or "bounce.out" for a springy effect
                     }, ">0.1"); // Start this tween 0.1 seconds after the previous tweens complete
-                // The .to for rotation has been removed, so both Y and Z rotations will now persist.
-                console.log('Keycup elevated, rotated (Y & Z-axis, persistent), and returned (position) (Numpad, GSAP animation played):', text);
             } else {
                 console.warn("groupAnimRef.current is not available for Numpad click animation.");
             }

@@ -108,7 +108,7 @@ canvas {
 @media (max-width: 768px) {
     .skills-3d {
         /* Make it even smaller for mobile */
-        height: 80vh;
+        height: 100vh;
         top: 0; /* Or a small positive value to give some space at the top */
     }
 }

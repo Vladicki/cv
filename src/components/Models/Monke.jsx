@@ -15,4 +15,4 @@ export function Monke(props) {
     )
 }
 
-useGLTF.preload('/monke.glb')
+useGLTF.preload('models/monke.glb')
