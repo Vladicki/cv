@@ -257,7 +257,7 @@ export const experiences = [
   {
     title: "Go game writen on Python ",
     stack: [
-      { tech: "Python", tailwindColor: "#f8c325", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "Python", tailwindColor: "#e3b52d", textColor: "#0F0F0F" }, // Use the named color
       { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
       { tech: "GitHub", tailwindColor: "#800020" }, // Use the named color
     ],

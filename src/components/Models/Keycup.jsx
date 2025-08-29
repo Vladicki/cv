@@ -160,7 +160,7 @@ export const Keycup = React.forwardRef(function Keycup({
             if (meshRef.current) {
                 // Determine target scale based on the current scale to toggle between two states.
                 const currentScaleX = meshRef.current.scale.x;
-                const targetScaleFactor = currentScaleX > 1.3 ? 1.233 : 1.5; // Toggle between default and enlarged.
+                const targetScaleFactor = currentScaleX > 1.3 ? 1.233 : Math.random() * 1.3 + 1.2; // Toggle between default and enlarged.
                 // Y-scale remains constant for this animation.
                 const targetScaleY = 0.73;
 
