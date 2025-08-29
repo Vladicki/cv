@@ -108,7 +108,7 @@ const Numpad = ({ setTechDescription, pointerOutTimeoutRef }) => {
             camera={{
                 position: NUMPAD_CAMERA_POSITION,
                 rotation: new THREE.Euler(...NUMPAD_CAMERA_ROTATION_EULER),
-                fov: isTablet ? 60 : 45,
+                fov: isTablet ? 60 : isMobile ? 70 : 50,
             }}
         >
 
