@@ -211,7 +211,7 @@ canvas {
     }
 
     .timeline {
-        @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 bg-black-10;
+        @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 xl:bg-black-10 bg-transparent;
     }
 
     .timeline-logo {
