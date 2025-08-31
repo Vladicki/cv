@@ -270,7 +270,7 @@ export const experiences = [
       { tech: "Python", tailwindColor: "#e3b52d", textColor: "#0F0F0F" }, // Use the named color
       { tech: "Raspberry Pi", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
       { tech: "Git", tailwindColor: "#035E7B" },
-      { tech: "AI", tailwindColor: "#800020" }, // Use the named color
+      { tech: "AI", tailwindColor: "#800020" },
     ],
     desc: "A Raspberry Pi 4–based real-time facial recognition access system using an infrared camera and custom-trained ML model. It controls hardware via GPIO (servo motor, LEDs) to grant access, showcasing skills in Python, computer vision, IoT, and embedded systems with modular, maintainable architecture.",
     link: "https://github.com/lamsq/gp",
@@ -281,8 +281,8 @@ export const experiences = [
       { tech: "React+Vite", tailwindColor: "#721f9c" }, // Use the named color
       { tech: "MongoDB", tailwindColor: "#023530" }, // Or map to an existing tech color
       { tech: "Tailwind", tailwindColor: "#F0F0F0", textColor: "#0F0F0F" }, // Or map to an existing tech color
-      { tech: "Node", tailwindColor: "#089d37", textColor: "#0F0F0F" },
-      { tech: "GitHub", tailwindColor: "#800020" }, // Use the named color
+      { tech: "Node", tailwindColor: "#2e6ce6", textColor: "#000000" },
+      { tech: "GitHub", tailwindColor: "#800020" },
     ],
 
     desc: "A full-stack web app for creating and managing CVs, built with React, Node.js, Express.js, and MongoDB. It features a responsive frontend, RESTful API, and secure backend hosted on Heroku. Showcases skills in full-stack development, database design, scalable backend architecture, and modern UI/UX.",
@@ -291,21 +291,22 @@ export const experiences = [
     title: "OCR clipboard tool",
     stack: [
       { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
-      { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
-      { tech: "Git", tailwindColor: "#089d37", textColor: "#0F0F0F" },
-      { tech: "GitHub", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "Machine Learning", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
+      { tech: "Git", tailwindColor: "#035E7B" },
+      { tech: "AI", tailwindColor: "#800020" },
     ],
-    desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
+    desc: "An OCR-powered clipboard tool built with Python and AI/ML techniques. Extracts text from images and automatically copies it to the clipboard, showcasing skills in machine learning, image processing, Python automation, and rapid workflow enhancement.",
+    link: "https://github.com/Vladicki/OCR-clipboard",
   },
   {
     title: "Donut",
     stack: [
       { tech: "Go", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
-      { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
-      { tech: "Git", tailwindColor: "#089d37", textColor: "#0F0F0F" },
-      { tech: "GitHub", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "Math", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
+      { tech: "GitHub", tailwindColor: "#800020" },
     ],
-    desc: "it spins",
+    desc: "A mesmerizing ASCII 3D spinning donut animation implemented in Go. Features real-time Y-axis rotation, luminance-based shading, and terminal rendering. Demonstrates skills in 3D math, perspective projection, algorithmic thinking, and minimalist cross-platform Go programming.",
+    link: "https://github.com/Vladicki/asciiDonut",
   },
 ];
 
