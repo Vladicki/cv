@@ -95,24 +95,30 @@ const App = () => {
             {/* Only render the main application content once all assets are loaded
                 and the loading overlay has begun its fade-out animation. */}
             {finishedLoading && (
-                <div className="relative z-0"> {/* z-0 ensures this content is behind the loading overlay initially */}
-                    <NavBar />
-                    <Hero
-                        techDescription={techDescription}
-                        setTechDescription={setTechDescription}
-                        pointerOutTimeoutRef={pointerOutTimeoutRef}
-                    />
-                    {/* <ShowcaseSection /> */}
-                    <Cards />
-                    <Experience />
-                    <Skills
-                        techDescription={techDescription}
-                        setTechDescription={setTechDescription}
-                        pointerOutTimeoutRef={pointerOutTimeoutRef}
-                    />
-                    <Contact />
-                    <Footer />
-                </div>
+                <>
+                    {/* <div className="fixed inset-0 -z-10 bg-[#0F0F0F] bg-glow" /> */}
+                    <div className="fixed inset-0 z-0 bg-multi-glow"></div>
+
+
+                    <div className="relative z-0"> {/* z-0 ensures this content is behind the loading overlay initially */}
+                        <NavBar />
+                        <Hero
+                            techDescription={techDescription}
+                            setTechDescription={setTechDescription}
+                            pointerOutTimeoutRef={pointerOutTimeoutRef}
+                        />
+                        {/* <ShowcaseSection /> */}
+                        <Cards />
+                        <Experience />
+                        <Skills
+                            techDescription={techDescription}
+                            setTechDescription={setTechDescription}
+                            pointerOutTimeoutRef={pointerOutTimeoutRef}
+                        />
+                        <Contact />
+                        <Footer />
+                    </div>
+                </>
             )}
         </>
     );

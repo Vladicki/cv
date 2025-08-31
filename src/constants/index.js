@@ -176,7 +176,7 @@ export const tech = [
     heroRotation: [Math.PI / 8, Math.PI / 4, Math.PI / 4],
     position: [-2, 1.3, 1],
     padPosition: [-3, 0, -2],
-    color: "#960300",
+    color: "#960200",
     description: "Java, why uni dont teach Python?",
   },
 ];

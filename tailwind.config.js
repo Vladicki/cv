@@ -9,6 +9,9 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      backgroundImage: {
+        glow: "radial-gradient(ellipse at center, rgba(99,102,241,0.15) 0%, transparent 70%)",
+      },
       // Define your custom colors here. These will be the base colors.
       // You'll then use the 'dark:' prefix to change them in dark mode.
       colors: {
