@@ -288,7 +288,7 @@ export const experiences = [
     desc: "A full-stack web app for creating and managing CVs, built with React, Node.js, Express.js, and MongoDB. It features a responsive frontend, RESTful API, and secure backend hosted on Heroku. Showcases skills in full-stack development, database design, scalable backend architecture, and modern UI/UX.",
   },
   {
-    title: "Floyd Miles",
+    title: "OCR clipboard tool",
     stack: [
       { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
       { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
@@ -298,14 +298,14 @@ export const experiences = [
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
   },
   {
-    title: "Albert Flores",
+    title: "Donut",
     stack: [
-      { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "Go", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
       { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
       { tech: "Git", tailwindColor: "#089d37", textColor: "#0F0F0F" },
       { tech: "GitHub", tailwindColor: "#f19733", textColor: "#0F0F0F" }, // Use the named color
     ],
-    desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
+    desc: "it spins",
   },
 ];
 
