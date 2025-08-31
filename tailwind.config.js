@@ -45,11 +45,8 @@ export default {
     "bg-[#f73c1c]", // tech-html-red, tech-git-red
     "bg-[#f18615]", // tech-js-orange
     "bg-[#373737]", // tech-github-dark
-    "bg-[#7fd03e]", // tech-postgresql-green
     "bg-[#023530]", // tech-mongodb-green
     "bg-[#2e6ce6]", // tech-kubernetes-blue, tech-go-blue
-    "bg-[#089d37]", // tech-neovim-green, tech-threejs-green
-    "bg-[#f19733]", // tech-java-orange, tech-node-orange (and from your experiences.stack)
     "bg-[#f19733]", // tech-java-orange, tech-node-orange (and from your experiences.stack)
     "bg-[#000000]", // If you have a direct black hex not covered by black-200
   ],
