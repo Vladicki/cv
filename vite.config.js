@@ -6,9 +6,6 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    allowedHosts: [
-      "https://multiple-increase-output-august.trycloudflare.com",
-      "reaching-southwest-speakers-partial.trycloudflare.com",
-    ], // testing Cloudflare tunnel host here
+    allowedHosts: ["https://cv.vlad-yurev-06.workers.dev/", "vladika.net"], // testing Cloudflare tunnel host here
   },
 });
