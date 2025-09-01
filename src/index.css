@@ -6,8 +6,8 @@
 }
 
 .bg-multi-glow {
-  background: radial-gradient(600px circle at 10% 30%, rgba(99,102,241,0.15), transparent 70%),
-              radial-gradient(760px circle at 83% 80%, rgba(236,72,153,0.15), transparent 70%),
+  background: radial-gradient(40vw circle at 10% 30%, rgba(99,102,241,0.15), transparent 70%),
+              radial-gradient(60vw circle at 83% 80%, rgba(217, 35, 125,0.15), transparent 70%),
               #0F0F0F;
 }
 html,
@@ -211,7 +211,7 @@ canvas {
     }
 
     .timeline {
-        @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 xl:bg-black-10 bg-transparent;
+        @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 bg-black-10; 
     }
 
     .timeline-logo {
