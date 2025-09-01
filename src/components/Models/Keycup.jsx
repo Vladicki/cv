@@ -267,7 +267,7 @@ export const Keycup = React.forwardRef(function Keycup({
                         map={decalTexture}
                         flatShading
                     />
-                    {!(sceneType === 'hero' && isMobile) && (
+                    {!(isMobile) && (
                         <Edges
                             linewidth={4}
                             scale={1}
