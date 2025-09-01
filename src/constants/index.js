@@ -181,7 +181,7 @@ export const tech = [
   },
 ];
 export const quotes = [
-  "If only there were an employee",
+  "If only there were an employer",
   "God, the WORK, sounds good",
   "If only they knew how good my promts are",
   "Should've said i use Arch",
@@ -194,6 +194,16 @@ export const quotes = [
   "*Outch*",
   "*Please, stop clicking me*",
   "*Blinks*",
+  "404: API not found",
+  "Keyboard not responding, press any key harder",
+  "StackOverflow called, they want their answers back",
+  "Commit message: 'final_final_v2_really_final'",
+  "Pseudocode is just code with commitment issues",
+  "Press F to debug",
+  "Can’t spell bug without u",
+  "I’d relocate… if someone hired me first",
+  "Current position: Unemployed Engineer",
+  "Can’t get ghosted if you never get a reply",
 ];
 
 export const navLinks = [
