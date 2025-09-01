@@ -68,8 +68,7 @@ canvas {
     }
 
     .text-box {
-
-    @apply border-6 md:border-8 border-white z-10 h-30 2xl:h-50 md:h-50 w-full lg:w-2/5 md:w-1/2 sm:w-full bg-black flex items-center justify-center mb-4;
+    @apply border-6 md:border-8 border-white z-10 h-30 2xl:h-50 md:h-50 w-full xl:w-2/5 md:w-1/2 bg-black flex items-center justify-center mb-4;
         background-color: rgba(0, 0, 0, 0.5);
         font-family:pixel operator;
     }
@@ -80,7 +79,7 @@ canvas {
 
 
     .hero-text {
-        @apply flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10 pointer-events-none;
+        @apply flex flex-col justify-center xl:text-[60px] md:text-[40px] text-[30px] font-semibold relative z-10 pointer-events-none;
 
         img {
             @apply size-8 md:size-10 object-contain;
@@ -91,7 +90,7 @@ canvas {
         }
     }
     .hero-3d-layout {
-        @apply xl:w-[100%] w-full h-full min-h-[30vh] absolute xl:-top-20 right-0;
+        @apply xl:w-[100%] w-full h-full min-h-[30vh] absolute xl:-top-20 mt-40 md:mt-0 right-0;
         /* top-24  */
     }
 
