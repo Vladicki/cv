@@ -5,7 +5,6 @@ import { Monke } from '../components/Models/Monke';
 import { Plane } from '../components/Models/Paper_plane.jsx'; // Assuming you have PaperPlane.jsx
 import { Knot } from '../components/Models/Knot';         // Assuming you have Knot.jsx
 import { Donut } from '../components/Models/Donut';         // Assuming you have Donut.jsx
-import * as THREE from 'three'; // Import THREE for any material adjustments
 
 // Define a list of your models
 const models = [

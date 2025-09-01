@@ -4,10 +4,11 @@ Command: npx gltfjsx@6.5.3 keycup.glb
 */
 
 import * as THREE from 'three'
-import React, { forwardRef, useMemo, useState, useEffect, useRef } from 'react'
+import React, { useMemo, useState, useEffect, useRef } from 'react'
 import { Edges, useCursor, useGLTF } from '@react-three/drei'
 import { Decal, Float, useTexture } from '@react-three/drei'
 import gsap from 'gsap';
+import { useResponsiveFlags } from "../../constants/mediaQuery";
 
 
 export const Keycup = React.forwardRef(function Keycup({
@@ -19,11 +20,13 @@ export const Keycup = React.forwardRef(function Keycup({
     ...props
 }, ref) {
     const color = props.color || '#ffffff'
-    const { imgURL, setTechDescription, text, techDesc, } = props;
+    const { imgURL, setTechDescription, techDesc, } = props;
 
     const [decalTexture] = useTexture([imgURL]);
     // Removed 'animations' from destructuring useGLTF as we're now using GSAP for these specific animations.
-    const { nodes, materials } = useGLTF('models/keycup.glb');
+    const { nodes } = useGLTF('models/keycup.glb');
+
+    const { isMobile } = useResponsiveFlags();
 
     // groupAnimRef will be used for the numpad press animation (animating the overall group's position).
     // This is also the ref that the parent component will receive via useImperativeHandle.
@@ -280,12 +283,14 @@ export const Keycup = React.forwardRef(function Keycup({
                         map={decalTexture}
                         flatShading
                     />
-                    <Edges
-                        linewidth={4}
-                        scale={1}
-                        threshold={16} // Display edges only when the angle between two faces exceeds this value (default=15 degrees)
-                        color="#0f0f0f"
-                    />
+                    {!(sceneType === 'hero' && isMobile) && (
+                        <Edges
+                            linewidth={4}
+                            scale={1}
+                            threshold={16} // Display edges only when the angle between two faces exceeds this value (default=15 degrees)
+                            color="#0f0f0f"
+                        />
+                    )}
 
                 </mesh>
             </Float>

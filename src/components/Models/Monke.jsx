@@ -7,7 +7,7 @@ import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Monke(props) {
-    const { nodes, materials } = useGLTF('/models/monke.glb')
+    const { nodes } = useGLTF('/models/monke.glb')
     return (
         <group {...props} dispose={null}>
             <mesh geometry={nodes.Suzanne.geometry} material={nodes.Suzanne.material} />

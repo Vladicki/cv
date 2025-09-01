@@ -1,30 +1,9 @@
-import { useGSAP } from "@gsap/react"
 import { navLinks } from "../constants"
-import gsap from 'gsap'
 import { useState } from "react";
 import { useEffect } from "react";
 
 const NavBar = () => {
 
-
-    // useGSAP(() => {
-    //     // gsap.fromTo('.hero-text h1',
-    //     gsap.fromTo('.navbar',
-    //         {
-    //             y: 0,
-    //             opacity: 0,
-    //         },
-    //         {
-    //             opacity: 1,
-    //             y: 25,
-    //             duration: 1,
-    //             ease: 'power1.inOut'
-    //
-    //         },
-    //     )
-    //
-    // }, [])
-    // track if the user has scrolled down the page
     const [scrolled, setScrolled] = useState(false);
     useEffect(() => {
         // create an event listener for when the user scrolls

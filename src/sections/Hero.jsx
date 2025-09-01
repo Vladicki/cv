@@ -1,17 +1,14 @@
 // This component now receives props from a parent component (e.g., App.js)
-import { useState, useRef, useEffect } from "react"
+import { useEffect } from "react"
 import Button from "../components/Button"
 import { tech } from "../constants"
 import HeroExperience from "./HeroExperience"
-import { useGSAP } from "@gsap/react"
 import gsap from 'gsap'
 import PixelBox from "../components/PixelBox"
 
 // NEW: Hero now accepts props for state and refs
 const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => {
     // ThetextRef is still local to this component as it's not shared
-    const textRef = useRef(null);
-
     useEffect(() => {
         gsap.to(".wrapper", {
             y: "-100%",             // scroll through the full height
