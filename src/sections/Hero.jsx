@@ -12,22 +12,14 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
     // ThetextRef is still local to this component as it's not shared
     const textRef = useRef(null);
 
-    useGSAP(() => {
-        // Existing animation for h1 elements
-        gsap.fromTo('.hero-text h1',
-            {
-                y: 25,
-                opacity: 0,
-            },
-            {
-                opacity: 1,
-                y: 0,
-                stagger: 0.1,
-                duration: 1,
-                ease: 'power1.inOut'
-            },
-        )
-    })
+    useEffect(() => {
+        gsap.to(".wrapper", {
+            y: "-100%",             // scroll through the full height
+            duration: 20,           // adjust speed (higher = slower)
+            ease: "none",           // no easing, linear motion
+            repeat: -1,             // loop forever
+        });
+    }, []);
 
     return (
         <section id="hero" className="relative overflow-hidden">

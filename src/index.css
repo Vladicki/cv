@@ -295,53 +295,15 @@ canvas {
     }
 }
 
-/* Hero text slider starts */
 .slide {
-    display: inline-block;
-    flex-direction: column;
-    transition: all cubic-bezier(0.71, 0.03, 0.34, 1);
+  display: inline-block;
+  overflow: hidden; /* important: hides overflowing text */
 }
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    animation: wordSlider 36s infinite cubic-bezier(0.9, 0.01, 0.3, 0.99);
+  display: flex;
+  flex-direction: column;
 }
-
-@keyframes wordSlider {
-    0% {
-        transform: translateY(0.5%);
-    }
-
-    12.5% {
-        transform: translateY(-12.5%);
-    }
-
-    25% {
-        transform: translateY(-25%);
-    }
-
-    37.5% {
-        transform: translateY(-37.5%);
-    }
-
-    50% {
-        transform: translateY(-50%);
-    }
-
-    62.5% {
-        transform: translateY(-62.5%);
-    }
-
-    75% {
-        transform: translateY(-75%);
-    }
-
-    87.5% {
-        transform: translateY(-87.5%);
-    }
-}
-
 /* Hero Text slider ends */
 
 .gradient-line {

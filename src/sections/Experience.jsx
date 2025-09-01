@@ -116,7 +116,10 @@ const Experience = () => {
                                         <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
                                             {/* This timeline-logo is separate from GlowCard's image */}
                                             <div className="timeline-logo">
-                                                {card.logoPath && <img src={card.logoPath} alt="logo" />}
+                                                {card.logoPath && <img src={card.logoPath}
+                                                    alt="logo"
+                                                    style={{ transform: `scale(${card.logoScale})` }}
+                                                />}
                                             </div>
                                             <div>
                                                 <h1 className="font-semibold text-3xl">{card.name}</h1>
