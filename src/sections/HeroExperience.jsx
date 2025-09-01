@@ -27,8 +27,8 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
 
     return (
         <Canvas gl={{ alpha: true }} camera={{
-            position: isMidScreen ? [0, 0, 13] : isTablet ? [0, 0, 15] : isMobile ? [0, 0, 20] : [0, 0, 11],
-            fov: isMidScreen ? 50 : isTablet ? 55 : isMobile ? 60 : 45
+            position: isMidScreen ? [0, 0, 13] : isTablet ? [0, 0, 15] : isMobile ? [0, 0, 25] : [0, 0, 11],
+            fov: isMidScreen ? 50 : isTablet ? 55 : isMobile ? 150 : 45
         }}>
 
             {/* Replaced HeroLights with a standard lighting setup */}
@@ -40,7 +40,7 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
                 scale={isTablet ? 0.85 : isMobile ? 0.7 : 1}
                 position={[0, -0.7, 0]}
             >
-                <Head ref={headRef} scale={1.2} position={[0, .15, 1]}
+                <Head ref={headRef} scale={isMobile ? 1.35 : 1.2} position={[0, .15, 1]}
                     setTechDescription={setTechDescription}
                     pointerOutTimeoutRef={pointerOutTimeoutRef}
                 />
@@ -52,7 +52,7 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
                         imgURL={techItem.imgPathPNG}
                         color={techItem.color}
                         position={techItem.position}
-                        scale={0.2}
+                        scale={isMobile ? 0.28 : 0.2}
                         rotation={techItem.heroRotation}
                         setTechDescription={setTechDescription}
                         techDesc={techItem.description}

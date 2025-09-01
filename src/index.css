@@ -68,7 +68,7 @@ canvas {
     }
 
     .text-box {
-    @apply border-6 md:border-8 border-white z-10 h-30 2xl:h-50 md:h-50 w-full xl:w-2/5 md:w-1/2 bg-black flex items-center justify-center mb-4;
+    @apply border-6 md:border-8 border-white px-4 md:px-8 z-10 h-30 2xl:h-50 md:h-50 w-full xl:w-2/5 md:w-1/2 bg-black flex items-center justify-center mb-4;
         background-color: rgba(0, 0, 0, 0.5);
         font-family:pixel operator;
     }
@@ -112,12 +112,12 @@ canvas {
 @media (max-width: 768px) {
     .skills-3d {
         /* Make it even smaller for mobile */
-        height: 100vh;
+        height: 90vh;
         top: 0; /* Or a small positive value to give some space at the top */
     }
 }
-  .hero-badge {
-    @apply bg-black-200 py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
+  .hero-badge10{
+    @apply bg-black-200 py-2 px-4 rounded-full  w-fit text-sm md:text-base text-nowrap;
   }
 
       .hint-badge {
