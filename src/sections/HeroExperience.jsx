@@ -11,10 +11,7 @@ import { useResponsiveFlags } from "../constants/mediaQuery";
 
 
 const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
-    // const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
-    // const isMidScreen = useMediaQuery({ query: '(max-width: 1500px)' });
-    // const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-    const { isTablet, isMidScreen, isMobile } = useResponsiveFlags();
+    const { isTablet, isMidScreen, isMobile, isSmall } = useResponsiveFlags();
 
     const keycupRefs = useRef({});
     const headRef = useRef();
@@ -28,7 +25,7 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
     return (
         <Canvas gl={{ alpha: true }} camera={{
             position: isMidScreen ? [0, 0, 13] : isTablet ? [0, 0, 15] : isMobile ? [0, 0, 25] : [0, 0, 11],
-            fov: isMidScreen ? 50 : isTablet ? 55 : isMobile ? 150 : 45
+            fov: isMidScreen ? 50 : isTablet ? 55 : 45
         }}>
 
             {/* Replaced HeroLights with a standard lighting setup */}
@@ -37,7 +34,7 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
             <ambientLight intensity={2} />
 
             <group
-                scale={isTablet ? 0.85 : isMobile ? 0.7 : 1}
+                scale={isSmall ? 0.7 : isMobile ? 0.8 : isTablet ? 0.85 : 1}
                 position={[0, -0.7, 0]}
             >
                 <Head ref={headRef} scale={isMobile ? 1.35 : 1.2} position={[0, .15, 1]}

@@ -9,10 +9,12 @@ export const useResponsiveFlags = () => {
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
   const isMidScreen = useMediaQuery({ query: "(max-width: 1500px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isSmall = useMediaQuery({ query: "(max-width: 600px)" });
 
   return {
     isTablet,
     isMidScreen,
     isMobile,
+    isSmall,
   };
 };
