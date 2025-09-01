@@ -4,13 +4,11 @@ import { useGLTF, useTexture } from '@react-three/drei'; // For preloading utili
 
 import NavBar from './components/NavBar.jsx';
 import Hero from './sections/Hero.jsx';
-// import ShowcaseSection from './sections/ShowcaseSection.jsx'; // Currently commented out
 import Cards from './sections/Cards.jsx';
 import Skills from './sections/Skills.jsx';
-import { Footer } from './components/Footer.jsx';
+import Footer from './components/Footer.jsx';
 import Experience from './sections/Experience.jsx';
 import Contact from './sections/Contact.jsx';
-
 import LoadingOverlay from './components/LoadingOverlay'; // Import your new loader component
 
 
