@@ -57,7 +57,7 @@ export const tech = [
     position: [-3, 1.8, 5],
     padPosition: [-3, 0, 0],
     color: "#f18615",
-    description: "Its JavaScript description",
+    description: "Its JavaScript",
   },
   {
     text: "Linux",
@@ -200,22 +200,27 @@ export const navLinks = [
   {
     name: "Experience",
     link: "#Experience",
+    isExternal: false,
   },
   {
     name: "Work",
     link: "#work",
+    isExternal: false,
   },
   {
     name: "Skills",
     link: "#Skills",
+    isExternal: false,
   },
   {
     name: "GitHub",
     link: "https://github.com/Vladicki",
+    isExternal: true,
   },
   {
     name: "CV",
-    link: "https://github.com/Vladicki",
+    link: "vlad_cv.pdf",
+    isExternal: true,
   },
 ];
 
@@ -238,7 +243,7 @@ export const socialImgs = [
   {
     name: "CV",
     imgPath: "/socials/cv.png",
-    link: "https://www.linkedin.com/in/vladislav-iurev-314415253/",
+    link: "vlad_cv.pdf",
   },
 ];
 
