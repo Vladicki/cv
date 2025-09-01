@@ -79,7 +79,7 @@ canvas {
 
 
     .hero-text {
-        @apply flex flex-col justify-center xl:text-[60px] md:text-[40px] text-[40px] font-semibold relative z-10 pointer-events-none;
+        @apply flex flex-col justify-center xl:text-[60px] md:text-[40px] text-[30px] font-semibold relative z-10 pointer-events-none;
 
         img {
             @apply size-8 md:size-10 object-contain;
