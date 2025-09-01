@@ -12,7 +12,7 @@ const PixelBox = ({ techDescription }) => {
             const audio = new Audio('/dialog.mp3');
             audio.loop = true;
             // Set a low volume to not overpower the click sounds
-            audio.volume = 0.15;
+            audio.volume = 0.3;
             dialogAudioRef.current = audio;
         } catch (e) {
             console.error("Failed to create audio element for dialog:", e);
