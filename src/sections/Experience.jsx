@@ -16,8 +16,6 @@ const Experience = () => {
             // Animate the card coming in from the left
             // and fade in
             gsap.from(card, {
-                // Move the card in from the left
-                xPercent: -100,
                 // Make the card invisible at the start
                 opacity: 0,
                 // Set the origin of the animation to the left side of the card

@@ -38,8 +38,6 @@ export const Keycup = React.forwardRef(function Keycup({
     // hoverOutAnimationTimeoutRef to manage the delay for the hover out animation
     const hoverOutAnimationTimeoutRef = useRef(null);
 
-    const clickAudioRef = useRef(null);
-
     // useImperativeHandle makes the 'ref' prop passed from the parent point to this groupAnimRef.
     // This allows parents to access the group (e.g., for positioning).
     React.useImperativeHandle(ref, () => groupAnimRef.current);
@@ -82,17 +80,6 @@ export const Keycup = React.forwardRef(function Keycup({
         };
     }, [pointerOutTimeoutRef]);
 
-    // Create and load the audio object once when the component mounts
-    useEffect(() => {
-        // We use a try-catch block to handle potential browser issues with new Audio()
-        try {
-            const audio = new Audio('/click.mp3');
-            clickAudioRef.current = audio;
-        } catch (e) {
-            console.error("Failed to create audio element:", e);
-        }
-    }, []);
-
     /**
      * Handles the pointer entering a Keycup.
      * Displays the technical description and sets cursor state.
@@ -120,13 +107,6 @@ export const Keycup = React.forwardRef(function Keycup({
 
             // NEW: Hover effect for numpad - key goes down
             if (sceneType === 'numpad' && groupAnimRef.current) {
-                // Kill any ongoing tweens on this object to prevent conflicts with other animations
-                if (clickAudioRef.current) {
-                    clickAudioRef.current.currentTime = 0; // Reset audio to the start for quick re-play
-                    clickAudioRef.current.volume = 0.25; // Set volume to 50%
-                    clickAudioRef.current.play().catch(e => console.error("Audio playback failed:", e)); // Play and catch any errors
-                }
-
                 (window.gsap || gsap).killTweensOf(groupAnimRef.current.position);
                 (window.gsap || gsap).to(groupAnimRef.current.position, {
                     y: initialYRef.current + pressDepth, // Move down by pressDepth
@@ -174,11 +154,16 @@ export const Keycup = React.forwardRef(function Keycup({
      */
     const handleClick = (event) => {
         event.stopPropagation(); // Prevent the event from bubbling up.
-        if (clickAudioRef.current) {
-            clickAudioRef.current.currentTime = 0; // Reset audio to the start for quick re-play
-            clickAudioRef.current.volume = 0.15; // Set volume to 50%
-            clickAudioRef.current.play().catch(e => console.error("Audio playback failed:", e)); // Play and catch any errors
+        // NEW: Create and play the audio object directly on click.
+        try {
+            const audio = new Audio('/click.mp3');
+            audio.currentTime = 0; // Reset audio to the start for quick re-play
+            audio.volume = 0.15; // Set volume
+            audio.play().catch(e => console.error("Audio playback failed:", e)); // Play and catch any errors
+        } catch (e) {
+            console.error("Failed to create audio element on click:", e);
         }
+
         // --- Conditional Logic based on sceneType ---
         if (sceneType === 'hero') {
             // Animate scale smoothly for the 'hero' keycup using GSAP.
@@ -197,7 +182,6 @@ export const Keycup = React.forwardRef(function Keycup({
                     duration: 0.3, // Smooth animation duration.
                     ease: "power2.out" // Easing function for a natural feel.
                 });
-                // console.log('Keycup scaled (Hero, GSAP scale):', text);
             } else {
                 console.warn("meshRef.current is not available for Hero scale animation.");
             }
@@ -253,7 +237,7 @@ export const Keycup = React.forwardRef(function Keycup({
         // This group's position will be animated for the 'numpad' press effect.
         <group ref={groupAnimRef} {...props} dispose={null}>
             {/* The Float component's properties are now conditional based on sceneType.
-                It will only apply floating motion if sceneType is 'hero'. */}
+                 It will only apply floating motion if sceneType is 'hero'. */}
             <Float
                 speed={sceneType === 'hero' ? floatSpeed : 0}
                 rotationIntensity={sceneType === 'hero' ? floatRotationIntensity : 0}

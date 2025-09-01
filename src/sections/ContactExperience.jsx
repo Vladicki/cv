@@ -43,7 +43,7 @@ const ContactExperience = () => {
             <AsciiRenderer
                 renderIndex={1} // Helps ensure AsciiRenderer is rendered on top if multiple effects
                 characters={' .:-+*=%@#'} // Characters to use for the ASCII rendering
-                fgColor='white' // Foreground color of the ASCII characters
+                //fgColor='white' // Foreground color of the ASCII characters
                 // bgColor='bl' // Background color behind the ASCII characters
 
                 resolution={0.2} // Lower resolution = larger "pixels" (more chunky ASCII)
