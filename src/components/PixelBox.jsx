@@ -31,8 +31,6 @@ const PixelBox = ({ techDescription }) => {
 
         // If a description exists, start the animation and the sound
         if (techDescription) {
-            // Calculate the total duration of the animation based on stagger and number of characters
-            const totalAnimationDuration = chars.length * 0.05;
 
             // Start the looping dialog sound
             if (dialogAudioRef.current) {

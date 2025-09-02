@@ -11,8 +11,6 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
 
     const keycupRefs = useRef({});
     const headRef = useRef();
-    const mainTimeline = useRef(null);
-
 
     const getRef = (name) => (element) => {
         keycupRefs.current[name] = element;
@@ -55,7 +53,6 @@ const HeroExperience = ({ setTechDescription, pointerOutTimeoutRef }) => {
                         floatRotationIntensity={4}
                         floatFloatIntensity={3}
                         sceneType="hero"
-
                     />
                 ))}
             </group>

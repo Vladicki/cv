@@ -199,7 +199,7 @@ export const Keycup = React.forwardRef(function Keycup({
 
                 const initialY = initialYRef.current;
                 // Capture the current rotation components (THREE.Euler object)
-                const { y: currentRotationY, z: currentRotationZ } = groupAnimRef.current.rotation; // Get current Y and Z rotations
+                const { y: currentRotationY } = groupAnimRef.current.rotation; // Get current Y and Z rotations
 
                 const elevateAmount = 1;
                 const rotateAngle = Math.PI / 2; // 90 degrees in radians

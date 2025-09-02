@@ -3,7 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import { Keycup } from "../components/Models/Keycup";
 import { KeyboardBase } from "../components/Models/KeyboardBase.jsx";
 import { tech } from "../constants";
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect } from "react";
 import * as THREE from 'three';
 
 import gsap from "gsap";
