@@ -335,11 +335,12 @@ export const expCards = [
     title: "Talos IT SEO",
     date: "02-2024 – 08-2025",
     responsibilities: [
-      "Developed software to automate system administration tasks, reducing manual workload.",
-      "Participated in incident response, troubleshooting hardware, software, and network issues.",
-
-      "Automated repetitive workflows, CI/CD pipelines, and deployments to streamline development processes.",
-      "Maximized system efficiency through performance tuning, regular updates, and effective resource management.",
+      "Created software to automate system administration, saving 200+ man‑hours on a weekly base reducing manual workload and improving efficiency",
+      "Facilitated incident response by diagnosing and troubleshooting hardware, software issues.",
+      "Architected and implemented a scalable CI/CD pipelines using Kubernetes and Docker reducing deployment times by 40%",
+      "Maximized system efficiency through performance tuning and effective resource management.",
+      "Optimized AI prompts for automated testing, increasing test coverage reducing QA cycle by 35%",
+      "Wrote clean, efficient code in Python and Go to deliver scalable software solutions.",
     ],
   },
   {
@@ -350,9 +351,12 @@ export const expCards = [
     title: "Barry Denby Computing Programme Director ",
     date: "2022 – Present (2026)",
     responsibilities: [
-      "Learned core Java programming, mastering data structures, algorithms, and OOP principles.",
-      "Developed fundamental projects demonstrating problem-solving and clean code practices.",
-      "Gained exposure to databases, SQL queries, and full-stack development basics.",
+      "Mastered core programming with (Python, Java) data structures, algorithms, and OOP principles.",
+      "Gained exposure to databases and SQL query (MySQL, PostgreSQL)",
+      "Created full‑stack development projects with basics of (HTML, CSS, JS, and PHP or more practical tool‑set like; (React, Node, Express, MongoDB)",
+      "Good understanding of software development processes (system analysis and design, git, GitLab unit testing, group collaboration",
+      "Have experience working with Concurrent development (multi‑threading)",
+      "Working knowledge of Networks and Numerical Optimization",
     ],
   },
   {
@@ -366,7 +370,9 @@ export const expCards = [
     responsibilities: [
       "Designed responsive UI with Tailwind CSS, ensuring cross-device optimization and seamless user experiences.",
       "Developed scalable front-end applications using React, Node.js, and Vite, emphasizing modular architecture and maintainability.",
-      "Managed version control with Git/GitHub, enforcing best practices in commits and branching strategies.",
+      "Deployed AI automation scripts(Python, Go) also utilizing n8n and language models to enhance customer service response times, now used by over 12 employees across customers teams.",
+      "Developed prompt for automated content creation, reducing manual copywriting time by 30%",
+      "Optimized AI prompts to produce social media content, with 20% increase in audience engagement",
       "Developed a high-end interactive website using React, Vite, Three.js, and GSAP with advanced animations and modular architecture achieving an Awwwards-level standards",
     ],
   },
