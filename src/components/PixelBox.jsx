@@ -1,9 +1,12 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from 'gsap';
 
 const PixelBox = ({ techDescription }) => {
     const textRef = useRef(null);
     const dialogAudioRef = useRef(null);
+
+    // NEW: Use state to manage the text that is actually displayed.
+    const [displayedDescription, setDisplayedDescription] = useState(techDescription);
 
     // Create and load the looping audio object once when the component mounts
     useEffect(() => {
@@ -17,51 +20,59 @@ const PixelBox = ({ techDescription }) => {
         }
     }, []);
 
-    // Typewriter animation logic specific to this PixelBox instance
+    // This useEffect now acts as a controller for the animation flow.
+    useEffect(() => {
+        // Step 1: When a new techDescription arrives, instantly clear the old one.
+        // This causes a re-render with an empty string, clearing the box.
+        if (techDescription !== displayedDescription) {
+            setDisplayedDescription("");
+
+            // Step 2: Use a timeout to wait for the clear to render, then set the new text.
+            setTimeout(() => {
+                setDisplayedDescription(techDescription);
+            }, 50); // Small delay to ensure the box is blank before filling
+        }
+    }, [techDescription]); // This effect only runs when the external prop changes
+
+    // This useEffect handles the actual animation based on the internal state.
     useEffect(() => {
         const chars = textRef.current ? textRef.current.querySelectorAll(".char") : [];
 
         // Kill any previous GSAP tweens on these characters to prevent conflicts
         gsap.killTweensOf(chars);
 
-        // Immediately set all characters within THIS PixelBox to be invisible
+        // Instantly set all characters to invisible before the animation starts.
+        // This prevents flickering on the very first render and after the brief clear.
         gsap.set(chars, { opacity: 0 });
 
         let timeoutId;
 
-        // If a description exists, start the animation and the sound
-        if (techDescription) {
-            // Set a timeout to delay the start of the sound and animation
+        if (displayedDescription) {
             timeoutId = setTimeout(() => {
-                // Start the looping dialog sound
                 if (dialogAudioRef.current) {
                     dialogAudioRef.current.play().catch(e => console.error("Audio playback failed:", e));
                 }
 
-                // Animate each character's opacity from 0 to 1 with a stagger
                 gsap.to(chars, {
                     opacity: 1,
                     stagger: 0.05,
                     ease: "none",
                     duration: 0.01,
-                    // On complete, stop the dialog audio
                     onComplete: () => {
                         if (dialogAudioRef.current) {
                             dialogAudioRef.current.pause();
-                            dialogAudioRef.current.currentTime = 0; // Reset for next time
+                            dialogAudioRef.current.currentTime = 0;
                         }
                     }
                 });
             }, 150); // 0.15-second delay
         } else {
-            // If the description is empty (e.g., on pointer out), stop the sound
             if (dialogAudioRef.current) {
                 dialogAudioRef.current.pause();
                 dialogAudioRef.current.currentTime = 0;
             }
         }
 
-        // Cleanup function to ensure the timeout is cleared and sound is paused
         return () => {
             if (timeoutId) {
                 clearTimeout(timeoutId);
@@ -71,13 +82,13 @@ const PixelBox = ({ techDescription }) => {
                 dialogAudioRef.current.currentTime = 0;
             }
         };
-    }, [techDescription]); // Rerun this effect whenever techDescription changes
+    }, [displayedDescription]); // This effect now depends on the internal state
 
     return (
         <div className="text-box">
             <div className="xl:text-5xl text-3xl md:text-4xl text-white font-bold text-center ">
                 <p ref={textRef} >
-                    {(techDescription || "").split('').map((char, index) => (
+                    {(displayedDescription || "").split('').map((char, index) => (
                         <span key={index} className="char">
                             {char}
                         </span>
