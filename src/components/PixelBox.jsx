@@ -1,17 +1,15 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import gsap from 'gsap';
 
 const PixelBox = ({ techDescription }) => {
     const textRef = useRef(null);
-    // NEW: Ref to hold the audio object for the looping sound
     const dialogAudioRef = useRef(null);
 
-    // NEW: Create and load the looping audio object once when the component mounts
+    // Create and load the looping audio object once when the component mounts
     useEffect(() => {
         try {
             const audio = new Audio('/dialog.mp3');
             audio.loop = true;
-            // Set a low volume to not overpower the click sounds
             audio.volume = 0.3;
             dialogAudioRef.current = audio;
         } catch (e) {
@@ -29,28 +27,32 @@ const PixelBox = ({ techDescription }) => {
         // Immediately set all characters within THIS PixelBox to be invisible
         gsap.set(chars, { opacity: 0 });
 
+        let timeoutId;
+
         // If a description exists, start the animation and the sound
         if (techDescription) {
-
-            // Start the looping dialog sound
-            if (dialogAudioRef.current) {
-                dialogAudioRef.current.play().catch(e => console.error("Audio playback failed:", e));
-            }
-
-            // Animate each character's opacity from 0 to 1 with a stagger
-            gsap.to(chars, {
-                opacity: 1,
-                stagger: 0.05,
-                ease: "none",
-                duration: 0.01,
-                // On complete, stop the dialog audio
-                onComplete: () => {
-                    if (dialogAudioRef.current) {
-                        dialogAudioRef.current.pause();
-                        dialogAudioRef.current.currentTime = 0; // Reset for next time
-                    }
+            // Set a timeout to delay the start of the sound and animation
+            timeoutId = setTimeout(() => {
+                // Start the looping dialog sound
+                if (dialogAudioRef.current) {
+                    dialogAudioRef.current.play().catch(e => console.error("Audio playback failed:", e));
                 }
-            });
+
+                // Animate each character's opacity from 0 to 1 with a stagger
+                gsap.to(chars, {
+                    opacity: 1,
+                    stagger: 0.05,
+                    ease: "none",
+                    duration: 0.01,
+                    // On complete, stop the dialog audio
+                    onComplete: () => {
+                        if (dialogAudioRef.current) {
+                            dialogAudioRef.current.pause();
+                            dialogAudioRef.current.currentTime = 0; // Reset for next time
+                        }
+                    }
+                });
+            }, 150); // 0.15-second delay
         } else {
             // If the description is empty (e.g., on pointer out), stop the sound
             if (dialogAudioRef.current) {
@@ -59,14 +61,16 @@ const PixelBox = ({ techDescription }) => {
             }
         }
 
-        // Cleanup function to ensure the sound is paused when the component unmounts
+        // Cleanup function to ensure the timeout is cleared and sound is paused
         return () => {
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
             if (dialogAudioRef.current) {
                 dialogAudioRef.current.pause();
                 dialogAudioRef.current.currentTime = 0;
             }
         };
-
     }, [techDescription]); // Rerun this effect whenever techDescription changes
 
     return (
