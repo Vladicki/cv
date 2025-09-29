@@ -74,7 +74,7 @@ canvas {
     }
     @font-face{
         font-family:"Pixel Operator";
-        src: url(PixelOperator-Bold.ttf);
+        src: url(../public/PixelOperator-Bold.ttf);
     }
 
 
