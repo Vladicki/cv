@@ -5,7 +5,7 @@ import StackBadge from "../components/StackBadge"; // NEW: Import StackBadge
 
 const Cards = () => {
     return (
-        <section id="Experience" className="flex-center section-padding">
+        <section id="Experience" className="mt-10 flex-center section-padding">
             <div className="w-full h-full md:px-10 px-5">
                 <TitleHeader
                     title="My Experience"
@@ -15,7 +15,7 @@ const Cards = () => {
                     <p>Hint: Cards are links 🔗</p>
                 </div>
 
-                <div className="lg:columns-3 md:columns-2 columns-1 mt-16">
+                <div className="lg:columns-3 md:columns-2 columns-1 mt-8 md:mt-16">
                     {experiences.map((experience, index) => (
                         <GlowCard card={experience} key={index} index={index}>
                             <div className="flex items-center gap-3">

@@ -34,7 +34,7 @@ const Skills = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) =
             ref={skillsRef}
             // CRITICAL: Add 'relative' here to make it the positioning context
             // Change 'flex-center' to 'flex flex-col justify-start items-start' to stack children from the top
-            className="section-padding md:min-h-[92vh] min-h-[80vh] xl:px-20 px-8 pl-0 relative flex flex-col justify-start items-start"
+            className="section-padding  mt-10 md:min-h-[92vh] min-h-[80vh] xl:px-20 relative flex flex-col justify-start items-start"
         >
             {/* This div contains TitleHeader and PixelBox.
                 It needs to have a higher z-index to appear on top of the 3D canvas. */}

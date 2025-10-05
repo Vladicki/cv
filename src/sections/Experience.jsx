@@ -130,7 +130,7 @@ const Experience = () => {
                                                 <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
                                                     {card.responsibilities.map(
                                                         (responsibility, respIndex) => (
-                                                            <li key={respIndex} className="text-lg">
+                                                            <li key={respIndex} className="text-sm md:text-lg">
                                                                 {responsibility}
                                                             </li>
                                                         )

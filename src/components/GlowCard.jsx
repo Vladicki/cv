@@ -34,16 +34,16 @@ const GlowCard = ({ card, index, children }) => {
             ref={singleCardRef} // Attach the ref directly to the <a> tag
             onMouseMove={handleMouseMove} // Attach mouse move to the <a> tag
             // Apply all the styling classes to the <a> tag
-            className="card card-border timeline-card rounded-xl p-10 mb-5 break-inside-avoid-column block relative"
+            className="card card-border timeline-card rounded-xl p-8 md:p-10 mb-5 break-inside-avoid-column block relative"
         >
             <div className="glow"></div> {/* Glow effect */}
 
             {/* Content of the card */}
-            <div className="flex items-center gap-1 mb-5">
+            <div className="flex items-center gap-1 mb-2 md:mb-5">
                 <p className="font-bold text-lg">{card.title}</p> {/* Added text-lg for better default */}
             </div>
             <div className="mb-5">
-                <p className="text-white-50 text-lg">{card.desc}</p>
+                <p className="text-white-50 text-m md:text-lg">{card.desc}</p>
             </div>
             {children} {/* Renders the stack badges */}
         </a>

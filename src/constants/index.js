@@ -97,7 +97,7 @@ export const tech = [
     position: [1.6, 1.35, 0],
     padPosition: [-2, 0, -1],
     color: "#f19733",
-    description: "Nodejs",
+    description: "Just regular Node.js",
   },
   {
     text: "Git",
@@ -259,6 +259,17 @@ export const socialImgs = [
 
 export const experiences = [
   {
+    title: "OCR clipboard tool",
+    stack: [
+      { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "Machine Learning", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
+      { tech: "Git", tailwindColor: "#035E7B" },
+      { tech: "AI", tailwindColor: "#800020" },
+    ],
+    desc: "Check-it out, it's great btw\n An OCR-powered clipboard tool built with Python and AI/ML techniques. Extracts text from images and automatically copies it to the clipboard, showcasing skills in machine learning, image processing, Python automation, and rapid workflow enhancement.",
+    link: "https://github.com/Vladicki/OCR-clipboard",
+  },
+  {
     title: "ThreeJS Web CV",
     stack: [
       { tech: "React", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
@@ -268,16 +279,6 @@ export const experiences = [
     ],
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
     link: "https://github.com/Vladicki/cv",
-  },
-  {
-    title: "Go game writen on Python ",
-    stack: [
-      { tech: "Python", tailwindColor: "#e3b52d", textColor: "#0F0F0F" }, // Use the named color
-      { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
-      { tech: "GitHub", tailwindColor: "#800020" }, // Use the named color
-    ],
-    desc: "Led the end-to-end development of a fully interactive Go game using Python and Qt6. Designed scalable OOP architecture, implemented responsive UI, and integrated robust scoring logic. Collaborated via Git for version control.",
-    link: "https://github.com/Vladicki/Go_game_Python",
   },
   {
     title: "Access Control with Facial Recognition",
@@ -301,20 +302,20 @@ export const experiences = [
     ],
 
     desc: "A full-stack web app for creating and managing CVs, built with React, Node.js, Express.js, and MongoDB. It features a responsive frontend, RESTful API, and secure backend hosted on Heroku. Showcases skills in full-stack development, database design, scalable backend architecture, and modern UI/UX.",
+    link: "https://github.com/Vladicki/webProject",
   },
   {
-    title: "OCR clipboard tool",
+    title: "Go game writen on Python ",
     stack: [
-      { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
-      { tech: "Machine Learning", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
-      { tech: "Git", tailwindColor: "#035E7B" },
-      { tech: "AI", tailwindColor: "#800020" },
+      { tech: "Python", tailwindColor: "#e3b52d", textColor: "#0F0F0F" }, // Use the named color
+      { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
+      { tech: "GitHub", tailwindColor: "#800020" }, // Use the named color
     ],
-    desc: "An OCR-powered clipboard tool built with Python and AI/ML techniques. Extracts text from images and automatically copies it to the clipboard, showcasing skills in machine learning, image processing, Python automation, and rapid workflow enhancement.",
-    link: "https://github.com/Vladicki/OCR-clipboard",
+    desc: "Led the end-to-end development of a fully interactive Go game using Python and Qt6. Designed scalable OOP architecture, implemented responsive UI, and integrated robust scoring logic. Collaborated via Git for version control.",
+    link: "https://github.com/Vladicki/Go_game_Python",
   },
   {
-    title: "Donut",
+    title: "Donut :)",
     stack: [
       { tech: "Go", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
       { tech: "Math", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color

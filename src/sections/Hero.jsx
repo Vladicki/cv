@@ -34,7 +34,7 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
                                 <span className="slide">
                                     <span className="wrapper">
                                         {tech.map((tech) => (
-                                            <span key={tech.text} className="flex items-center md:gap-3 gap-1 pb-2">
+                                            <span key={tech.text} className="-z-50 flex items-center md:gap-3 gap-1 pb-2">
                                                 <img
                                                     src={tech.imgPath}
                                                     alt={tech.text}
@@ -49,7 +49,7 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
                         </div>
                         <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">Dublin | Looking for a appartunity</p>
                         <Button
-                            className="md:w-80 md:h-16 w-60 h-12"
+                            className="md:w-80 md:h-16 w-40 h-8"
                             text="Explore"
                             id="Experience"
                             fadeIn={true}

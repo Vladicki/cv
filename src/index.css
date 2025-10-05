@@ -54,7 +54,7 @@ canvas {
     }
 
     .section-padding {
-        @apply pt-10 md:px-10 xl:mt-40 md:mt-40 sm:mt-20 mt-10;
+        @apply pt-10 md:px-10 xl:mt-40 md:mt-40 sm:mt-20 mt-0;
     }
 
     .grid-12-cols {
@@ -90,13 +90,13 @@ canvas {
         }
     }
     .hero-3d-layout {
-        @apply xl:w-[100%] w-[100%] h-full min-h-[30vh] absolute xl:-top-20 mt-34 md:mt-0 right-0;
+        @apply xl:w-[100%] w-[100%] md:z-0 z-10 h-full min-h-[30vh] absolute xl:-top-20 mt-30 md:mt-0 right-0;
         /* top-24  */
     }
 
 /* Default styles for desktop and larger screens */
 .skills-3d {
-    @apply xl:w-[100%] w-full h-[120vh] absolute xl:-top-20 justify-center;
+    @apply xl:w-[100%] z-10 w-full h-[120vh] absolute xl:-top-20 justify-center;
 }
 
 /* Styles for tablets (e.g., up to 1024px) */
@@ -182,7 +182,7 @@ canvas {
     }
 
     .cta-button {
-        @apply px-4 py-4 rounded-lg bg-white text-black flex justify-center items-center relative cursor-pointer overflow-hidden hover:bg-black-50 group-hover:bg-black-50 transition-colors duration-300;
+        @apply md:px-4 md:py-4 px-3 py-2 rounded-lg bg-white text-black flex justify-center items-center relative cursor-pointer overflow-hidden hover:bg-black-50 group-hover:bg-black-50 transition-colors duration-300;
 
         /* @apply px-5 py-2 rounded-lg bg-white text-black group-hover:bg-black-50 transition-colors duration-300; */
 
