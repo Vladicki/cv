@@ -24,9 +24,7 @@ const SocialIcon = ({ socialImg }) => {
             onMouseMove={handleMouseMove}
             className="icon card"
         >
-            <a href={socialImg.link} target="_blank" rel="noopener noreferrer">
-                <img src={socialImg.imgPath} alt={socialImg.name} />
-            </a>
+            <img src={socialImg.imgPath} alt={socialImg.name} />
             <div className="glow"></div>
         </div>
     );

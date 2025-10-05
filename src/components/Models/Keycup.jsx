@@ -251,7 +251,7 @@ export const Keycup = React.forwardRef(function Keycup({
                     // For 'hero', GSAP will animate this scale on click.
                     // For 'numpad', the position of the parent groupAnimRef is animated, not the mesh's scale.
                     scale={[1.233, 0.73, 1.233]}
-                    onClick={handleClick}
+                    onPointerDown={handleClick}
                     onPointerOver={handlePointerOver}
                     onPointerOut={handlePointerOut}
                 >

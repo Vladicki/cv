@@ -51,7 +51,9 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
                         <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">Dublin | Looking for a opportunity</p>
                         <div className="socials hero-socials">
                             {socialImgs.map((socialImg, index) => (
-                                <SocialIcon key={index} socialImg={socialImg} />
+                                <a href={socialImg.link} target="_blank" rel="noopener noreferrer" key={index}>
+                                    <SocialIcon socialImg={socialImg} />
+                                </a>
                             ))}
                         </div>
 
