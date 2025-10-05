@@ -90,7 +90,7 @@ canvas {
         }
     }
     .hero-3d-layout {
-        @apply xl:w-[100%] w-[100%] md:z-0 z-10 h-full min-h-[30vh] absolute xl:-top-20 mt-20 md:mt-0 right-0;
+        @apply xl:w-[100%] w-[100%] md:z-0 z-10 h-full min-h-[30vh] absolute xl:-top-20 mt-32 md:mt-0 right-0;
         /* top-24  */
     }
 
