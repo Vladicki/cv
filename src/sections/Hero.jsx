@@ -1,3 +1,5 @@
+import SocialIcon from "../components/SocialIcon";
+
 // This component now receives props from a parent component (e.g., App.js)
 import { useEffect } from "react"
 import { socialImgs, tech } from "../constants";
@@ -23,8 +25,8 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
                 {/* <img src="/images/bg.png" alt="background" /> */}
             </div>
             <div className="hero-layout">
-                <header className="flex flex-col md:flex-row md:justify-between md:items-start md:w-full w-screen xl:mt-20 mt-2 xl:px-2 px-4 gap-y-7 gap-x-0 sm:gap-x-10 md:gap-x-20">
-                    <div className="flex flex-col ml-2 md:ml-8 gap-7">
+                <header className="flex flex-col md:flex-row md:justify-between md:items-start md:w-full w-screen xl:mt-20 mt-2 xl:px-2 px-4 gap-y-7 gap-x-0 sm:gap-x-5 md:gap-x-20">
+                    <div className="flex flex-col ml-2 md:ml-8 gap-4">
                         <div className="hero-text">
                             <h1>Vladislav Iurev</h1>
                             <h1>Software Developer</h1>
@@ -46,12 +48,10 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
                                 </span>
                             </h1>
                         </div>
-                        <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">Dublin | Looking for a appartunity</p>
-                        <div className="socials z-20 hero-socials">
+                        <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">Dublin | Looking for a opportunity</p>
+                        <div className="socials hero-socials">
                             {socialImgs.map((socialImg, index) => (
-                                <div key={index} className="icon">
-                                    <a href={socialImg.link} target="_blank" rel="noopener"><img src={socialImg.imgPath} alt="social icon" /></a>
-                                </div>
+                                <SocialIcon key={index} socialImg={socialImg} />
                             ))}
                         </div>
 

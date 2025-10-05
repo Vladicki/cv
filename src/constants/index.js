@@ -54,8 +54,8 @@ export const tech = [
     imgPath: "/logos/docker.svg",
     imgPathPNG: "/logos/docker.png",
     heroRotation: [Math.PI / 8, Math.PI / 4, Math.PI / 3],
-    position: [3, 1.8, 5],
-    padPosition: [2, 0, 0],
+    heroRotation: [Math.PI / 8, Math.PI / 3, Math.PI / 4],
+    position: [-3, -1, 5],
     color: "#009cf7",
     description: "Docker container",
   },
@@ -114,8 +114,8 @@ export const tech = [
     imgPath: "/logos/tailwind.svg",
     imgPathPNG: "/logos/tailwind.png",
     heroRotation: [Math.PI / 8, Math.PI / 3, Math.PI / 4],
-    position: [-3, -1, 5],
-    padPosition: [0, 0, -2],
+    position: [3, 1.8, 5],
+    padPosition: [2, 0, 0],
     color: "#F0F0F0",
     description: "Tailwind = styling",
   },
@@ -137,7 +137,7 @@ export const tech = [
     position: [-1, 2.5, 0],
     padPosition: [-1, 0, -1],
     color: "#7fd03e",
-    description: "Postgresql - scalability",
+    description: "PostgreSQL to scale",
   },
   {
     text: "Kubernetes",
@@ -259,14 +259,13 @@ export const socialImgs = [
 
 export const experiences = [
   {
-    title: "OCR clipboard tool",
+    title: "codeOCR - developer tool",
     stack: [
-      { tech: "Python", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
-      { tech: "Machine Learning", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
-      { tech: "Git", tailwindColor: "#035E7B" },
+      { tech: "JS", tailwindColor: "#035E7B" },
+      { tech: "GitHub", tailwindColor: "#0F0F0F" },
       { tech: "AI", tailwindColor: "#800020" },
     ],
-    desc: "Check-it out, it's great btw\n An OCR-powered clipboard tool built with Python and AI/ML techniques. Extracts text from images and automatically copies it to the clipboard, showcasing skills in machine learning, image processing, Python automation, and rapid workflow enhancement.",
+    desc: "Check-it out, you may fall in love again!\n  Open source, image recognision utility its 90% more accurate than the other OCR tools at recognizing the coding patterns and the code languages while keeping the integrity of code structure of the code snippets",
     link: "https://github.com/Vladicki/OCR-clipboard",
   },
   {
