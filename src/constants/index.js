@@ -238,22 +238,22 @@ export const navLinks = [
 export const socialImgs = [
   {
     name: "insta",
-    imgPath: "/socials/insta.png",
+    imgPath: "/socials/insta.svg",
     link: "https://www.instagram.com/im_ur_vladick/",
   },
   {
     name: "gh",
-    imgPath: "/socials/github.png",
+    imgPath: "/socials/github.svg",
     link: "https://github.com/Vladicki",
   },
   {
     name: "linkedin",
-    imgPath: "/socials/linkedin.png",
+    imgPath: "/socials/linkedin.svg",
     link: "https://www.linkedin.com/in/vladislav-iurev-314415253/",
   },
   {
     name: "CV",
-    imgPath: "/socials/cv.png",
+    imgPath: "/socials/cv.svg",
     link: "vlad_cv.pdf",
   },
 ];

@@ -421,3 +421,15 @@ canvas {
 .card:hover::before {
     opacity: 1;
 }
+
+.socials .icon img {
+    @apply size-6 md:size-8;
+}
+
+.hero-socials .icon img {
+    @apply size-8 md:size-8;
+}
+
+.footer .socials .icon img {
+    @apply size-6;
+}
