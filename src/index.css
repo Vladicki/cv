@@ -361,6 +361,16 @@ canvas {
     filter: saturate(200);
 }
 
+
+
+.hero-socials {
+    @apply flex flex-row gap-4;
+}
+
+.hero-socials .icon {
+    @apply border border-black-50 bg-black-100 flex justify-center items-center rounded-xl py-2 size-10 md:size-12 cursor-pointer transition-all duration-500 hover:bg-black-50;
+}
+
 .card:hover::before {
     opacity: 1;
 }

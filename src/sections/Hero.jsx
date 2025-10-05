@@ -1,7 +1,6 @@
 // This component now receives props from a parent component (e.g., App.js)
 import { useEffect } from "react"
-import Button from "../components/Button"
-import { tech } from "../constants"
+import { socialImgs, tech } from "../constants";
 import HeroExperience from "./HeroExperience"
 import gsap from 'gsap'
 import PixelBox from "../components/PixelBox"
@@ -48,12 +47,14 @@ const Hero = ({ techDescription, setTechDescription, pointerOutTimeoutRef }) => 
                             </h1>
                         </div>
                         <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">Dublin | Looking for a appartunity</p>
-                        <Button
-                            className="md:w-80 md:h-16 w-40 h-8"
-                            text="Explore"
-                            id="Experience"
-                            fadeIn={true}
-                        />
+                        <div className="socials z-20 hero-socials">
+                            {socialImgs.map((socialImg, index) => (
+                                <div key={index} className="icon">
+                                    <a href={socialImg.link} target="_blank" rel="noopener"><img src={socialImg.imgPath} alt="social icon" /></a>
+                                </div>
+                            ))}
+                        </div>
+
                     </div>
 
                     {techDescription && (
