@@ -23,56 +23,41 @@ export const Keycup = React.forwardRef(function Keycup({
     const { imgURL, setTechDescription, techDesc, } = props;
 
     const [decalTexture] = useTexture([imgURL]);
-    // Removed 'animations' from destructuring useGLTF as we're now using GSAP for these specific animations.
     const { nodes } = useGLTF('models/keycup.glb');
 
     const { isMobile } = useResponsiveFlags();
 
-    // groupAnimRef will be used for the numpad press animation (animating the overall group's position).
-    // This is also the ref that the parent component will receive via useImperativeHandle.
     const groupAnimRef = useRef();
-    // meshRef will be used for the hero scale animation (animating the individual mesh's scale).
     const meshRef = useRef();
-    // initialYRef will store the keycup's starting Y position to return to after animation.
     const initialYRef = useRef(0);
-    // hoverOutAnimationTimeoutRef to manage the delay for the hover out animation
     const hoverOutAnimationTimeoutRef = useRef(null);
 
-    // useImperativeHandle makes the 'ref' prop passed from the parent point to this groupAnimRef.
-    // This allows parents to access the group (e.g., for positioning).
     React.useImperativeHandle(ref, () => groupAnimRef.current);
 
-    const [hovered, hover] = useState(false);
-    useCursor(hovered); // Changes cursor based on hover state
+    const [isHolding, setIsHolding] = useState(false);
 
     const lambertMaterial = useMemo(
         () => new THREE.MeshLambertMaterial({ color }),
         [color]
     );
 
-    // Define the depth the key will press down by.
     const pressDepth = -0.157;
 
-    // Set initial scale for the mesh for the 'hero' type and capture initial Y for all types when the component mounts.
     useEffect(() => {
         if (groupAnimRef.current) {
-            // Capture the initial Y position only once on mount.
-            // This is crucial because hover/click animations will change it.
             initialYRef.current = groupAnimRef.current.position.y;
         }
         if (meshRef.current && sceneType === 'hero') {
             meshRef.current.scale.set(1.233, 0.73, 1.233);
         }
-    }, [sceneType]); // Dependency on sceneType ensures this runs when sceneType changes (including initial mount).
+    }, [sceneType]);
 
-    // Cleanup the global pointer out timeout when this component unmounts to prevent memory leaks.
     useEffect(() => {
         return () => {
             if (pointerOutTimeoutRef.current) {
                 clearTimeout(pointerOutTimeoutRef.current);
                 pointerOutTimeoutRef.current = null;
             }
-            // Clear the hover out animation timeout on unmount
             if (hoverOutAnimationTimeoutRef.current) {
                 clearTimeout(hoverOutAnimationTimeoutRef.current);
                 hoverOutAnimationTimeoutRef.current = null;
@@ -80,178 +65,110 @@ export const Keycup = React.forwardRef(function Keycup({
         };
     }, [pointerOutTimeoutRef]);
 
-    /**
-     * Handles the pointer entering a Keycup.
-     * Displays the technical description and sets cursor state.
-     * For 'numpad' scene, it simulates a key press down.
-     * @param {THREE.Event} event - The pointer event object from R3F.
-     */
-    const handlePointerOver = (event) => {
-        event.stopPropagation(); // Prevent the event from bubbling up to parent elements.
-
-        // Ensure this interaction is for the directly hovered object.
-        if (event.intersections && event.intersections.length > 0 && event.intersections[0].object === event.object) {
-            // Clear any pending timeout that would hide the tech description
-            if (pointerOutTimeoutRef.current) {
-                clearTimeout(pointerOutTimeoutRef.current);
-                pointerOutTimeoutRef.current = null;
-            }
-            // Clear the hover out animation timeout if the pointer re-enters
-            if (hoverOutAnimationTimeoutRef.current) {
-                clearTimeout(hoverOutAnimationTimeoutRef.current);
-                hoverOutAnimationTimeoutRef.current = null;
-            }
-
-            hover(true); // Update hover state for cursor feedback.
-            setTechDescription(techDesc); // Display the description for the current tech item.
-
-            // NEW: Hover effect for numpad - key goes down
-            if (sceneType === 'numpad' && groupAnimRef.current) {
-                (window.gsap || gsap).killTweensOf(groupAnimRef.current.position);
-                (window.gsap || gsap).to(groupAnimRef.current.position, {
-                    y: initialYRef.current + pressDepth, // Move down by pressDepth
-                    duration: 0.05, // Quick descent
-                    ease: "power1.out" // Smooth easing for the press down motion
-                });
-            }
-        }
-    };
-
-    /**
-     * Handles the pointer leaving a Keycup.
-     * Schedules the technical description to be cleared after a delay.
-     * For 'numpad' scene, it makes the key jump back up after a short delay.
-     * @param {THREE.Event} event - The pointer event object from R3F.
-     */
-    const handlePointerOut = (event) => {
-        event.stopPropagation(); // Prevent the event from bubbling up.
-        hover(false); // Clear hover state.
-
-        // Schedule the description to be cleared after a delay.
-        pointerOutTimeoutRef.current = setTimeout(() => {
-            setTechDescription(""); // Clear the description after the timeout.
-        }, 3300); // 2-second delay.
-
-        // NEW: Schedule hover out animation with a delay for numpad - key jumps back up
-        if (sceneType === 'numpad' && groupAnimRef.current) {
-            // Kill any ongoing tweens on this object before scheduling new animation
-            (window.gsap || gsap).killTweensOf(groupAnimRef.current.position);
-
-            hoverOutAnimationTimeoutRef.current = setTimeout(() => {
-                (window.gsap || gsap).to(groupAnimRef.current.position, {
-                    y: initialYRef.current, // Jump back up to the stored initial Y position
-                    duration: 0.165, // Quick return duration
-                    ease: "power2.out" // Smooth easing for the return motion
-                });
-            }, 50); // 0.1 second delay before the animation starts
-        }
-    };
-
-    /**
-     * Handles the click event on a Keycup.
-     * Conditionally performs a scale change (Hero) or a 'press' animation (Numpad) using GSAP.
-     * @param {THREE.Event} event - The pointer event object from R3F.
-     */
-    const handleClick = (event) => {
-        event.stopPropagation(); // Prevent the event from bubbling up.
-        // NEW: Create and play the audio object directly on click.
+    const handleAnimation = () => {
         try {
             const audio = new Audio('/click.mp3');
-            audio.currentTime = 0; // Reset audio to the start for quick re-play
-            audio.volume = 0.15; // Set volume
-            audio.play().catch(e => console.error("Audio playback failed:", e)); // Play and catch any errors
+            audio.currentTime = 0;
+            audio.volume = 0.15;
+            audio.play().catch(e => console.error("Audio playback failed:", e));
         } catch (e) {
             console.error("Failed to create audio element on click:", e);
         }
 
-        // --- Conditional Logic based on sceneType ---
         if (sceneType === 'hero') {
-            // Animate scale smoothly for the 'hero' keycup using GSAP.
             if (meshRef.current) {
-                // Determine target scale based on the current scale to toggle between two states.
                 const currentScaleX = meshRef.current.scale.x;
-                const targetScaleFactor = currentScaleX > 1.3 ? 1.233 : Math.random() * 1.3 + 1.2; // Toggle between default and enlarged.
-                // Y-scale remains constant for this animation.
+                const targetScaleFactor = currentScaleX > 1.3 ? 1.233 : Math.random() * 1.3 + 1.2;
                 const targetScaleY = 0.73;
 
-                // Use 'window.gsap' or 'gsap' directly if it's globally available.
                 (window.gsap || gsap).to(meshRef.current.scale, {
                     x: targetScaleFactor,
                     y: targetScaleY,
                     z: targetScaleFactor,
-                    duration: 0.3, // Smooth animation duration.
-                    ease: "power2.out" // Easing function for a natural feel.
+                    duration: 0.3,
+                    ease: "power2.out"
                 });
             } else {
                 console.warn("meshRef.current is not available for Hero scale animation.");
             }
         } else if (sceneType === 'numpad') {
-            // Simulate a 'press' animation by moving the entire group down and then back up using GSAP.
             if (groupAnimRef.current) {
-                // Clear any pending hover out animation before starting click animation.
                 if (hoverOutAnimationTimeoutRef.current) {
                     clearTimeout(hoverOutAnimationTimeoutRef.current);
                     hoverOutAnimationTimeoutRef.current = null;
                 }
-                // Kill any ongoing tweens on this object before starting click animation to prevent conflicts.
                 (window.gsap || gsap).killTweensOf(groupAnimRef.current.position);
-                (window.gsap || gsap).killTweensOf(groupAnimRef.current.rotation); // Also kill rotation tweens
+                (window.gsap || gsap).killTweensOf(groupAnimRef.current.rotation);
 
                 const initialY = initialYRef.current;
-                // Capture the current rotation components (THREE.Euler object)
-                const { y: currentRotationY } = groupAnimRef.current.rotation; // Get current Y and Z rotations
+                const { y: currentRotationY } = groupAnimRef.current.rotation;
 
                 const elevateAmount = 1;
-                const rotateAngle = Math.PI / 2; // 90 degrees in radians
+                const rotateAngle = Math.PI / 2;
 
-                // Create a GSAP timeline for the combined elevate, rotate, and drop animation.
                 (window.gsap || gsap).timeline()
-                    // Phase 1: Elevate and Rotate on Y and Z-axes
                     .to(groupAnimRef.current.position, {
-                        y: initialY + elevateAmount, // Elevate upwards
-                        duration: 0.2, // Quick elevation
+                        y: initialY + elevateAmount,
+                        duration: 0.2,
                         ease: "power2.out"
-                    }, 0) // Start this tween at the same time (0 seconds into the timeline)
+                    }, 0)
                     .to(groupAnimRef.current.rotation, {
-                        // Rotate around Y-axis by 90 degrees
                         y: currentRotationY + rotateAngle,
-                        duration: 0.2, // Rotate over the same duration as elevation
+                        duration: 0.2,
                         ease: "power2.out"
-                    }, 0) // Start this tween at the same time as elevation
-
-                    // Phase 2: Drop back down (rotation remains)
+                    }, 0)
                     .to(groupAnimRef.current.position, {
-                        y: initialY, // Drop back to original Y position
-                        duration: 0.3, // Slower drop down
-                        ease: "power2.out" // or "bounce.out" for a springy effect
-                    }, ">0.1"); // Start this tween 0.1 seconds after the previous tweens complete
+                        y: initialY,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    }, ">0.1");
             } else {
                 console.warn("groupAnimRef.current is not available for Numpad click animation.");
             }
         }
-        // --- End Conditional Logic ---
+    };
+
+    const handlePointerDown = (event) => {
+        event.stopPropagation();
+        setIsHolding(true);
+        setTechDescription(techDesc);
+        handleAnimation();
+    };
+
+    const handlePointerUp = () => {
+        setIsHolding(false);
+    };
+
+    const handlePointerOver = (event) => {
+        event.stopPropagation();
+        if (pointerOutTimeoutRef.current) {
+            clearTimeout(pointerOutTimeoutRef.current);
+            pointerOutTimeoutRef.current = null;
+        }
+        setTechDescription(techDesc);
+    };
+
+    const handlePointerOut = (event) => {
+        event.stopPropagation();
+        pointerOutTimeoutRef.current = setTimeout(() => {
+            setTechDescription("");
+        }, 3300);
     };
 
     return (
-        // Attach groupAnimRef to the top-level <group> element of the GLTF model.
-        // This group's position will be animated for the 'numpad' press effect.
         <group ref={groupAnimRef} {...props} dispose={null}>
-            {/* The Float component's properties are now conditional based on sceneType.
-                 It will only apply floating motion if sceneType is 'hero'. */}
             <Float
                 speed={sceneType === 'hero' ? floatSpeed : 0}
                 rotationIntensity={sceneType === 'hero' ? floatRotationIntensity : 0}
                 floatIntensity={sceneType === 'hero' ? floatFloatIntensity : 0}
             >
                 <mesh
-                    ref={meshRef} // Attach meshRef here to allow GSAP to directly control its scale.
+                    ref={meshRef}
                     geometry={nodes.Cube001.geometry}
                     material={lambertMaterial}
-                    // The initial scale for the mesh for both scene types.
-                    // For 'hero', GSAP will animate this scale on click.
-                    // For 'numpad', the position of the parent groupAnimRef is animated, not the mesh's scale.
                     scale={[1.233, 0.73, 1.233]}
-                    onPointerDown={handleClick}
+                    onPointerDown={handlePointerDown}
+                    onPointerUp={handlePointerUp}
                     onPointerOver={handlePointerOver}
                     onPointerOut={handlePointerOut}
                 >
@@ -271,7 +188,7 @@ export const Keycup = React.forwardRef(function Keycup({
                         <Edges
                             linewidth={4}
                             scale={1}
-                            threshold={16} // Display edges only when the angle between two faces exceeds this value (default=15 degrees)
+                            threshold={16}
                             color="#0f0f0f"
                         />
                     )}
@@ -282,5 +199,4 @@ export const Keycup = React.forwardRef(function Keycup({
     );
 });
 
-// Preload the GLTF model for better performance, regardless of whether animations from it are used.
 useGLTF.preload('models/keycup.glb');
