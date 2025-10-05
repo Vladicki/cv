@@ -56,6 +56,7 @@ export const tech = [
     heroRotation: [Math.PI / 8, Math.PI / 4, Math.PI / 3],
     heroRotation: [Math.PI / 8, Math.PI / 3, Math.PI / 4],
     position: [-3, -1, 5],
+    padPosition: [0, 0, -2],
     color: "#009cf7",
     description: "Docker container",
   },
