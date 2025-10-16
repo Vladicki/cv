@@ -254,7 +254,7 @@ export const socialImgs = [
   {
     name: "CV",
     imgPath: "/socials/cv.svg",
-    link: "vlad_cv.pdf",
+    link: "cv.pdf",
   },
 ];
 
