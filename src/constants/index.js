@@ -230,7 +230,7 @@ export const navLinks = [
   },
   {
     name: "CV",
-    link: "vlad_cv.pdf",
+    link: "cv.pdf",
     isExternal: true,
   },
 ];
