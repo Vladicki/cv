@@ -131,7 +131,7 @@ export const tech = [
     description: "Github to flex",
   },
   {
-    text: "Postgresql",
+    text: "PostgreSQL",
     imgPath: "/logos/postgresql.png",
     imgPathPNG: "/logos/postgresql.png",
     heroRotation: [Math.PI / 3, Math.PI, Math.PI / 7],
