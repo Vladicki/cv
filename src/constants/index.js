@@ -260,17 +260,7 @@ export const socialImgs = [
 
 export const experiences = [
   {
-    title: "codeOCR - developer tool",
-    stack: [
-      { tech: "JS", tailwindColor: "#035E7B" },
-      { tech: "GitHub", tailwindColor: "#0F0F0F" },
-      { tech: "AI", tailwindColor: "#800020" },
-    ],
-    desc: "Check-it out, you may fall in love again!\n  Open source, image recognision utility its 90% more accurate than the other OCR tools at recognizing the coding patterns and the code languages while keeping the integrity of code structure of the code snippets",
-    link: "https://github.com/Vladicki/OCR-clipboard",
-  },
-  {
-    title: "ThreeJS Web CV",
+    title: "Web CV",
     stack: [
       { tech: "React", tailwindColor: "#00d5f6", textColor: "#0F0F0F" }, // Use the named color
       { tech: "ThreeJS", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
@@ -279,6 +269,16 @@ export const experiences = [
     ],
     desc: "Developed a high-end interactive CV website using React, Vite, Three.js, and GSAP. Designed modular, scalable architecture, integrated 3D models with advanced lighting, and delivered Awwwards-level animations. Managed responsive design with Tailwind CSS and version control with Git/GitHub.",
     link: "https://github.com/Vladicki/cv",
+  },
+  {
+    title: "OCR for Code - codeOCR",
+    stack: [
+      { tech: "JS", tailwindColor: "#035E7B" },
+      { tech: "GitHub", tailwindColor: "#0F0F0F" },
+      { tech: "AI", tailwindColor: "#800020" },
+    ],
+    desc: "Check-it out, you may fall in love again!\n  Open source, image recognision utility its 90% more accurate than the other OCR tools at recognizing the coding patterns and the code languages while keeping the integrity of code structure of the code snippets",
+    link: "https://github.com/Vladicki/OCR-clipboard",
   },
   {
     title: "Access Control with Facial Recognition",
@@ -305,14 +305,17 @@ export const experiences = [
     link: "https://github.com/Vladicki/webProject",
   },
   {
-    title: "Go game writen on Python ",
+    title: "CNN Transfer Learning Model",
     stack: [
-      { tech: "Python", tailwindColor: "#e3b52d", textColor: "#0F0F0F" }, // Use the named color
-      { tech: "OOP", tailwindColor: "#0F0F0F" }, // Or map to an existing tech color
-      { tech: "GitHub", tailwindColor: "#800020" }, // Use the named color
+      { tech: "Python", tailwindColor: "#e3b52d", textColor: "#0F0F0F" },
+      { tech: "TensorFlow", tailwindColor: "#F0F0F0", textColor: "#0F0F0F" },
+      { tech: "AI", tailwindColor: "#800020" },
+      { tech: "Kotlin", tailwindColor: "#721f9c" },
+      { tech: "Docker", tailwindColor: "#009cf7", textColor: "#0F0F0F" },
+      { tech: "GitHub", tailwindColor: "#800020" },
     ],
-    desc: "Led the end-to-end development of a fully interactive Go game using Python and Qt6. Designed scalable OOP architecture, implemented responsive UI, and integrated robust scoring logic. Collaborated via Git for version control.",
-    link: "https://github.com/Vladicki/Go_game_Python",
+    desc: "Engineered a transfer learned Convolutional Neural Network on labeled food datasets, integrated local TensorFlow Lite inference in a Kotlin Android app for real-time food classification, and containerized the ML development environment with Docker for reproducible training.",
+    link: "https://github.com/Vladicki/valueTracker",
   },
   {
     title: "Donut :)",
@@ -332,25 +335,23 @@ export const expCards = [
     imgPath: "/logos/python.svg",
     logoPath: "/logos/python.svg",
     logoScale: "0.6",
-    name: "Software Developer in Talos IT EOOD",
-    title: "Talos IT SEO",
-    date: "02-2024 – 08-2025",
+    name: "Software Engineer at Talos EOOD",
+    reference: "Talos IT SEO",
+    date: "2024-02/2026-06",
     responsibilities: [
-      "Created software to automate system administration, saving 200+ man‑hours on a weekly base reducing manual workload and improving efficiency",
-      "Facilitated incident response by diagnosing and troubleshooting hardware, software issues.",
-      "Architected and implemented a scalable CI/CD pipelines using Kubernetes and Docker reducing deployment times by 40%",
-      "Maximized system efficiency through performance tuning and effective resource management.",
-      "Optimized AI prompts for automated testing, increasing test coverage reducing QA cycle by 35%",
-      "Wrote clean, efficient code in Python and Go to deliver scalable software solutions.",
+      "Designed and implemented a Python-based CLI automation tool for bulk infrastructure operations, eliminating repetitive manual tasks and saving over 100 engineering hours per month.",
+      "Implemented robust CI/CD pipelines with GitHub Actions and ArgoCD, enabling automated testing and progressive delivery, reducing deployment cycles by 40 percent.",
+      "Designed and maintained a microservices-based Golang architecture for high-traffic web platforms, supporting large scale distributed software services for user management and content delivery.",
+      "Optimized PostgreSQL and Redis database performance through query tuning, indexing, and caching strategies to ensure reliable service operation.",
     ],
   },
   {
-    desc: "Vlad are doing Great projects, keep doing good work",
+    desc: "As Vlad finished with First Class Honours he were doing Great projects, kept doing good work",
     imgPath: "/logos/graduation-cap.svg",
     logoPath: "/logos/graduation-cap.svg",
     name: "BSc Computer Science Student – Griffith College",
-    title: "Barry Denby Computing Programme Director ",
-    date: "2022 – Present (2026)",
+    title: "Barry Denby - Computing Programme Director ",
+    date: "2022 – 2026 (First Class Honours)",
     responsibilities: [
       "Mastered core programming with (Python, Java) data structures, algorithms, and OOP principles.",
       "Gained exposure to databases and SQL query (MySQL, PostgreSQL)",
@@ -361,20 +362,18 @@ export const expCards = [
     ],
   },
   {
-    desc: "Hired Vlad to build a page—now my website has better style than I do.",
+    desc: "Vlad built reliable systems for us, from catalog browsing and secure user management to automated pricing and inventory synchronization.",
     imgPath: "/logos/react.svg",
     logoPath: "/logos/react.svg",
     logoScale: "0.8",
-    name: "Freelance Full Stack / Creative Developer",
-    title: "One of last custumer",
-    date: "2022 – 2024",
+    name: "Full-Stack Developer at LordEast",
+    reference: "LordEast CEO",
+    date: "2022-10/2024-01",
     responsibilities: [
-      "Designed responsive UI with Tailwind CSS, ensuring cross-device optimization and seamless user experiences.",
-      "Developed scalable front-end applications using React, Node.js, and Vite, emphasizing modular architecture and maintainability.",
-      "Deployed AI automation scripts(Python, Go) also utilizing n8n and language models to enhance customer service response times, now used by over 12 employees across customers teams.",
-      "Developed prompt for automated content creation, reducing manual copywriting time by 30%",
-      "Optimized AI prompts to produce social media content, with 20% increase in audience engagement",
-      "Developed a high-end interactive website using React, Vite, Three.js, and GSAP with advanced animations and modular architecture achieving an Awwwards-level standards",
+      "Developed a full stack company catalog platform using Python (FastAPI, Django), enabling structured browsing and secure user management with Firebase Authentication for end-to-end user experience.",
+      "Developed a Golang-based service daemon for continuous competitor pricing data monitoring, triggering automated updates for dynamic pricing adjustments within a distributed system.",
+      "Developed Python backend services to automate inventory management and stock synchronization, improving operational efficiency.",
+      "Containerized applications with Docker, establishing consistent development and deployment environments for improved maintainability and reliability.",
     ],
   },
 ];

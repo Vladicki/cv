@@ -40,7 +40,7 @@ const GlowCard = ({ card, index, children }) => {
 
             {/* Content of the card */}
             <div className="flex items-center gap-1 mb-2 md:mb-5">
-                <p className="font-bold text-lg">{card.title}</p> {/* Added text-lg for better default */}
+                <p className="font-bold text-lg">{card.reference ?? card.title}</p> {/* Added text-lg for better default */}
             </div>
             <div className="mb-5">
                 <p className="text-white-50 text-m md:text-lg">{card.desc}</p>
